@@ -7,31 +7,6 @@
   margin-bottom: 50px;
 }
 
-.back-button {
-  background-color: transparent;
-  border: 2px solid #444;
-  color: #E6E6E6;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.back-button i {
-  font-size: 1.2rem;
-}
-
-.back-button:hover {
-  background-color: #ff2a2a;
-  color: #E6E6E6;
-  transform: translateX(-3px);
-  box-shadow: 0 0 10px rgba(188, 22, 22, 0.4);
-}
-
 .titles {
   display: flex;
   flex-direction: column;

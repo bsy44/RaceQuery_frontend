@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
+import {GoBackButton} from '../shared/components/go-back-button/go-back-button';
 
 @Component({
   selector: 'app-race-details',
   templateUrl: './race-detail.html',
-  imports: [DatePipe],
+  imports: [DatePipe, GoBackButton],
   styleUrls: ['./race-detail.css']
 })
 export class RaceDetail implements OnInit {
@@ -23,10 +24,6 @@ export class RaceDetail implements OnInit {
     console.log()
 
     this.getRaceDetail();
-  }
-
-  goBack() {
-    window.history.back();
   }
 
   getRaceDetail() {
