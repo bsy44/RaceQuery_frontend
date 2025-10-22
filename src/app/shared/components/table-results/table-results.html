@@ -42,26 +42,26 @@
           </td>
 
           @if (isQualifying()) {
-            <td>{{ r.q1 }}</td>
-            <td>{{ r.q2 }}</td>
-            <td>{{ r.q3 }}</td>
+            <td class="txt-center">{{ r.q1 }}</td>
+            <td class="txt-center">{{ r.q2 }}</td>
+            <td class="txt-center">{{ r.q3 }}</td>
           }
 
           @if (isPractice()) {
-            <td>{{ r.best_lap }}</td>
-            <td>{{ r.laps }}</td>
+            <td class="txt-center">{{ r.best_lap }}</td>
+            <td class="txt-center">{{ r.laps }}</td>
           }
 
           @if (isRaceOrSprint()) {
-            <td>{{ r.laps }}</td>
-            <td>
+            <td class="txt-center">{{ r.laps }}</td>
+            <td class="txt-center">
               @if (r.time && r.time !== 'NaT') {
                 <span>{{ r.position > 1 ? "+ " + r.time +" s": r.time }}</span>
               } @else {
                 <span>{{ r.status }}</span>
               }
             </td>
-            <td>{{ r.points }}</td>
+            <td class="txt-center">{{ r.points }}</td>
           }
         </tr>
       }

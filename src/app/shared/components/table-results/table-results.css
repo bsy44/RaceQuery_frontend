@@ -8,7 +8,7 @@
 }
 
 .head-title th{
-  padding: 20px 18px;
+  padding: 20px;
   text-align: left;
   text-transform: uppercase;
   font-size: 1.05rem;
@@ -22,6 +22,13 @@ td {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.txt-center,
+.head-title th:nth-child(4),
+.head-title th:nth-child(5),
+.head-title th:nth-child(6){
+  text-align: center;
 }
 
 tbody tr {
