@@ -20,7 +20,7 @@ export class Teams implements OnInit {
   teamList: any[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();
-  columns = ['Pos', 'Ecurie', 'Points'];
+  columns = ['Pos', 'Écurie', 'Points'];
 
   constructor(private http: HttpClient) {}
 

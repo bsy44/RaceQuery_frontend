@@ -1,6 +1,35 @@
 .table{
   margin: 0 auto;
   width: 100%;
+  background-color: #2b2b37;
+  overflow: hidden;
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+.head-title th{
+  padding: 20px 18px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  border-bottom: 4px solid #ff1e1e;
+}
+
+td {
+  padding: 15px 10px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+tbody tr {
+  transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+  background-color: #151622;
 }
 
 .position-wrapper {
@@ -9,14 +38,26 @@
   gap: 6px;
 }
 
-.team-badge {
-  width: 5px;
-  height: 20px;
-  border-radius: 15%;
-  display: inline-block;
+.position-number {
+  color: #fff;
+  margin-left: 5px;
 }
 
-.position-number {
-  font-weight: 600;
-  color: #fff;
+.team-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-logo {
+  width: 40px;
+  height: 38px;
+  object-fit: contain;
+  display: block;
+}
+
+.team-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

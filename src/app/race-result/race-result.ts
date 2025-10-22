@@ -39,6 +39,7 @@ export class RaceResult implements OnInit {
   winner:any;
   pole: any;
   fastestLap : any;
+  protected readonly TEAMS_INFO = TEAMS_INFO;
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router:Router) {}
 
@@ -114,5 +115,9 @@ export class RaceResult implements OnInit {
       });
   }
 
-  protected readonly TEAMS_INFO = TEAMS_INFO;
+  getSessionLabel(code: string): string {
+    const entry = Object.entries(this.sessionMapping)
+      .find(([label, val]) => val === code);
+    return entry ? entry[0] : '';
+  }
 }

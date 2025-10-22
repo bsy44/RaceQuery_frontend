@@ -2,9 +2,9 @@
   <table class="table">
     <thead class="head">
       <tr class="head-title">
-        <th>Pos</th>
+        <th>Pos.</th>
         <th>Pilote</th>
-        <th>Équipe</th>
+        <th>Écurie</th>
 
         @if (isQualifying()) {
           <th>Q1</th>
@@ -30,14 +30,15 @@
         <tr>
           <td>
             <span class="position-wrapper">
-              <span class="team-badge" [style.background-color]="'#' + r.teamColor"></span>
               <span class="position-number">{{ r?.position }}</span>
             </span>
           </td>
           <td>{{ r?.driver }}</td>
           <td>
-            <img src="{{ TEAMS_INFO[r.team].logo }}" alt="{{ TEAMS_INFO[r.team].logo }}" class="team-logo">
-            <span>{{ r.team }}</span>
+            <div class="team-wrapper">
+              <img src="{{ TEAMS_INFO[r.team].logo }}" alt="{{ TEAMS_INFO[r.team].logo }}" class="team-logo">
+              <span class="team-name">{{ r.team }}</span>
+            </div>
           </td>
 
           @if (isQualifying()) {
@@ -55,7 +56,7 @@
             <td>{{ r.laps }}</td>
             <td>
               @if (r.time && r.time !== 'NaT') {
-                <span>{{ r.position > 1 ? "+ " + r.time: r.time }}</span>
+                <span>{{ r.position > 1 ? "+ " + r.time +" s": r.time }}</span>
               } @else {
                 <span>{{ r.status }}</span>
               }

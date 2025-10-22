@@ -29,7 +29,7 @@ export class Drivers implements OnInit {
     this.getDrivers();
   }
 
-  columns = ['Pos', 'Pilote', 'Ecurie', 'Points'];
+  columns = ['Pos', 'Pilote', 'Écurie', 'Points'];
 
   getDrivers() {
     this.http

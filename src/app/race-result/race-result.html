@@ -4,19 +4,21 @@
     <h1 class="page-title">{{ eventInfo }} - {{ season }}</h1>
   </div>
 
-
   <app-race-info
     [winner]="winner"
     [poleman]="pole"
     [fastestLap]="fastestLap">
   </app-race-info>
 
-  <div class="session-selector">
-    <select id="session" [(ngModel)]="sessionCode" (change)="getSessionResult()" class="form-select">
-      @for (s of sessions; track s) {
-        <option [value]="sessionMapping[s]">{{ s }}</option>
-      }
-    </select>
+  <div class="info-session">
+    <h2 class="session">Résultat {{ getSessionLabel(sessionCode) }}</h2>
+    <div class="session-selector">
+      <select id="session" [(ngModel)]="sessionCode" (change)="getSessionResult()" class="form-select">
+        @for (s of sessions; track s) {
+          <option [value]="sessionMapping[s]">{{ s }}</option>
+        }
+      </select>
+    </div>
   </div>
 
   <app-session-result-table

@@ -28,12 +28,16 @@
   padding: 1rem;
 }
 
-.session-selector {
+.info-session{
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  padding-left: 20px;
+  padding: 30px 0;
+}
+
+.session{
+  font-size: 2rem;
+  letter-spacing: 1.5px;
 }
 
 .form-select {
