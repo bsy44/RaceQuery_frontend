@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { SessionResultTableComponent } from '../shared/components/table-results/table-results';
 import { TEAMS_INFO } from '../shared/teams-info'
 import {RaceInfo} from '../shared/components/race-info/race-info';
+import {GoBackButton} from '../shared/components/go-back-button/go-back-button';
 
 @Component({
   imports: [
     FormsModule,
     SessionResultTableComponent,
-    RaceInfo
+    RaceInfo,
+    GoBackButton
   ],
   selector: 'app-race-result',
   styleUrls: ['./race-result.css'],
