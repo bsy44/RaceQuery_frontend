@@ -1,0 +1,26 @@
+<div class="session-card {{ getSessionClass(sessionName) }}">
+  <div class="date">
+    <div class="day">
+      {{ sessionDate + 'Z' | date:'d':'UTC' }}
+    </div>
+    <div class="month">
+      {{ sessionDate + 'Z' | date:'MMM':'UTC' }}
+    </div>
+  </div>
+
+  <div class="separator"></div>
+  <div class="session-info">
+          <span class="title">
+            @if (sessionName.toLowerCase().includes('race') ||
+            (sessionName.toLowerCase().includes('sprint') && !sessionName.toLowerCase().includes('qualifying'))) {
+              <i class="fa-solid fa-flag-checkered mr-1"></i>
+            }
+            @else if (sessionName.toLowerCase().includes('qualifying')) {
+              <i class="fa-solid fa-stopwatch mr-1"></i>
+            }
+
+            {{ translateSessionName(sessionName, ind) }}
+          </span>
+    <span class="time">{{ sessionDate + 'Z' | date:'HH:mm':'UTC' }}</span>
+  </div>
+</div>

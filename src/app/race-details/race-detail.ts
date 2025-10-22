@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
-import { DatePipe } from '@angular/common';
 import {GoBackButton} from '../shared/components/go-back-button/go-back-button';
+import {RaceDetailCard} from '../shared/components/race-detail-card/race-detail-card';
 
 @Component({
   selector: 'app-race-details',
   templateUrl: './race-detail.html',
-  imports: [DatePipe, GoBackButton],
+  imports: [GoBackButton, RaceDetailCard],
   styleUrls: ['./race-detail.css']
 })
 export class RaceDetail implements OnInit {
@@ -67,29 +67,6 @@ export class RaceDetail implements OnInit {
           eventFormat: result.event_format
         };
       });
-  }
-
-  getSessionClass(name: string): string {
-    const n = name.toLowerCase();
-    if (n.includes('practice')) return 'free-practice';
-    if (n.includes('sprint') || n.includes('sprint qualifying')) return 'sprint';
-    if (n.includes('qualifying')) return 'quali';
-    if (n.includes('race')) return 'race';
-    return '';
-  }
-
-  translateSessionName(sessionName: string, index: number): string {
-    const name = sessionName.toLowerCase();
-
-    if (name.includes('practice')) {
-      return `Essais Libres ${index + 1}`;
-    }
-    if (name.includes('sprint qualifying')) return 'Qualification Sprint';
-    if (name.includes('qualifying')) return 'Qualification';
-    if (name.includes('sprint')) return 'Sprint';
-    if (name.includes('race')) return 'Course';
-
-    return sessionName;
   }
 
 }
