@@ -5,36 +5,51 @@
 <div class="table-container">
   <table class="table-common" [ngClass]="tableType + '-table'">
     <thead>
-      <tr>
-        <th *ngFor="let col of columns">{{ col }}</th>
-      </tr>
+    <tr>
+      @for (col of columns; track col) {
+        <th>{{ col }}</th>
+      }
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data; let i = index">
+      @for (row of data; track $index) {
+        <tr>
 
-        <td *ngIf="columns.includes('Pos')">{{ row.Pos }}</td>
+          @if (columns.includes('Pos')) {
+            <td>{{ row.Pos }}</td>
+          }
 
-        <td *ngIf="columns.includes('Pilote') && row.driver" class="driver-cell">
-          <span class="fi fi-{{ getDriverFlag(row.driver.nationality) }} flag-icon"></span>
-          <span class="driver-fullname">{{ row.driver.fullName }}</span>
-          <span class="driver-lastname">{{ getLastName(row.driver.fullName) }}</span>
-        </td>
+          @if (columns.includes('Pilote') && row.driver) {
+            <td class="driver-cell">
+              <span class="fi fi-{{ getDriverFlag(row.driver.nationality) }} flag-icon"></span>
+              <span class="driver-fullname">{{ row.driver.fullName }}</span>
+              <span class="driver-lastname">{{ getLastName(row.driver.fullName) }}</span>
+            </td>
+          }
 
-        <td *ngIf="columns.includes('Ecurie') && row.teamLogo">
-          <div class="team-wrapper">
-            <img [src]="row.teamLogo" width="40" height="24" alt="{{ row.team }}" class="team-logo">
-            <span class="team-name">{{ row.team  }}</span>
-          </div>
-        </td>
+          @if (columns.includes('Ecurie') && row.teamLogo) {
+            <td>
+              <div class="team-wrapper">
+                <img [src]="row.teamLogo" width="40" height="24" alt="{{ row.team }}" class="team-logo">
+                <span class="team-name">{{ row.team }}</span>
+              </div>
+            </td>
+          }
 
-        <td *ngIf="columns.includes('Points')">
-          <span class="points-wrapper">
-            {{ row.Points }}
-            <span *ngIf="row.PointsDiff > 0" id="diff-points"> -{{ row.PointsDiff }} </span>
-          </span>
-        </td>
+          @if (columns.includes('Points')) {
+            <td>
+              <span class="points-wrapper">
+                {{ row.Points }}
+                @if (row.PointsDiff > 0) {
+                  <span id="diff-points"> -{{ row.PointsDiff }} </span>
+                }
+              </span>
+            </td>
+          }
 
-      </tr>
+        </tr>
+      }
     </tbody>
   </table>
 </div>
+
