@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SelectorYears } from '../shared/components/selector-years/selector-years';
 import { RouterLink } from '@angular/router';
 import { RaceDetail } from '../shared/models/race.model';
+import {RaceCard} from '../shared/components/race-card/race-card';
 
 @Component({
   selector: 'app-events',
@@ -14,7 +15,7 @@ import { RaceDetail } from '../shared/models/race.model';
     CommonModule,
     FormsModule,
     SelectorYears,
-    RouterLink
+    RaceCard
   ],
   templateUrl: './races.html',
   styleUrl: './races.css'
@@ -32,15 +33,6 @@ export class Races implements OnInit{
     this.years = Array.from({length: currentYear - 2024 + 1}, (_, i) => 2024 + i).reverse();
     this.getRaces();
   }
-
-  slugify(name: string): string {
-  return name
-    .toLowerCase()
-    .normalize('NFD')                 // enlève les accents
-    .replace(/[\u0300-\u036f]/g, '') // idem accents
-    .replace(/[^a-z0-9]+/g, '-')     // remplace tout ce qui n’est pas lettre ou chiffre par "-"
-    .replace(/^-+|-+$/g, '');        // retire les tirets en trop
-}
 
 
   getRaces() {
@@ -87,7 +79,4 @@ export class Races implements OnInit{
     });
   }
 
-  getFlagClass(country: string): string {
-    return  COUNTRY_TO_ISO[country] || 'xx';
-  }
 }

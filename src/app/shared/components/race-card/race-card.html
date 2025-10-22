@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css"/>
+
+<div [routerLink]="raceIsFinished
+        ? ['/race', selectedYear, slugify(raceGpName), 'results']
+        : ['/race', selectedYear, slugify(raceGpName), 'details']"
+     [state]="{ round: raceRound, race: raceGpName }"
+     class="card">
+
+  @if (raceEventFormat === "sprint_qualifying"){
+    <span class="sprint-badge">SPRINT</span>
+  }
+  <div class="card-header">
+    <div class="card-round">Manche {{ raceRound }}</div>
+    <div class="card-date">
+      <i class="fa-solid fa-flag-checkered"></i> {{ raceEventDate }}
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="card-flag">
+      <span [class]="'fi fi-' + getFlagClass(raceCountry)"></span>
+    </div>
+    <div class="card-text">
+      <h2 class="card-title">{{ raceGpName }}</h2>
+      <div class="card-locality">{{ raceLocation }}</div>
+    </div>
+  </div>
+</div>
