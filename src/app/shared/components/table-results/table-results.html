@@ -56,11 +56,18 @@
             <td class="txt-center">{{ r.laps }}</td>
             <td class="txt-center">
               @if (r.time && r.time !== 'NaT') {
-                <span>{{ r.position > 1 ? "+ " + r.time +" s": r.time }}</span>
+                <span>
+                  {{
+                    r.position > 1
+                      ? "+ " + r.time + (r.time.includes('Tour') ? '' : ' s')
+                      : r.time
+                  }}
+                </span>
               } @else {
                 <span>{{ r.status }}</span>
               }
             </td>
+
             <td class="txt-center">{{ r.points }}</td>
           }
         </tr>
