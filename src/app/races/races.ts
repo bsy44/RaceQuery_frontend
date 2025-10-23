@@ -17,7 +17,7 @@ import {RaceCard} from '../shared/components/race-card/race-card';
     SelectorYears,
     RaceCard
   ],
-  templateUrl: './races.html',
+  templateUrl: '../pages/races.html',
   styleUrl: './races.css'
 })
 

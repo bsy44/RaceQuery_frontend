@@ -8,7 +8,7 @@ import {SelectorYears} from '../shared/components/selector-years/selector-years'
 
 @Component({
   selector: 'app-teams',
-  templateUrl: './teams.html',
+  templateUrl: '../pages/teams.html',
   imports: [
     FormsModule,
     TableStanding,

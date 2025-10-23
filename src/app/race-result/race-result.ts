@@ -16,7 +16,7 @@ import {GoBackButton} from '../shared/components/go-back-button/go-back-button';
   ],
   selector: 'app-race-result',
   styleUrls: ['./race-result.css'],
-  templateUrl: './race-result.html'
+  templateUrl: '../pages/race-result.html'
 })
 export class RaceResult implements OnInit {
   round!: number;

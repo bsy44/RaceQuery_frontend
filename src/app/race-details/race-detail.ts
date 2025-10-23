@@ -6,7 +6,7 @@ import {RaceDetailCard} from '../shared/components/race-detail-card/race-detail-
 
 @Component({
   selector: 'app-race-details',
-  templateUrl: './race-detail.html',
+  templateUrl: '../pages/race-detail.html',
   imports: [GoBackButton, RaceDetailCard],
   styleUrls: ['./race-detail.css']
 })

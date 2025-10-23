@@ -8,7 +8,7 @@ import { Driver } from '../shared/models/driver.model';
 
 @Component({
   selector: 'app-drivers',
-  templateUrl: './drivers.html',
+  templateUrl: '../pages/drivers.html',
   imports: [
     FormsModule,
     TableStanding,
