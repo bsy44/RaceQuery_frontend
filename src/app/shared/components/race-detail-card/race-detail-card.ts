@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {DatePipe} from "@angular/common";
+import { Component, Input } from '@angular/core';
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-race-detail-card',

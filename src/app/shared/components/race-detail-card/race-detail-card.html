@@ -1,26 +1,26 @@
 <div class="session-card {{ getSessionClass(sessionName) }}">
   <div class="date">
     <div class="day">
-      {{ sessionDate + 'Z' | date:'d':'UTC' }}
+      {{ sessionDate + 'Z' | date:'d':'Europe/Paris':'fr' }}
     </div>
     <div class="month">
-      {{ sessionDate + 'Z' | date:'MMM':'UTC' }}
+      {{ sessionDate + 'Z' | date:'MMM':'Europe/Paris':'fr' }}
     </div>
   </div>
 
   <div class="separator"></div>
   <div class="session-info">
-          <span class="title">
-            @if (sessionName.toLowerCase().includes('race') ||
-            (sessionName.toLowerCase().includes('sprint') && !sessionName.toLowerCase().includes('qualifying'))) {
-              <i class="fa-solid fa-flag-checkered mr-1"></i>
-            }
-            @else if (sessionName.toLowerCase().includes('qualifying')) {
-              <i class="fa-solid fa-stopwatch mr-1"></i>
-            }
+    <span class="title">
+      @if (sessionName.toLowerCase().includes('race') ||
+      (sessionName.toLowerCase().includes('sprint') && !sessionName.toLowerCase().includes('qualifying'))) {
+        <i class="fa-solid fa-flag-checkered mr-1"></i>
+      }
+      @else if (sessionName.toLowerCase().includes('qualifying')) {
+        <i class="fa-solid fa-stopwatch mr-1"></i>
+      }
 
-            {{ translateSessionName(sessionName, ind) }}
-          </span>
-    <span class="time">{{ sessionDate + 'Z' | date:'HH:mm':'UTC' }}</span>
+      {{ translateSessionName(sessionName, ind) }}
+    </span>
+    <span class="time">{{ sessionDate + 'Z' | date:'HH:mm':'Europe/Paris':'fr' }}</span>
   </div>
 </div>
