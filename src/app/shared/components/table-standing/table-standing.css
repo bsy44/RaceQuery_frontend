@@ -94,35 +94,6 @@
   font-size: 1.25rem;
 }
 
-
-
-/* ===== Year selector ===== */
-.year-selector {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.year-selector label {
-  color: #E6E6E6;
-  margin-right: 10px;
-}
-
-.year-selector select {
-  padding: 8px 12px;
-  background: #1A1A1A;
-  color: #E6E6E6;
-  border: 2px solid #FF1E1E;
-  border-radius: 5px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.year-selector select:focus {
-  outline: none;
-  border-color: #ff4d4d;
-}
-
 /* ===== Cellules Écurie / Pilote ===== */
 .team-cell {
   padding: 20px 15px;
