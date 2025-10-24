@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { TEAMS_INFO } from '../../../shared/teams-info';
-import { TableStanding } from '../../../races/shared/table-standing/table-standing';
+import { TableStanding } from '../../../shared/components/table-standing/table-standing';
 import { SelectorYears } from '../../../shared/components/selector-years/selector-years';
-import { Driver } from '../../../shared/models/driver.model';
+import { DriverModel} from '../../models/driver.model';
+import {DriverStandingsModel} from '../../../shared/models/driverStanding.model';
 
 @Component({
   selector: 'app-driver',
@@ -17,7 +17,7 @@ import { Driver } from '../../../shared/models/driver.model';
   styleUrls: ['./driver.css']
 })
 export class Driver implements OnInit {
-  driverList: any[] = [];
+  driverList: DriverModel[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();
 
@@ -33,23 +33,9 @@ export class Driver implements OnInit {
 
   getDrivers() {
     this.http
-      .get<any>(`http://127.0.0.1:5000/drivers/standings/${this.selectedYear}`)
+      .get<DriverStandingsModel>(`http://127.0.0.1:5000/drivers/standings/${this.selectedYear}`)
       .subscribe((result) => {
-        this.driverList = result.DriverStandings.map((driver: Driver, i: number) => {
-          const teamLogo = TEAMS_INFO[driver.team]?.logo || '';
-
-          return {
-            Pos: i + 1,
-            driver: {
-              fullName: driver.driver.fullName,
-              nationality: driver.driver.nationality
-            },
-            team: driver.team,
-            teamLogo,
-            Points: +driver.points,
-            PointsDiff: i > 0 ? +driver.points_diff : 0
-          };
-        });
+        this.driverList = result.DriverStandings
       });
   }
 }

@@ -1,8 +1,7 @@
-export interface Team {
+export interface TeamModel {
   Team: {
     constructorId: string;
     nationality: string;
-    teamLogo?: string;
     constructorName: string;
   };
   points: string;

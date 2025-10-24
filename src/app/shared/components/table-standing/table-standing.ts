@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
+import { NATIONALITY_TO_ISO } from '../../nationalities';
+import {TEAMS_INFO} from "../../teams-info";
 
 @Component({
   selector: 'app-table-standing',
@@ -13,6 +14,7 @@ export class TableStanding {
   @Input() columns: string[] = [];
   @Input() data: any[] = [];
   @Input() tableType: 'drivers' | 'teams' = 'drivers';
+  protected readonly TEAMS_INFO = TEAMS_INFO;
 
   getDriverFlag(driverNationality: string): string {
     return NATIONALITY_TO_ISO[driverNationality] || 'un';

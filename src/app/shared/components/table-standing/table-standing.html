@@ -10,9 +10,8 @@
     <tbody>
       @for (row of data; track $index) {
         <tr>
-
           @if (columns.includes('Pos')) {
-            <td>{{ row.Pos }}</td>
+            <td>{{ row.position }}</td>
           }
 
           @if (columns.includes('Pilote') && row.driver) {
@@ -23,26 +22,34 @@
             </td>
           }
 
-          @if (columns.includes('Écurie') && row.teamLogo) {
+          @if (columns.includes('Écurie')) {
             <td>
               <div class="team-wrapper">
-                <img [src]="row.teamLogo" width="40" height="24" alt="{{ row.team }}" class="team-logo">
-                <span class="team-name">{{ row.team }}</span>
+                @if (row.driver) {
+                  <img [src]="TEAMS_INFO[row.team].logo" width="40" height="24"
+                       alt="{{ row.team }}" class="team-logo">
+                  <span class="team-name">{{ row.team }}</span>
+                }
+                @if (row.Team) {
+                  <img [src]="TEAMS_INFO[row.Team.constructorName]?.logo" width="40" height="24"
+                       alt="{{ row.Team.constructorName }}" class="team-logo">
+                  <span class="team-name">{{ row.Team.constructorName }}</span>
+                }
               </div>
             </td>
+
           }
 
           @if (columns.includes('Points')) {
             <td>
               <span class="points-wrapper">
-                {{ row.Points }}
-                @if (row.PointsDiff > 0) {
-                  <span id="diff-points"> -{{ row.PointsDiff }} </span>
+                {{ +row.points }}
+                @if (row.points_diff > 0) {
+                  <span id="diff-points"> -{{ +row.points_diff }} </span>
                 }
               </span>
             </td>
           }
-
         </tr>
       }
     </tbody>

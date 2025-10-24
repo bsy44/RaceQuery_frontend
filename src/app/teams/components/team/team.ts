@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { TEAMS_INFO } from '../../../shared/teams-info'
-import {TableStanding} from '../../../races/shared/table-standing/table-standing';
-import {Team} from '../../../shared/models/team.model';
-import {SelectorYears} from '../../../shared/components/selector-years/selector-years';
+import { TableStanding } from '../../../shared/components/table-standing/table-standing';
+import { TeamModel } from '../../models/team.model';
+import { SelectorYears } from '../../../shared/components/selector-years/selector-years';
 
 @Component({
   selector: 'app-team',
@@ -17,7 +16,7 @@ import {SelectorYears} from '../../../shared/components/selector-years/selector-
   styleUrls: ['./team.css']
 })
 export class Team implements OnInit {
-  teamList: any[] = [];
+  teamList: TeamModel[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();
   columns = ['Pos', 'Écurie', 'Points'];
@@ -26,30 +25,18 @@ export class Team implements OnInit {
 
   ngOnInit() {
     const currentYear = new Date().getFullYear();
-    this.years = Array.from({ length: currentYear - 2022 + 1 }, (_, i) => 2022 + i).reverse();
+    this.years = Array.from({
+      length: currentYear - 2022 + 1
+    }, (_, i) => 2022 + i).reverse();
 
     this.getTeams();
   }
 
   getTeams() {
     this.http
-      .get<any>(`http://127.0.0.1:5000/teams/standings/${this.selectedYear}`)
+      .get<TeamModel[]>(`http://127.0.0.1:5000/teams/standings/${this.selectedYear}`)
       .subscribe((result) => {
-        this.teamList = (result || []).map((team: Team, i: number) => {
-          const teamLogo = TEAMS_INFO[team.Team.constructorName]?.logo || '';
-          const Team = team.Team
-          console.log(team.Team)
-          return {
-            Pos: i + 1,
-            Team,
-            team: Team.constructorName,
-            teamLogo,
-            Points: +team.points,
-            PointsDiff: i > 0 ? +team.points_diff : 0,
-            wins: team.wins,
-            podiums: team.podiums
-          };
-        });
+        this.teamList = result
       });
   }
 }

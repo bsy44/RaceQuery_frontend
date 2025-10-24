@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { SessionResultTableComponent } from '../../shared/table-results/table-results';
+import { SessionResultTableComponent } from '../../../shared/components/table-results/table-results';
 import { TEAMS_INFO } from '../../../shared/teams-info'
 import {RaceInfo} from '../race-info/race-info';
 import {GoBackButton} from '../../../shared/components/go-back-button/go-back-button';
