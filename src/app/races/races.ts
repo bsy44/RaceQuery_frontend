@@ -38,7 +38,6 @@ export class Races implements OnInit{
   getRaces() {
     this.http.get(`http://127.0.0.1:5000/events/${this.selectedYear}`).subscribe((result: any) => {
       this.raceList = (result || []).map((race: any) => {
-        console.log(race);
 
         const formatDateRange = (
           sessions: any[] | undefined,

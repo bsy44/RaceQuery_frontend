@@ -1,13 +1,18 @@
-<h1 class="page-title">Calendrier saison - {{ selectedYear }}</h1>
+<div class="page-header">
+  <div class="page-header-text">
+    <h1 class="page-title">Calendrier et Résultat</h1>
+    <h3>saison - {{ selectedYear }}</h3>
+  </div>
 
-<app-year-selector
-  [years]="years"
-  [(selectedYear)]="selectedYear"
-  (selectedYearChange)="getRaces()">
-</app-year-selector>
+  <app-year-selector
+    [years]="years"
+    [(selectedYear)]="selectedYear"
+    (selectedYearChange)="getRaces()">
+  </app-year-selector>
+</div>
 
 <div class="container">
-  @for (race of raceList; track raceList){
+  @for (race of raceList; track race.gpName){
     <app-race-card
       [selectedYear]="selectedYear"
       [raceIsFinished]="race.isFinished"
