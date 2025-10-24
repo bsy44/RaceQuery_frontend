@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { TableStanding } from '../../../shared/components/table-standing/table-standing';
 import { TeamModel } from '../../models/team.model';
-import { SelectorYears } from '../../../shared/components/selector-years/selector-years';
+import {PageHeader} from '../../../shared/components/page-header/page-header';
 
 @Component({
   selector: 'app-team',
@@ -11,7 +11,7 @@ import { SelectorYears } from '../../../shared/components/selector-years/selecto
   imports: [
     FormsModule,
     TableStanding,
-    SelectorYears
+    PageHeader
   ],
   styleUrls: ['./team.css']
 })

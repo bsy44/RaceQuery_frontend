@@ -18,14 +18,3 @@
   outline: none;
   border-color: #ff4d4d;
 }
-
-.year-selector .calendar-icon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #555;
-  font-size: 25px;
-  pointer-events: none;
-}
-

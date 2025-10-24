@@ -1,10 +1,9 @@
-<h1 class="page-title">Classement Pilotes - Saison {{ selectedYear }}</h1>
-
-<app-year-selector
+<app-page-header
+  [title]="'Classement Pilotes saison - ' + selectedYear"
   [years]="years"
   [(selectedYear)]="selectedYear"
   (selectedYearChange)="getDrivers()">
-</app-year-selector>
+</app-page-header>
 
 <app-table-standing
   [columns]="columns"

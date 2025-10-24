@@ -1,0 +1,14 @@
+<div class="page-header">
+  <div class="page-header-text">
+    <h1 class="page-title">{{ title }}</h1>
+    @if (subtitle){
+      <h3>{{ subtitle }}</h3>
+    }
+  </div>
+
+  <app-year-selector
+    [years]="years"
+    [(selectedYear)]="selectedYear"
+    (selectedYearChange)="onYearChange($event)">
+  </app-year-selector>
+</div>

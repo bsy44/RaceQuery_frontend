@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { TableStanding } from '../../../shared/components/table-standing/table-standing';
 import { SelectorYears } from '../../../shared/components/selector-years/selector-years';
 import { DriverModel} from '../../models/driver.model';
-import {DriverStandingsModel} from '../../../shared/models/driverStanding.model';
+import {DriverStandingsModel} from '../../models/driverStanding.model';
+import {PageHeader} from '../../../shared/components/page-header/page-header';
 
 @Component({
   selector: 'app-driver',
@@ -12,7 +13,8 @@ import {DriverStandingsModel} from '../../../shared/models/driverStanding.model'
   imports: [
     FormsModule,
     TableStanding,
-    SelectorYears
+    SelectorYears,
+    PageHeader
   ],
   styleUrls: ['./driver.css']
 })

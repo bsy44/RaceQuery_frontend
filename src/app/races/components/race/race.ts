@@ -7,6 +7,7 @@ import { SelectorYears } from '../../../shared/components/selector-years/selecto
 import { RouterLink } from '@angular/router';
 import { RaceDetail } from '../../../shared/models/race.model';
 import {RaceCard} from '../race-card/race-card';
+import {PageHeader} from '../../../shared/components/page-header/page-header';
 
 @Component({
   selector: 'app-events',
@@ -15,7 +16,8 @@ import {RaceCard} from '../race-card/race-card';
     CommonModule,
     FormsModule,
     SelectorYears,
-    RaceCard
+    RaceCard,
+    PageHeader
   ],
   templateUrl: '../../pages/races.html',
   styleUrl: './race.css'

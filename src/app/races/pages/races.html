@@ -1,15 +1,10 @@
-<div class="page-header">
-  <div class="page-header-text">
-    <h1 class="page-title">Calendrier et Résultat</h1>
-    <h3>saison - {{ selectedYear }}</h3>
-  </div>
-
-  <app-year-selector
-    [years]="years"
-    [(selectedYear)]="selectedYear"
-    (selectedYearChange)="getRaces()">
-  </app-year-selector>
-</div>
+<app-page-header
+  [title]="'Calendrier et Résultats'"
+  [subtitle]="'saison - '+ selectedYear"
+  [years]="years"
+  [(selectedYear)]="selectedYear"
+  (selectedYearChange)="getRaces()">
+</app-page-header>
 
 <div class="container">
   @for (race of raceList; track race.gpName){
