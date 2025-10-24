@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { COUNTRY_TO_ISO } from '../shared/nationalities';
+import { COUNTRY_TO_ISO } from '../../../shared/nationalities';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SelectorYears } from '../shared/components/selector-years/selector-years';
+import { SelectorYears } from '../../../shared/components/selector-years/selector-years';
 import { RouterLink } from '@angular/router';
-import { RaceDetail } from '../shared/models/race.model';
-import {RaceCard} from '../shared/components/race-card/race-card';
+import { RaceDetail } from '../../../shared/models/race.model';
+import {RaceCard} from '../race-card/race-card';
 
 @Component({
   selector: 'app-events',
@@ -17,11 +17,11 @@ import {RaceCard} from '../shared/components/race-card/race-card';
     SelectorYears,
     RaceCard
   ],
-  templateUrl: '../pages/races.html',
-  styleUrl: './races.css'
+  templateUrl: '../../pages/races.html',
+  styleUrl: './race.css'
 })
 
-export class Races implements OnInit{
+export class Race implements OnInit{
   years: number [] = [];
   raceList: any[] = [];
   selectedYear: number = new Date().getFullYear();

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GoBackButton} from '../shared/components/go-back-button/go-back-button';
-import {RaceDetailCard} from '../shared/components/race-detail-card/race-detail-card';
+import {GoBackButton} from '../../../shared/components/go-back-button/go-back-button';
+import {RaceDetailCard} from '../race-detail-card/race-detail-card';
 
 @Component({
   selector: 'app-race-details',
-  templateUrl: '../pages/race-detail.html',
+  templateUrl: '../../pages/race-detail.html',
   imports: [GoBackButton, RaceDetailCard],
   styleUrls: ['./race-detail.css']
 })

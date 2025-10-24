@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Dashboard } from './dashboard/dashboard';
-import { Drivers } from './drivers/drivers';
-import { Teams } from './teams/teams';
-import { Races } from './races/races';
-import { RaceResult } from './race-result/race-result';
-import { RaceDetail } from './race-details/race-detail';
+import { Dashboard } from './home/components/dashboard/dashboard';
+import { Driver } from './drivers/components/driver/driver';
+import { Team } from './teams/components/team/team';
+import { Race } from './races/components/race/race';
+import { RaceResult } from './races/components/race-result/race-result';
+import { RaceDetail } from './races/components/race-details/race-detail';
 
 export const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch: 'full' },
   {path: 'home', component: Dashboard},
-  {path: 'driver/standings', component: Drivers},
-  {path: 'team/standings', component: Teams},
-  {path: 'races', component: Races},
+  {path: 'driver/standings', component: Driver},
+  {path: 'team/standings', component: Team},
+  {path: 'race', component: Race},
   {path: 'race/:season/:gpName/results', component: RaceResult},
   {path: 'race/:season/:gpName/details', component: RaceDetail},
 ];

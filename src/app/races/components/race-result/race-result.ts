@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { SessionResultTableComponent } from '../shared/components/table-results/table-results';
-import { TEAMS_INFO } from '../shared/teams-info'
-import {RaceInfo} from '../shared/components/race-info/race-info';
-import {GoBackButton} from '../shared/components/go-back-button/go-back-button';
+import { SessionResultTableComponent } from '../../shared/table-results/table-results';
+import { TEAMS_INFO } from '../../../shared/teams-info'
+import {RaceInfo} from '../race-info/race-info';
+import {GoBackButton} from '../../../shared/components/go-back-button/go-back-button';
 
 @Component({
   imports: [
@@ -16,7 +16,7 @@ import {GoBackButton} from '../shared/components/go-back-button/go-back-button';
   ],
   selector: 'app-race-result',
   styleUrls: ['./race-result.css'],
-  templateUrl: '../pages/race-result.html'
+  templateUrl: '../../pages/race-result.html'
 })
 export class RaceResult implements OnInit {
   round!: number;

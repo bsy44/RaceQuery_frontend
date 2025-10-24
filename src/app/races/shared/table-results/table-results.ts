@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {TEAMS_INFO} from '../../teams-info';
+import {TEAMS_INFO} from '../../../shared/teams-info';
 
 @Component({
   selector: 'app-session-result-table',

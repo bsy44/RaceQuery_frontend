@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { TEAMS_INFO } from '../shared/teams-info'
-import {TableStanding} from '../shared/components/table-standing/table-standing';
-import {Team} from '../shared/models/team.model';
-import {SelectorYears} from '../shared/components/selector-years/selector-years';
+import { TEAMS_INFO } from '../../../shared/teams-info'
+import {TableStanding} from '../../../races/shared/table-standing/table-standing';
+import {Team} from '../../../shared/models/team.model';
+import {SelectorYears} from '../../../shared/components/selector-years/selector-years';
 
 @Component({
-  selector: 'app-teams',
-  templateUrl: '../pages/teams.html',
+  selector: 'app-team',
+  templateUrl: '../../pages/teams.html',
   imports: [
     FormsModule,
     TableStanding,
     SelectorYears
   ],
-  styleUrls: ['./teams.css']
+  styleUrls: ['./team.css']
 })
-export class Teams implements OnInit {
+export class Team implements OnInit {
   teamList: any[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();

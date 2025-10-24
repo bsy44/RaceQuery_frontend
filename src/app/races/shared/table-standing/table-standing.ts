@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NATIONALITY_TO_ISO } from '../../nationalities';
+import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
 
 @Component({
   selector: 'app-table-standing',

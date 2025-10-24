@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { TEAMS_INFO } from '../shared/teams-info';
-import { TableStanding } from '../shared/components/table-standing/table-standing';
-import { SelectorYears } from '../shared/components/selector-years/selector-years';
-import { Driver } from '../shared/models/driver.model';
+import { TEAMS_INFO } from '../../../shared/teams-info';
+import { TableStanding } from '../../../races/shared/table-standing/table-standing';
+import { SelectorYears } from '../../../shared/components/selector-years/selector-years';
+import { Driver } from '../../../shared/models/driver.model';
 
 @Component({
-  selector: 'app-drivers',
-  templateUrl: '../pages/drivers.html',
+  selector: 'app-driver',
+  templateUrl: '../../pages/drivers.html',
   imports: [
     FormsModule,
     TableStanding,
     SelectorYears
   ],
-  styleUrls: ['./drivers.css']
+  styleUrls: ['./driver.css']
 })
-export class Drivers implements OnInit {
+export class Driver implements OnInit {
   driverList: any[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();

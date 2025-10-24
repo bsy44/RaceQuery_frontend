@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {COUNTRY_TO_ISO} from '../../nationalities';
+import {COUNTRY_TO_ISO} from '../../../shared/nationalities';
 import {RouterLink} from '@angular/router';
 
 @Component({
