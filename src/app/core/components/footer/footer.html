@@ -3,13 +3,17 @@
 
 <div class="footer site-footer">
   <div class="footer-container">
-    <div id="logo">Race Query</div>
+    <div id="logo">
+      <a routerLink="home">
+        Race Query
+      </a>
+    </div>
 
     <div id="links-list">
       <h3>Navigation</h3>
-      <div routerLink="dashboard" routerLinkActive="active" class="link">Accueil</div>
-      <div routerLink="drivers" routerLinkActive="active" class="link">Pilotes</div>
-      <div routerLink="teams" routerLinkActive="active" class="link">Équipes</div>
+      <div routerLink="home" routerLinkActive="active" class="link">Accueil</div>
+      <div routerLink="driver/standings" routerLinkActive="active" class="link">Pilotes</div>
+      <div routerLink="team/standings" routerLinkActive="active" class="link">Équipes</div>
       <div routerLink="races" routerLinkActive="active" class="link">Courses</div>
     </div>
 

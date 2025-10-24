@@ -24,10 +24,11 @@
 }
 
 
-#logo {
+#logo a{
   font-family: logo_font;
   font-size: 2rem;
   color: #E6E6E6;
+  text-decoration: none;
 }
 
 #links-list {

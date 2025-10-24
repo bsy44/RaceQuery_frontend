@@ -34,7 +34,9 @@
     }
 }
 
-#logo{
+#logo a{
   font-size: 30px;
   font-family: logo_font;
+  text-decoration: none;
+  color: #E6E6E6;
 }
