@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { TableStanding } from '../../../shared/components/table-standing/table-standing';
-import { TeamModel } from '../../models/team.model';
+import { TeamStandingModel } from '../../models/teamStanding.model';
 import {PageHeader} from '../../../shared/components/page-header/page-header';
 
 @Component({
@@ -16,7 +16,7 @@ import {PageHeader} from '../../../shared/components/page-header/page-header';
   styleUrls: ['./team.css']
 })
 export class Team implements OnInit {
-  teamList: TeamModel[] = [];
+  teamList: TeamStandingModel[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();
   columns = ['Pos', 'Écurie', 'Points'];
@@ -34,7 +34,7 @@ export class Team implements OnInit {
 
   getTeams() {
     this.http
-      .get<TeamModel[]>(`http://127.0.0.1:5000/teams/standings/${this.selectedYear}`)
+      .get<TeamStandingModel[]>(`http://127.0.0.1:5000/teams/standings/${this.selectedYear}`)
       .subscribe((result) => {
         this.teamList = result
       });

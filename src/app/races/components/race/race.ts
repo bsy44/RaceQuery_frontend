@@ -1,13 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { COUNTRY_TO_ISO } from '../../../shared/nationalities';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SelectorYears } from '../../../shared/components/selector-years/selector-years';
-import { RouterLink } from '@angular/router';
-import { RaceDetail } from '../../../shared/models/race.model';
-import {RaceCard} from '../race-card/race-card';
-import {PageHeader} from '../../../shared/components/page-header/page-header';
+import { RaceCard } from '../race-card/race-card';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
 
 @Component({
   selector: 'app-events',
@@ -15,7 +11,6 @@ import {PageHeader} from '../../../shared/components/page-header/page-header';
   imports: [
     CommonModule,
     FormsModule,
-    SelectorYears,
     RaceCard,
     PageHeader
   ],
@@ -39,32 +34,41 @@ export class Race implements OnInit{
 
   getRaces() {
     this.http.get(`http://127.0.0.1:5000/events/${this.selectedYear}`).subscribe((result: any) => {
+
+      const formatDateRange = (
+        sessions: any[] | undefined,
+        raceEndStr: string | null | undefined
+      ): string => {
+        if (!sessions || sessions.length === 0) return '—';
+
+        const fp1 = sessions.find((s: any) => s.name?.toLowerCase().includes('fp1')) || sessions[0];
+        const startStr = fp1?.local_date;
+        const endStr = raceEndStr;
+
+        if (!startStr || !endStr) return '—';
+
+        const start = new Date(startStr.replace(' ', 'T'));
+        const end = new Date(endStr.replace(' ', 'T'));
+
+        if (isNaN(start.getTime()) || isNaN(end.getTime())) return '—';
+
+        const startDay = start.getDate().toString().padStart(2, '0');
+        const endDay = end.getDate().toString().padStart(2, '0');
+        const month = end.toLocaleDateString('fr-FR', { month: 'short' })
+          .replace('.', '')
+          .toUpperCase();
+
+        return `${startDay} - ${endDay} ${month}`;
+      };
+
       this.raceList = (result || []).map((race: any) => {
+        const fp1Session = race.sessions?.find((s: any) => {
+          const name = s.name?.toLowerCase().replace(/\s+/g, '');
+          return name === 'practice1' || name === 'fp1';
+        });
 
-        const formatDateRange = (
-          sessions: any[] | undefined,
-          raceEndStr: string | null | undefined
-        ): string => {
-          if (!sessions || sessions.length === 0) return '—';
-
-          const fp1 = sessions.find(s => s.name?.toLowerCase().includes('fp1')) || sessions[0];
-          const startStr = fp1?.local_date;
-          const endStr = raceEndStr;
-
-          if (!startStr || !endStr) return '—';
-          const start = new Date(startStr.replace(' ', 'T'));
-          const end = new Date(endStr.replace(' ', 'T'));
-
-          if (isNaN(start.getTime()) || isNaN(end.getTime())) return '—';
-
-          const startDay = start.getDate().toString().padStart(2, '0');
-          const endDay = end.getDate().toString().padStart(2, '0');
-          const month = end.toLocaleDateString('fr-FR', { month: 'short' })
-            .replace('.', '')
-            .toUpperCase();
-
-          return `${startDay} - ${endDay} ${month}`;
-        };
+        const fp1Date = fp1Session ? new Date(fp1Session.utc_date) : null;
+        const raceStarted = fp1Date ? fp1Date.getTime() < Date.now() : false;
 
         return {
           circuitName: race.circuit_name,
@@ -74,10 +78,9 @@ export class Race implements OnInit{
           round: race.round,
           gpName: race.short_name,
           eventFormat: race.event_format,
-          isFinished: new Date(race.event_date) < new Date()
+          isFinished: raceStarted,
         };
       });
     });
   }
-
 }

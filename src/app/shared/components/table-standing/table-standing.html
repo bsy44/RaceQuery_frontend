@@ -14,30 +14,28 @@
             <td>{{ row.position }}</td>
           }
 
-          @if (columns.includes('Pilote') && row.driver) {
+          @if (columns.includes('Pilote')) {
             <td class="driver-cell">
-              <span class="fi fi-{{ getDriverFlag(row.driver.nationality) }} flag-icon"></span>
-              <span class="driver-fullname">{{ row.driver.fullName }}</span>
-              <span class="driver-lastname">{{ getLastName(row.driver.fullName) }}</span>
+              <span class="fi fi-{{ getDriverFlag(row.nationality) }} flag-icon"></span>
+              <span class="driver-fullname">{{ row.fullName }}</span>
+              <span class="driver-lastname">{{ getLastName(row.fullName) }}</span>
             </td>
           }
 
           @if (columns.includes('Écurie')) {
             <td>
               <div class="team-wrapper">
-                @if (row.driver) {
+                @if (row.Team) {
+                  <img [src]="TEAMS_INFO[row.Team.constructorName].logo" width="40" height="24"
+                       alt="{{ row.Team.constructorName }}" class="team-logo">
+                  <span class="team-name">{{ row.Team.constructorName }}</span>
+                } @else {
                   <img [src]="TEAMS_INFO[row.team].logo" width="40" height="24"
                        alt="{{ row.team }}" class="team-logo">
                   <span class="team-name">{{ row.team }}</span>
                 }
-                @if (row.Team) {
-                  <img [src]="TEAMS_INFO[row.Team.constructorName]?.logo" width="40" height="24"
-                       alt="{{ row.Team.constructorName }}" class="team-logo">
-                  <span class="team-name">{{ row.Team.constructorName }}</span>
-                }
               </div>
             </td>
-
           }
 
           @if (columns.includes('Points')) {
