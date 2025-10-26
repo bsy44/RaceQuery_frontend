@@ -77,41 +77,7 @@ export class RaceResult implements OnInit {
         this.sessionCode = this.sessionMapping['Course'];
         this.getSessionResult();
       });
-
-    this.setLastFinishedSession();
-
   }
-
-  setLastFinishedSession() {
-    if (!this.race?.sessions || this.race.sessions.length === 0) return;
-
-    const now = new Date();
-
-    // Filtre les sessions déjà passées
-    const finishedSessions = this.race.sessions.filter((s: any) => {
-      const sessionDate = new Date(s.utc_date);
-      return sessionDate.getTime() <= now.getTime();
-    });
-
-    // Prend la dernière session passée ou la première si aucune n'est passée
-    const lastSession = finishedSessions.at(-1) || this.race.sessions[0];
-
-    // Mapping explicite des noms API vers ton code
-    const apiToCode: { [key: string]: string } = {
-      'Practice 1': 'FP1',
-      'Practice 2': 'FP2',
-      'Practice 3': 'FP3',
-      'Qualifying': 'Q',
-      'Sprint Qualifying': 'SQ',
-      'Sprint': 'S',
-      'Race': 'R'
-    };
-
-    this.sessionCode = apiToCode[lastSession.name] || 'FP1';
-    console.log('Dernière session passée :', lastSession.name, '->', this.sessionCode);
-  }
-
-
 
   getSessionResult() {
     if (!this.sessionCode) return;
