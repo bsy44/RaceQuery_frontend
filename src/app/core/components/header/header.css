@@ -7,36 +7,39 @@
 
 #container{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 30px 30px;
-  margin-bottom: 20px;
   background-color: #0e101b;
   color: #E6E6E6;
 }
 
 #links{
-    flex-grow: 1;
-    display: flex;
-    gap: 20px;
-    justify-content: right;
+  display: flex;
+  gap: 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 
-    .link{
-      cursor: pointer;
-      text-decoration: none;
-      color: #E6E6E6;
-      transition: color 0.2s;
-      &:hover{
-        color: #FF1E1E;
-        border-bottom: 2px solid #FF1E1E;
-      }
-      &.active{
-        border-bottom: 2px solid #FF1E1E;
-      }
-    }
+.link{
+  cursor: pointer;
+  text-decoration: none;
+  color: #E6E6E6;
+  transition: color 0.2s;
+  padding-bottom: 20px;
+
+  &:hover{
+    color: #FF1E1E;
+    border-bottom: 2px solid #FF1E1E;
+  }
+  &.active{
+    border-bottom: 2px solid #FF1E1E;
+  }
 }
 
 #logo a{
-  font-size: 30px;
-  font-family: logo_font;
+  font-size: 2.5rem;
+  font-family: logo_font, serif;
   text-decoration: none;
   color: #E6E6E6;
 }
