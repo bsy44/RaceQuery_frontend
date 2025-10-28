@@ -10,7 +10,7 @@
     <tbody>
       @for (row of data; track $index) {
         <tr>
-          @if (columns.includes('Pos')) {
+          @if (columns.includes('Pos.')) {
             <td>{{ row.position }}</td>
           }
 
@@ -46,6 +46,24 @@
                   <span id="diff-points"> -{{ +row.points_diff }} </span>
                 }
               </span>
+            </td>
+          }
+
+          @if (columns.includes('Évo.')){
+            <td class="standing_evo">
+              @if (row.evolution > 0){
+                <span class="evo-positive">
+                  ▲ {{ row.evolution }}
+                </span>
+              } @else if (row.evolution < 0){
+                <span class="evo-negative">
+                  ▼ {{ Math.abs(row.evolution) }}
+                </span>
+              } @else if (row.evolution === 0){
+                <span class="evo-null">
+                  -
+                </span>
+              }
             </td>
           }
         </tr>

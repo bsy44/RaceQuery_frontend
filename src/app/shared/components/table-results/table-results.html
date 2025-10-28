@@ -30,10 +30,21 @@
         <tr>
           <td>
             <span class="position-wrapper">
-              <span class="position-number">{{ r?.position }}</span>
+              <span class="position-number">{{ r.position }}</span>
+
+              @if (isRaceOrSprint() && r.evolution > 0){
+                <span class="evo-positive">
+                  ▲ {{ r.evolution }}
+                </span>
+              } @else if (isRaceOrSprint() && r.evolution < 0){
+                <span class="evo-negative">
+                  ▼ {{ Math.abs(r.evolution) }}
+                </span>
+              }
             </span>
           </td>
-          <td>{{ r?.driver }}</td>
+
+          <td>{{ r.driver }}</td>
           <td>
             <div class="team-wrapper">
               <img src="{{ TEAMS_INFO[r.team].logo }}" alt="{{ TEAMS_INFO[r.team].logo }}" class="team-logo">

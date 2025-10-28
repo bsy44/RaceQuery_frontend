@@ -24,4 +24,5 @@ export class SessionResultTableComponent {
   }
 
   protected readonly TEAMS_INFO = TEAMS_INFO;
+  protected readonly Math = Math;
 }

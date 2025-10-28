@@ -5,4 +5,5 @@ export interface TeamStandingModel {
   points: string;
   points_diff: string;
   position: string;
+  evolution: string;
 }

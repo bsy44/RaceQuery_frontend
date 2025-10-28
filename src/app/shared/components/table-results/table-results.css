@@ -70,3 +70,22 @@ tbody tr:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.evo-positive {
+  color: #00ff00;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 15px;
+}
+
+.evo-negative {
+  color: #ff0000;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 15px;
+}
+

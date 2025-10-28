@@ -26,4 +26,5 @@ export class TableStanding {
     return parts[parts.length - 1];
   }
 
+  protected readonly Math = Math;
 }

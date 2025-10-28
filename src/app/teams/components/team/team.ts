@@ -19,7 +19,7 @@ export class Team implements OnInit {
   teamList: TeamStandingModel[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();
-  columns = ['Pos', 'Écurie', 'Points'];
+  columns = ['Pos.', 'Écurie', 'Points', 'Évo.'];
 
   constructor(private http: HttpClient) {}
 
