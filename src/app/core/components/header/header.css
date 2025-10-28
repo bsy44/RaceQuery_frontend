@@ -5,13 +5,18 @@
   font-style: normal;
 }
 
+.header{
+  padding: 30px 30px;
+  background-color: #0e101b;
+  color: #E6E6E6;
+}
+
 #container{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 30px;
-  background-color: #0e101b;
-  color: #E6E6E6;
+  max-width: 1600px;
+  margin: auto;
 }
 
 #links{
