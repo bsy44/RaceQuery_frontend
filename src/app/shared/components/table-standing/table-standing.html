@@ -26,9 +26,9 @@
             <td>
               <div class="team-wrapper">
                 @if (row.Team) {
-                  <img [src]="TEAMS_INFO[row.Team.constructorName].logo" width="40" height="24"
-                       alt="{{ row.Team.constructorName }}" class="team-logo">
-                  <span class="team-name">{{ row.Team.constructorName }}</span>
+                  <img [src]="TEAMS_INFO[row.Team].logo" width="40" height="24"
+                       alt="{{ row.Team }}" class="team-logo">
+                  <span class="team-name">{{ row.Team }}</span>
                 } @else {
                   <img [src]="TEAMS_INFO[row.team].logo" width="40" height="24"
                        alt="{{ row.team }}" class="team-logo">

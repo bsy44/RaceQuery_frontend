@@ -1,7 +1,7 @@
 import {TeamModel} from './TeamModel';
 
 export interface TeamStandingModel {
-  Team: TeamModel;
+  Team: TeamModel['constructorName'];
   points: string;
   points_diff: string;
   position: string;
