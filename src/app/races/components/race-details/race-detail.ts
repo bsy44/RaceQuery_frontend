@@ -21,7 +21,6 @@ export class RaceDetail implements OnInit {
     const nav = this.router.lastSuccessfulNavigation;
     this.round = nav?.extras?.state?.['round'] || null;
     this.season = +this.route.snapshot.paramMap.get('season')!;
-    console.log()
 
     this.getRaceDetail();
   }

@@ -1,4 +1,4 @@
-import {TeamModel} from './TeamModel';
+import {TeamModel} from './team.model';
 
 export interface TeamStandingModel {
   Team: TeamModel['constructorName'];
