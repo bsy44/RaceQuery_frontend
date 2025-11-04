@@ -31,9 +31,8 @@ export class TeamDetail {
 
   getTeamDetail() {
     this.http
-      .get<TeamDetailModel>(`http://127.0.0.1:5000/teams/${this.year}/${this.idTeam}`)
+      .get<TeamDetailModel>(`http://127.0.0.1:5000/teams/${this.year}/${this.idTeam}/info`)
       .subscribe((result) => {
-        console.log(result);
         this.team = result;
       });
   }

@@ -1,0 +1,111 @@
+.team-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  color: #fff;
+}
+
+.team-card:hover {
+  transform: scale(1.05) translateY(-6px);
+}
+
+.card-header {
+  padding: 20px;
+}
+
+.card-header .info-team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.team-name {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.info-team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.info-team img {
+  width: 60px;
+  height: auto;
+}
+
+.team-drivers {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.separator {
+  color: #A0A0A0;
+  font-weight: bold;
+}
+
+.team-car {
+  position: relative;
+  overflow: hidden;
+  padding: 25px;
+}
+
+.team-car::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: radial-gradient(circle at 1px 1px, rgb(255, 255, 255) 1px, transparent 0);
+  background-size: 10px 10px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.team-car img {
+  position: relative;
+  z-index: 1;
+  width: 380px;
+  height: auto;
+  max-width: 100%;
+}
+
+
+.card-header.mclaren       { background-color: #FF8000; }
+.card-header.ferrari       { background-color: #E80020; }
+.card-header.mercedes      { background-color: #24c5aa; }
+.card-header.red_bull      { background-color: #3671C6; }
+.card-header.aston_martin  { background-color: #229971; }
+.card-header.haas          { background-color: #b0b4b6; }
+.card-header.rb            { background-color: #6692FF; }
+.card-header.williams      { background-color: #5ab1e6; }
+.card-header.alpine        { background-color: #0093CC; }
+.card-header.sauber        { background-color: #42ca42; }
+
+.team-car.mclaren       { background: linear-gradient(to bottom, #ffb366, #FF8000); }
+.team-car.ferrari       { background: linear-gradient(to bottom, #ff5c5c, #E80020); }
+.team-car.mercedes      { background: linear-gradient(to bottom, #9ff9ee, #27F4D2); }
+.team-car.red_bull      { background: linear-gradient(to bottom, #5c82d6, #3671C6); }
+.team-car.aston_martin  { background: linear-gradient(to bottom, #48cfa1, #229971); }
+.team-car.haas          { background: linear-gradient(to bottom, #d4d7da, #B6BABD); }
+.team-car.rb            { background: linear-gradient(to bottom, #99b4ff, #6692FF); }
+.team-car.williams      { background: linear-gradient(to bottom, #9de0ff, #64C4FF); }
+.team-car.alpine        { background: linear-gradient(to bottom, #4cb6e0, #0093CC); }
+.team-car.sauber        { background: linear-gradient(to bottom, #94f594, #52E252); }
+
+
+.info-team img.rb,
+.info-team img.williams,
+.info-team img.aston_martin,
+.info-team img.alpine,
+.info-team img.mclaren
+{ filter: brightness(0) invert(1); }
+
