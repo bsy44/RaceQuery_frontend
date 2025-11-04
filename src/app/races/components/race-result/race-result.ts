@@ -89,6 +89,7 @@ export class RaceResult implements OnInit {
       .get<any>(`http://127.0.0.1:5000/events/${session}-results/${this.season}/${this.round}`)
       .subscribe({
         next: (response: any) => {
+          console.log(response);
           if (response && Array.isArray(response.results)) {
             this.winner = response.winner || null;
             this.pole = response.poleman || null;

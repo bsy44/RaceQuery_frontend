@@ -1,25 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import { TableStanding } from '../../../shared/components/table-standing/table-standing';
-import { TeamStandingModel } from '../../models/teamStanding.model';
-import {PageHeader} from '../../../shared/components/page-header/page-header';
+import { TeamModel } from '../../models/team.model';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
+import { TeamCard } from '../team-card/team-card';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-team',
-  templateUrl: '../../pages/teams.html',
   imports: [
-    FormsModule,
-    TableStanding,
-    PageHeader
+    PageHeader,
+    TeamCard,
+    RouterLink
   ],
-  styleUrls: ['./team.css']
+  templateUrl: './team.html',
+  styleUrl: './team.css',
 })
-export class Team implements OnInit {
-  teamList: TeamStandingModel[] = [];
+export class Team {
+  teamList: TeamModel[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();
-  columns = ['Pos.', 'Écurie', 'Points', 'Évo.'];
 
   constructor(private http: HttpClient) {}
 
@@ -34,7 +33,7 @@ export class Team implements OnInit {
 
   getTeams() {
     this.http
-      .get<TeamStandingModel[]>(`http://127.0.0.1:5000/teams/standings/${this.selectedYear}`)
+      .get<TeamModel[]>(`http://127.0.0.1:5000/teams/${this.selectedYear}`)
       .subscribe((result) => {
         this.teamList = result
       });

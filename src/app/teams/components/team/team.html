@@ -1,0 +1,15 @@
+<app-page-header
+  [title]="'Equipes'"
+  [subtitle]="'Saison - ' + selectedYear"
+  [years]="years"
+  [(selectedYear)]="selectedYear"
+  (selectedYearChange)="getTeams()">
+</app-page-header>
+
+@for (team of teamList; track team){
+  <a routerLink='{{ selectedYear }}/{{ team.constructorId }}/detail' class="link">
+    <app-team-card
+      [team]="team">
+    </app-team-card>
+  </a>
+}

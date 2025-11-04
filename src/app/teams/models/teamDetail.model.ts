@@ -1,17 +1,17 @@
-import {TeamModel} from './team.model';
+import { TeamModel } from './team.model';
 
 export interface TeamDetailModel {
   Team: TeamModel;
   position: string;
   points: string;
-  wins: string;
-  podiums: number;
-  poles: number;
+  win: string;
+  podium: number;
+  pole: number;
   top10: number;
   dnf: number;
-  sprintWins: number;
-  sprintPodiums: number;
-  sprintPoles: number;
-  avgRaceFinish: number;
-  avgQualifyingFinish: number;
+  sprint_win: number;
+  sprint_podium: number;
+  sprint_pole: number;
+  avg_race_finish: number;
+  avg_qualifying_finish: number;
 }

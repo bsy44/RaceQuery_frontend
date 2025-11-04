@@ -1,0 +1,18 @@
+<div class="team-card">
+  <div class="card-container">
+    <div class="info-team">
+      <h1 class="team-name">{{ team.constructorName }}</h1>
+      <img src="{{ TEAMS_INFO[team.constructorName].logo }}" alt="{{ team.constructorName }}">
+    </div>
+
+    <div class="team-drivers">
+      <div class="driver1">
+        <span class="driver-name">{{ team.drivers[0] }}</span>
+      </div>
+      <span> | </span>
+      <div class="driver2">
+        <span class="driver-name">{{ team.drivers[1] }}</span>
+      </div>
+    </div>
+  </div>
+</div>
