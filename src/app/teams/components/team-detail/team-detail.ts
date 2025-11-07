@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TeamDetailModel } from '../../models/teamDetail.model';
 import { ActivatedRoute } from '@angular/router';
-import {GoBackButton} from '../../../shared/components/go-back-button/go-back-button';
-import {TEAMS_INFO} from '../../../shared/teams-info';
-import {NATIONALITY_TO_ISO} from '../../../shared/nationalities';
+import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
+import { TEAMS_INFO } from '../../../shared/teams-info';
+import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-team-standing-detail',
   imports: [
-    GoBackButton
+    GoBackButton,
+    NgClass
   ],
   templateUrl: './team-detail.html',
   styleUrl: './team-detail.css',
 })
-export class TeamDetail {
+export class TeamDetail implements OnInit {
   protected readonly TEAMS_INFO = TEAMS_INFO;
   protected readonly NATIONALITY_TO_ISO = NATIONALITY_TO_ISO;
   year!: number;
