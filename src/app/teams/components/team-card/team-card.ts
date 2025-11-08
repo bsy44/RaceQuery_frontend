@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TEAMS_INFO } from '../../../shared/teams-info';
 import { TeamModel } from '../../models/team.model';
-import {NgClass} from '@angular/common';
+import { NgClass } from '@angular/common';
+import { TeamService } from '../../services/team-service';
 
 @Component({
   selector: 'app-team-card',
@@ -11,12 +12,21 @@ import {NgClass} from '@angular/common';
   templateUrl: './team-card.html',
   styleUrl: './team-card.css',
 })
-export class TeamCard {
+export class TeamCard implements OnInit {
   protected readonly TEAMS_INFO = TEAMS_INFO;
-  @Input() team!: TeamModel;
+  team!: TeamModel;
+  @Input()idTeam!: string;
   @Input() year!: number;
 
-  getCarImagePath(constructorId: string): string {
+  constructor(private teamService: TeamService) {}
+
+  ngOnInit() {
+    this.teamService.getTeam(this.idTeam, this.year).subscribe((result) => {
+      this.team = result
+    });
+  }
+
+  getCarImagePath(constructorId: string): string  | undefined {
     return `team-car/${this.year}-${constructorId}-car.avif`;
   }
 

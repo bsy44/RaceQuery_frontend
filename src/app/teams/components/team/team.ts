@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { TeamModel } from '../../models/team.model';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
 import { TeamCard } from '../team-card/team-card';
 import { RouterLink } from '@angular/router';
+import { TeamService } from '../../services/team-service';
 
 @Component({
   selector: 'app-team',
@@ -15,27 +15,26 @@ import { RouterLink } from '@angular/router';
   templateUrl: './team.html',
   styleUrl: './team.css',
 })
-export class Team {
+export class Team implements OnInit {
   teamList: TeamModel[] = [];
   years: number[] = [];
   selectedYear: number = new Date().getFullYear();
 
-  constructor(private http: HttpClient) {}
+  constructor(private teamService: TeamService) {}
 
   ngOnInit() {
     const currentYear = new Date().getFullYear();
     this.years = Array.from({
-      length: currentYear - 2022 + 1
-    }, (_, i) => 2022 + i).reverse();
+      length: currentYear - 2024 + 1
+    }, (_, i) => 2024 + i).reverse();
 
-    this.getTeams();
+    this.loadTeams()
   }
 
-  getTeams() {
-    this.http
-      .get<TeamModel[]>(`http://127.0.0.1:5000/teams/${this.selectedYear}`)
-      .subscribe((result) => {
-        this.teamList = result
-      });
+  loadTeams() {
+    this.teamService.listTeams(this.selectedYear).subscribe((result) => {
+      this.teamList = result;
+    });
   }
+
 }

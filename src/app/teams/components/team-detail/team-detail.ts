@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { TeamDetailModel } from '../../models/teamDetail.model';
 import { ActivatedRoute } from '@angular/router';
 import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
 import { TEAMS_INFO } from '../../../shared/teams-info';
 import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
 import { NgClass } from '@angular/common';
+import {TeamService} from '../../services/team-service';
 
 @Component({
   selector: 'app-team-standing-detail',
@@ -19,23 +19,23 @@ import { NgClass } from '@angular/common';
 export class TeamDetail implements OnInit {
   protected readonly TEAMS_INFO = TEAMS_INFO;
   protected readonly NATIONALITY_TO_ISO = NATIONALITY_TO_ISO;
+
   year!: number;
   idTeam!: string;
   team!: TeamDetailModel;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(
+    private teamService: TeamService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.year = this.route.snapshot.params['season'];
     this.idTeam = this.route.snapshot.params['teamId'];
-    this.getTeamDetail()
+    this.teamService.getTeamDetail(this.idTeam, this.year).subscribe((result) => {
+      this.team = result;
+    })
   }
 
-  getTeamDetail() {
-    this.http
-      .get<TeamDetailModel>(`http://127.0.0.1:5000/teams/${this.year}/${this.idTeam}/info`)
-      .subscribe((result) => {
-        this.team = result;
-      });
-  }
+
 }

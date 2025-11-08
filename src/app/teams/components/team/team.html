@@ -3,14 +3,14 @@
   [subtitle]="'Saison - ' + selectedYear"
   [years]="years"
   [(selectedYear)]="selectedYear"
-  (selectedYearChange)="getTeams()">
+  (selectedYearChange)="loadTeams()">
 </app-page-header>
 
 <div class="container">
   @for (team of teamList; track team){
-    <a routerLink='{{ selectedYear }}/{{ team.constructorId }}/detail' class="link">
+    <a routerLink='{{ selectedYear }}/{{ team.constructorId }}' class="link">
       <app-team-card
-        [team]="team"
+        [idTeam]="team.constructorId"
         [year]="selectedYear">
       </app-team-card>
     </a>

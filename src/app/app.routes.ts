@@ -13,7 +13,7 @@ export const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch: 'full' },
   {path: 'home', component: Dashboard},
   {path: 'teams', component: Team},
-  {path: 'teams/:season/:teamId/detail', component: TeamDetail},
+  {path: 'teams/:season/:teamId', component: TeamDetail},
   {path: 'driver/standings', component: Driver},
   {path: 'team/standings', component: TeamStanding},
   {path: 'races', component: Race},
