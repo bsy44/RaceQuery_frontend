@@ -1,0 +1,119 @@
+.go-back-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 2;
+}
+
+.flag-icon{
+  font-size: 2rem;
+  padding-left: 10px;
+}
+
+.team-name{
+  font-size: 2.5rem;
+}
+
+.team-info {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--team-color) 0%,
+    color-mix(in srgb, var(--team-color) 50%, #000000) 100%
+  );
+  height: 200px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+  color: white;
+}
+
+.team-info::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.20) 0,
+      rgba(255, 255, 255, 0.20) 2px,
+      transparent 2px,
+      transparent 20px
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 60%
+    );
+  background-size: 40px 40px, 100% 100%;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.team-name {
+  margin-bottom: 10px;
+}
+
+.team-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+img {
+  width: 60px;
+  height: auto;
+}
+
+.mercedes {
+  --team-color: #00d2be;
+}
+
+.ferrari {
+  --team-color: #dc0000;
+}
+
+.red_bull {
+  --team-color: #1e41ff;
+}
+
+.mclaren {
+  --team-color: #ff8700;
+}
+
+.aston_martin {
+  --team-color: #006f62;
+}
+
+.alpine {
+  --team-color: #2293d1;
+}
+
+.haas {
+  --team-color: #ffffff;
+}
+
+.rb {
+  --team-color: #6692ff;
+}
+
+.williams {
+  --team-color: #005aff;
+}
+
+.sauber {
+  --team-color: #52e252;
+}
+
+.rb img,
+.williams img,
+.aston_martin img,
+.alpine img,
+.mclaren img
+{ filter: brightness(0) invert(1); }
+

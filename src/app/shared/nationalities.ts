@@ -19,7 +19,9 @@ export const NATIONALITY_TO_ISO: Record<string, string> = {
   "Thai": "th",
   "Chinese": "cn",
   "Polish": "pl",
-  "Russian": "ru"
+  "Russian": "ru",
+  "Austrian": "at",
+  "Swiss": "ch"
 };
 
 export const COUNTRY_TO_ISO: Record<string, string> = {

@@ -5,20 +5,23 @@ import { GoBackButton } from '../../../shared/components/go-back-button/go-back-
 import { TEAMS_INFO } from '../../../shared/teams-info';
 import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
 import { NgClass } from '@angular/common';
-import {TeamService} from '../../services/team-service';
+import { TeamService } from '../../services/team-service';
+import { TeamDriverCard } from '../team-driver-card/team-driver-card';
+import {TeamBanner} from '../team-banner/team-banner';
+import {TeamStats} from '../team-stats/team-stats';
 
 @Component({
   selector: 'app-team-standing-detail',
   imports: [
-    GoBackButton,
-    NgClass
+    TeamDriverCard,
+    TeamBanner,
+    TeamStats
   ],
   templateUrl: './team-detail.html',
   styleUrl: './team-detail.css',
 })
 export class TeamDetail implements OnInit {
   protected readonly TEAMS_INFO = TEAMS_INFO;
-  protected readonly NATIONALITY_TO_ISO = NATIONALITY_TO_ISO;
 
   year!: number;
   idTeam!: string;
