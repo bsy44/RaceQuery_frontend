@@ -1,4 +1,4 @@
-export const TEAMS_INFO: { [key: string]: { logo: string } } = {
+export const TEAMS_LOGO: { [key: string]: { logo: string } } = {
   "Red Bull": { logo: "logos/rbr-logo.avif" },
   "Red Bull Racing":  { logo: "logos/rbr-logo.avif" },
   "RB F1 Team": { logo: "logos/vcrb-logo.avif" },

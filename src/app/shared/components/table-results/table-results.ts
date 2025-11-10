@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {TEAMS_INFO} from '../../teams-info';
+import {TEAMS_LOGO} from '../../teams-logo';
 
 @Component({
   selector: 'app-session-result-table',
@@ -23,6 +23,6 @@ export class SessionResultTableComponent {
          (this.sessionCode?.startsWith('S') && !this.sessionCode?.startsWith('SQ'));
   }
 
-  protected readonly TEAMS_INFO = TEAMS_INFO;
+  protected readonly TEAMS_INFO = TEAMS_LOGO;
   protected readonly Math = Math;
 }

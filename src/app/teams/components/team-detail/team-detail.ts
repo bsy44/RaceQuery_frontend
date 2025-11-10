@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { TeamDetailModel } from '../../models/teamDetail.model';
 import { ActivatedRoute } from '@angular/router';
-import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
-import { TEAMS_INFO } from '../../../shared/teams-info';
-import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
-import { NgClass } from '@angular/common';
+import { TEAMS_LOGO } from '../../../shared/teams-logo';
 import { TeamService } from '../../services/team-service';
 import { TeamDriverCard } from '../team-driver-card/team-driver-card';
 import {TeamBanner} from '../team-banner/team-banner';
@@ -21,7 +18,7 @@ import {TeamStats} from '../team-stats/team-stats';
   styleUrl: './team-detail.css',
 })
 export class TeamDetail implements OnInit {
-  protected readonly TEAMS_INFO = TEAMS_INFO;
+  protected readonly TEAMS_INFO = TEAMS_LOGO;
 
   year!: number;
   idTeam!: string;

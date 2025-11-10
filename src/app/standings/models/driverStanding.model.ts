@@ -1,4 +1,4 @@
-import {DriverModel} from './driver.model';
+import {DriverModel} from '../../drivers/models/driver.model';
 
 export interface DriverStandingsModel {
   driverId: DriverModel["driverId"];

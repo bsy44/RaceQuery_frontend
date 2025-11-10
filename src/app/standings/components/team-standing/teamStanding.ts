@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { TableStanding } from '../../../shared/components/table-standing/table-standing';
+import { TableStanding } from '../table-standing/table-standing';
 import { TeamStandingModel } from '../../models/teamStanding.model';
 import {PageHeader} from '../../../shared/components/page-header/page-header';
 
 @Component({
   selector: 'app-team-standing',
-  templateUrl: '../../pages/teamsStanding.html',
+  templateUrl: './teamsStanding.html',
   imports: [
     FormsModule,
     TableStanding,

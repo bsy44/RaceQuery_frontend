@@ -1,5 +1,5 @@
 import {Component, Input, input} from '@angular/core';
-import {TEAMS_INFO} from "../../../shared/teams-info";
+import {TEAMS_LOGO} from "../../../shared/teams-logo";
 
 @Component({
   selector: 'app-race-info',
@@ -12,5 +12,5 @@ export class RaceInfo {
   @Input() poleman!: any
   @Input() fastestLap!: any
 
-    protected readonly TEAMS_INFO = TEAMS_INFO;
+    protected readonly TEAMS_INFO = TEAMS_LOGO;
 }

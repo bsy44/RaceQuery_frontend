@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SessionResultTableComponent } from '../../../shared/components/table-results/table-results';
-import { TEAMS_INFO } from '../../../shared/teams-info'
+import { TEAMS_LOGO } from '../../../shared/teams-logo'
 import {RaceInfo} from '../race-info/race-info';
 import {GoBackButton} from '../../../shared/components/go-back-button/go-back-button';
 
@@ -39,7 +39,7 @@ export class RaceResult implements OnInit {
   winner:any;
   pole: any;
   fastestLap : any;
-  protected readonly TEAMS_INFO = TEAMS_INFO;
+  protected readonly TEAMS_INFO = TEAMS_LOGO;
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router:Router) {}
 
