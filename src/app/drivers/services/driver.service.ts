@@ -2,25 +2,37 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DriverModel } from '../models/driver.model';
 import { Observable } from 'rxjs';
-import {DriverStats} from '../models/driverStats.model';
+import { DriverStats } from '../models/driverStats.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DriverService {
   private API_URL = "http://127.0.0.1:5000/drivers"
+  selectedYear: number = new Date().getFullYear();
+  years: number[] = [];
 
-  constructor(private http: HttpClient) {}
-
-  getAllDrivers(year: number): Observable<DriverModel[]> {
-    return this.http.get<DriverModel[]>(`${this.API_URL}/${year}`)
+  constructor(private http: HttpClient) {
+    const currentYear = new Date().getFullYear();
+    this.years = Array.from(
+      {
+        length: currentYear - 2022 + 1
+      }, (_, i) => 2022 + i).reverse();
   }
 
-  getDriver(year: number, id_number: number): Observable<DriverModel> {
-    return this.http.get<DriverModel>(`${this.API_URL}/${year}/${id_number}`)
+  getAllDrivers(): Observable<DriverModel[]> {
+    return this.http.get<DriverModel[]>(`${this.API_URL}/${this.selectedYear}`)
   }
 
-  getDriverStats(year: number, id_number: number): Observable<DriverStats> {
-    return this.http.get<DriverStats>(`${this.API_URL}/${year}/${id_number}/detail`)
+  getDriver(driver_id: string): Observable<DriverModel> {
+    return this.http.get<DriverModel>(`${this.API_URL}/${this.selectedYear}/${driver_id}`)
+  }
+
+  getDriverStats(driver_id: string): Observable<DriverStats> {
+    return this.http.get<DriverStats>(`${this.API_URL}/${this.selectedYear}/${driver_id}/detail`)
+  }
+
+  setYear(year: number){
+    this.selectedYear = year;
   }
 }

@@ -1,1 +1,15 @@
-<p>driver works!</p>
+<app-page-header
+  [title]="'Pilotes'"
+  [subtitle]="'Saison - ' + selectedYear"
+  [years]="years"
+  [selectedYear]="selectedYear"
+  (selectedYearChange)="onYearChange($event)">
+</app-page-header>
+
+<div class="container">
+  @for (driver of drivers | async; track driver){
+    <app-driver-card
+      [driver]="driver">
+    </app-driver-card>
+  }
+</div>
