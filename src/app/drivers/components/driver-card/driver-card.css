@@ -128,10 +128,16 @@
 
 .williams {
   --team-color: #005aff;
+  .driver-number {
+    font-style: italic;
+  }
 }
 
 .sauber {
   --team-color: #52e252;
+  .driver-number {
+    font-style: italic;
+  }
 }
 
 

@@ -1,8 +1,13 @@
 .container{
-  margin: auto;
+  margin: 0 auto;
   max-width: 1600px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  padding: 0  0 100px 0;
+  padding-bottom: 150px;
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;
 }

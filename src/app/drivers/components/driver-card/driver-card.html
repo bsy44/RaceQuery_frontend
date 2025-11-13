@@ -1,4 +1,5 @@
-  <div class="driver-container">
+<div class="driver-container">
+  @if (driver){
     <a class="link">
       <div class="driver" [ngClass]="driver.team_id">
         <div class="driver-name">
@@ -15,4 +16,5 @@
         </div>
       </div>
     </a>
-  </div>
+  }
+</div>

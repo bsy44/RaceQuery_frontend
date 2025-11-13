@@ -37,7 +37,7 @@
 
 .info-team img {
   width: 60px;
-  height: auto;
+  height: 60px;
 }
 
 .team-drivers {
@@ -104,7 +104,6 @@
 
 .info-team img.rb,
 .info-team img.williams,
-.info-team img.aston_martin,
 .info-team img.alpine,
 .info-team img.mclaren
 { filter: brightness(0) invert(1); }

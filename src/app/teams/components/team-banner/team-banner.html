@@ -3,7 +3,7 @@
 
   <h1 class="team-name">{{ team.Team.constructorName }}</h1>
   <div class="team-identity">
-    <img src="{{ TEAMS_INFO[team.Team.constructorName].logo }}" alt="{{ team.Team.constructorName }}">
+    <img src="/logos/{{ team.Team.constructorId }}.svg" alt="{{ team.Team.constructorName }}">
     <span> | </span>
     <span class="fi fi-{{ NATIONALITY_TO_ISO[team.Team.nationality] }} flag-icon"></span>
   </div>

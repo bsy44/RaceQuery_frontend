@@ -5,7 +5,7 @@
         <div class="info-team">
           <h1 class="team-name">{{ team.constructorName }}</h1>
           <img [ngClass]="team.constructorId"
-               src="{{ TEAMS_INFO[team.constructorName].logo }}"
+               src="/logos/{{ team.constructorId }}.svg"
                alt="{{ team.constructorName }}">
         </div>
 

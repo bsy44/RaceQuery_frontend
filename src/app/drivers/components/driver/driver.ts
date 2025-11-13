@@ -1,37 +1,42 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DriverService } from '../../services/driver.service';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { DriverModel } from '../../models/driver.model';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
-import { AsyncPipe } from '@angular/common';
 import { DriverCard } from '../driver-card/driver-card';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-driver',
   imports: [
     PageHeader,
-    AsyncPipe,
     DriverCard,
+    RouterLink,
   ],
   templateUrl: './driver.html',
-  styleUrl: './driver.css',
+  styleUrls: ['./driver.css'],
+  standalone: true
 })
 export class Driver implements OnInit {
   private driverService = inject(DriverService);
 
-  drivers: Observable<DriverModel[]> = new BehaviorSubject<DriverModel[]>([]);
+  drivers: DriverModel[] = [];
 
   ngOnInit(): void {
-    this.load()
+    if (typeof window !== 'undefined') {
+      this.load();
+    }
   }
+
 
   load(){
-    this.drivers = this.driverService.getAllDrivers()
+    this.driverService.getAllDrivers().subscribe((data) => {
+      this.drivers = data;
+    })
   }
 
-  onYearChange(year: number){
+  onYearChange(year: number): void {
     this.driverService.setYear(year);
-    this.load()
+    this.load();
   }
 
   get years(): number[] {

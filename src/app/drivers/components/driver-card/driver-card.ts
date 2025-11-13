@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {DriverModel} from '../../models/driver.model';
-import {NATIONALITY_TO_ISO} from '../../../shared/nationalities';
-import {NgClass} from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { DriverModel } from '../../models/driver.model';
+import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-driver-card',

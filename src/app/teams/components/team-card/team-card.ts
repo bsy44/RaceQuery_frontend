@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TEAMS_LOGO } from '../../../shared/teams-logo';
 import { TeamModel } from '../../models/team.model';
 import { NgClass } from '@angular/common';
 import { TeamService } from '../../services/team-service';
@@ -13,7 +12,6 @@ import { TeamService } from '../../services/team-service';
   styleUrl: './team-card.css',
 })
 export class TeamCard implements OnInit {
-  protected readonly TEAMS_INFO = TEAMS_LOGO;
   team!: TeamModel;
   @Input()idTeam!: string;
   @Input() year!: number;

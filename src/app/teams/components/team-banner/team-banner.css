@@ -6,7 +6,7 @@
 }
 
 .flag-icon{
-  font-size: 2rem;
+  font-size: 2.25rem;
   padding-left: 10px;
 }
 
@@ -67,7 +67,7 @@
 
 img {
   width: 60px;
-  height: auto;
+  height: 60px;
 }
 
 .mercedes {
@@ -112,7 +112,6 @@ img {
 
 .rb img,
 .williams img,
-.aston_martin img,
 .alpine img,
 .mclaren img
 { filter: brightness(0) invert(1); }

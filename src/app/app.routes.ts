@@ -8,12 +8,14 @@ import { RaceDetail } from './races/components/race-details/race-detail';
 import { Race } from './races/components/race/race';
 import { Team } from './teams/components/team/team';
 import { TeamDetail } from './teams/components/team-detail/team-detail';
-import {Driver} from './drivers/components/driver/driver';
+import { Driver } from './drivers/components/driver/driver';
+import { DriverDetail } from './drivers/components/driver-detail/driver-detail';
 
 export const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch: 'full' },
   {path: 'home', component: Dashboard},
   {path: 'drivers', component: Driver},
+  {path: 'drivers/:driverId', component: DriverDetail},
   {path: 'teams', component: Team},
   {path: 'teams/:season/:teamId', component: TeamDetail},
   {path: 'driver/standings', component: DriverStanding},

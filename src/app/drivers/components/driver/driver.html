@@ -7,9 +7,11 @@
 </app-page-header>
 
 <div class="container">
-  @for (driver of drivers | async; track driver){
-    <app-driver-card
-      [driver]="driver">
-    </app-driver-card>
+  @for (driver of drivers; track driver.driverId) {
+    <a [routerLink]="['/drivers', driver.driverId]" class="link">
+      <app-driver-card
+        [driver]="driver">
+      </app-driver-card>
+    </a>
   }
 </div>
