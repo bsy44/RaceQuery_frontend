@@ -17,9 +17,31 @@
   width: 80%;
   height: 8px;
   margin: 50px auto;
-  background: #ff1e00;
+  background: var(--team-color);
 }
 
 .driver-section{
-  padding: 0 0 50px 0;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.mercedes { --team-color: #00d2be; }
+.ferrari { --team-color: #dc0000; }
+.red_bull { --team-color: #1e41ff; }
+.mclaren { --team-color: #ff8700; }
+.aston_martin { --team-color: #006f62; }
+.alpine { --team-color: #2293d1; }
+.haas { --team-color: #ffffff; }
+.rb { --team-color: #6692ff; }
+.williams { --team-color: #005aff; }
+.sauber { --team-color: #52e252; }

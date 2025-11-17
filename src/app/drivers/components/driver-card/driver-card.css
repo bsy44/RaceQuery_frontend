@@ -13,11 +13,10 @@
   border-radius: 10px;
   padding: 25px;
   cursor: pointer;
-  height: 200px;
+  height: 160px;
   transition: transform 0.3s ease;
 }
 
-/* Motif F1 subtil (ici motif carbone) */
 .driver::before {
   content: "";
   position: absolute;
@@ -37,14 +36,14 @@
   z-index: 1;
 }
 
-
-
-
-
-
-
 .driver:hover {
   transform: translateY(-5px);
+}
+
+.driver-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .driver-number {
@@ -151,4 +150,5 @@
 .williams      { background: linear-gradient(to left, #2e7eff 0%, #0251e1 60%, #003eb5 100%); }
 .alpine        { background: linear-gradient(to left, #78d0ed 0%, #0093CC 60%, #005f87 100%); }
 .sauber        { background: linear-gradient(to left, #72d372 0%, #2b952b 60%, #1a670e 100%); }
-
+.alphatauri    { background: linear-gradient(to left, #00385a 0%, #002841 60%, #001e30 100%); }
+.alfa    { background: linear-gradient(to left, #a3263b 0%, #88172a 60%, #6c0d1d 100%); }

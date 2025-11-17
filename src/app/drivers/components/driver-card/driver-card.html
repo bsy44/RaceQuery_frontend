@@ -8,11 +8,13 @@
         <div class="driver-team">
           <span>{{ driver.team }}</span>
         </div>
-        <div class="driver-nationality">
-          <span class="fi fi-{{ NATIONALITY_TO_ISO[driver.nationality] }} flag-icon"></span>
-        </div>
-        <div class="driver-number">
-          <span>{{ driver.driverNumber }}</span>
+        <div class="driver-info">
+          <div class="driver-nationality">
+            <span class="fi fi-{{ NATIONALITY_TO_ISO[driver.nationality] }} flag-icon"></span>
+          </div>
+          <div class="driver-number">
+            <span>{{ driver.driverNumber }}</span>
+          </div>
         </div>
       </div>
     </a>

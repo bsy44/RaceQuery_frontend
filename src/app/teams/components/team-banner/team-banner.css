@@ -62,8 +62,17 @@
 .team-identity {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
+
+.vertical-separator {
+  display: inline-block;
+  width: 2px;
+  height: 30px;
+  background: white;
+  border-radius: 2px;
+}
+
 
 img {
   width: 60px;

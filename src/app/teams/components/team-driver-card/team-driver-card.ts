@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NATIONALITY_TO_ISO } from "../../../shared/nationalities";
-import { TeamDetailModel } from '../../models/teamDetail.model';
 import { NgClass } from '@angular/common';
+import {DriverModel} from '../../../drivers/models/driver.model';
 
 @Component({
   selector: 'app-team-driver-card',
@@ -13,5 +13,5 @@ import { NgClass } from '@angular/common';
 })
 export class TeamDriverCard {
   protected readonly NATIONALITY_TO_ISO = NATIONALITY_TO_ISO;
-  @Input() team!: TeamDetailModel
+  @Input() driver!: DriverModel;
 }

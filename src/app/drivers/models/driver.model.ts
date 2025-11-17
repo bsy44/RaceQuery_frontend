@@ -4,7 +4,7 @@ export interface DriverModel {
   nationality: string;
   code: string;
   driverNumber: string;
-  dateOfBirth: string | null;
+  date_of_birth: string | null;
   team: string | null;
   team_id: string | null;
 }

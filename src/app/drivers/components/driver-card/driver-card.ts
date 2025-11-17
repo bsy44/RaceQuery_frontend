@@ -12,7 +12,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './driver-card.css',
 })
 export class DriverCard {
+  protected readonly NATIONALITY_TO_ISO = NATIONALITY_TO_ISO;
   @Input() driver!: DriverModel;
 
-  protected readonly NATIONALITY_TO_ISO = NATIONALITY_TO_ISO;
 }

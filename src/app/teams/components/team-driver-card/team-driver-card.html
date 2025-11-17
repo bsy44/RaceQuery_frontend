@@ -1,22 +1,20 @@
 <div class="team-drivers">
   <div class="driver-container">
-    @for (driver of team.Team.drivers; track driver){
-      <a class="link">
-        <div class="driver" [ngClass]="team.Team.constructorId">
-          <div class="driver-name">
-            <span>{{ driver.fullName }}</span>
-          </div>
-          <div class="driver-team">
-            <span>{{ team.Team.constructorName }}</span>
-          </div>
-          <div class="driver-nationality">
-            <span class="fi fi-{{ NATIONALITY_TO_ISO[driver.nationality] }} flag-icon"></span>
-          </div>
-          <div class="driver-number">
-            <span>{{ driver.driverNumber }}</span>
-          </div>
+    <a class="link">
+      <div class="driver" [ngClass]="driver.team_id">
+        <div class="driver-name">
+          <span>{{ driver.fullName }}</span>
         </div>
-      </a>
-    }
+        <div class="driver-team">
+          <span>{{driver.team }}</span>
+        </div>
+        <div class="driver-nationality">
+          <span class="fi fi-{{ NATIONALITY_TO_ISO[driver.nationality] }} flag-icon"></span>
+        </div>
+        <div class="driver-number">
+          <span>{{ driver.driverNumber }}</span>
+        </div>
+      </div>
+    </a>
   </div>
 </div>

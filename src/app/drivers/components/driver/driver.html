@@ -8,7 +8,7 @@
 
 <div class="container">
   @for (driver of drivers; track driver.driverId) {
-    <a [routerLink]="['/drivers', driver.driverId]" class="link">
+    <a routerLink="{{ driver.driverId }}" class="link">
       <app-driver-card
         [driver]="driver">
       </app-driver-card>

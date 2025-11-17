@@ -1,5 +1,4 @@
 <div class="container">
-
   @if (team){
     <app-team-banner
     [team]="team">
@@ -7,12 +6,16 @@
 
     <h1 class="section-title">Pilotes</h1>
     <div class="driver-section">
-      <app-team-driver-card
-        [team]="team">
-      </app-team-driver-card>
+      @for (driver of team.Team.drivers; track driver.driverId) {
+        <a [routerLink]="['/drivers', driver.driverId]" class="link">
+          <app-team-driver-card
+            [driver]="driver">
+          </app-team-driver-card>
+        </a>
+      }
     </div>
 
-    <span class="separator"></span>
+    <span class="separator" [ngClass]="team.Team.constructorId"></span>
 
     <h1 class="section-title">Statistique saison - {{ year }}</h1>
     <app-team-stats
