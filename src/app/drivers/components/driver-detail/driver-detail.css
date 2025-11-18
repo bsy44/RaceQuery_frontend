@@ -9,9 +9,16 @@
   gap: 2rem;
 }
 
+.driver-name{
+  margin: 0 0 5px 0;
+}
+
+.driver-info{
+  display: grid;
+  gap: 10px;
+}
+
 .driver-img {
-  width: 300px;
-  height: 210px;
   overflow: hidden;
   position: relative;
 }
@@ -24,12 +31,35 @@
 
 
 .driver-team-img {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
 }
 
 .flag-icon{
   font-size: 3rem;
+}
+
+.driver-team-identity{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.driver-number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--driver-number);
+}
+
+.field-title{
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.field{
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 .separator {
@@ -37,41 +67,9 @@
   width: 80%;
   height: 10px;
   margin: 50px auto;
-  background: var(--team-color);
   border-radius: 3px;
+  background: var(--team-color);
 }
-
-
-.mercedes { --team-color: #00d2be; --team-color-dark: #008f84; --driver-number: #008f84; }
-.ferrari { --team-color: #dc0000; --team-color-dark: #9f0000; --driver-number: #fff; }
-.red_bull { --team-color: #1e41ff; --team-color-dark: #102080; --driver-number: #e4202d; letter-spacing: -6px;}
-.mclaren { --team-color: #ff8700; --team-color-dark: #cc5f00; --driver-number: #000; }
-.aston_martin { --team-color: #006f62; --team-color-dark: #004c44; --driver-number: #fff; }
-.alpine { --team-color: #2293d1; --team-color-dark: #116699; --driver-number: #fff; }
-.haas { --team-color: #ffffff; --team-color-dark: #cccccc; --driver-number: #D3172B; }
-.rb { --team-color: #6692ff; --team-color-dark: #3d65c6; --driver-number: #fff; }
-.williams { --team-color: #005aff; --team-color-dark: #003f9f; --driver-number: #fff; }
-.sauber { --team-color: #52e252; --team-color-dark: #2fa22f; --driver-number: #000; }
-.alphatauri { --team-color: #002841; --team-color-dark: #001e30; filter: brightness(0) invert(1);}
-
-.pos-1 .pos {
-  background: linear-gradient(45deg, #ffd700, #ffef8a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.pos-2 .pos {
-  background: linear-gradient(45deg, #c0c0c0, #f5f5f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.pos-3 .pos {
-  background: linear-gradient(45deg, #CD7F32, #cd9054);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 
 .driver-standing{
   padding-bottom: 50px;
@@ -141,3 +139,41 @@
   }
 }
 
+.pos-1 .pos {
+  background: linear-gradient(45deg, #ffd700, #ffef8a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pos-2 .pos {
+  background: linear-gradient(45deg, #c0c0c0, #f5f5f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pos-3 .pos {
+  background: linear-gradient(45deg, #CD7F32, #cd9054);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mercedes {--team-color: #00d2be; .driver-number {color: #000000;-webkit-text-stroke: 2px white;} }
+.ferrari { --team-color: #dc0000; --driver-number: #fff; }
+.red_bull {--team-color: #1e41ff; --driver-number: #e4202d; .driver-number{ letter-spacing: -6px;}}
+.mclaren { --team-color: #ff8700; --driver-number: #ff8700; }
+.aston_martin { --team-color: #006f62; --driver-number: #fff; }
+.alpine { --team-color: #2293d1; --driver-number: #fff; .driver-number{ -webkit-text-stroke: 2px #f38fb9 }}
+.haas { --team-color: #ffffff; --driver-number: #D3172B; }
+.rb {--team-color: #6692ff;
+  .driver-number {color: #fff; -webkit-text-stroke: 2px var(--team-color);letter-spacing: -8px;}
+  .driver-team-img{filter: brightness(0) invert(1);}
+}
+.williams { --team-color: #005aff; --driver-number: #fff; .driver-number{ font-style: italic }}
+.sauber { --team-color: #52e252; --driver-number: #52e252; .driver-number{ font-style: italic } }
+.alphatauri { --team-color: #002841; .driver-team-img{ filter: brightness(0) invert(1);} }
+.alfa {
+  --team-color: #88172a;
+  --driver-number: #88172a;
+  .driver-team-img{ filter: brightness(0) invert(1);}
+  .driver-number{font-style: italic}
+}

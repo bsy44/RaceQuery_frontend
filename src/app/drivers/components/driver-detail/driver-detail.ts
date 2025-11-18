@@ -5,6 +5,7 @@ import { DriverStats } from '../../models/driverStats.model';
 import { DatePipe, NgClass } from '@angular/common';
 import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
 import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
+import {format} from 'node:url';
 
 @Component({
   selector: 'app-driver-standing-detail',
@@ -52,4 +53,6 @@ export class DriverDetail implements OnInit {
   onImageError(event: any) {
     event.target.src = '/drivers/default.avif';
   }
+
+  protected readonly format = format;
 }

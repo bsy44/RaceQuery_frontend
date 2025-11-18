@@ -88,7 +88,7 @@
 
 .mclaren {
   --team-color: #ff8700;
-  --driver-number: rgb(249, 247, 245);
+  --driver-number: rgba(232, 232, 232, 0.91);
 }
 
 .aston_martin {
@@ -117,10 +117,10 @@
 
 .rb {
   --team-color: #6692ff;
-  --driver-number : #3d65c6;
+  --driver-number : #5077d8;
   .driver-number {
     color: #fff;
-    -webkit-text-stroke: 2px var(--team-color);
+    -webkit-text-stroke: 2px var(--driver-number);
     letter-spacing: -8px;
   }
 }

@@ -3,7 +3,7 @@
 
 <div class="container">
   @if (driver){
-    <div class="driver-profil">
+    <div class="driver-profil" [ngClass]="driver.Driver.team_id">
       <div class="driver-img">
         @if (driver.Driver.driverId){
           <img
@@ -15,32 +15,30 @@
       <div class="driver-info">
         <h1 class="driver-name">{{ driver.Driver.fullName }}</h1>
 
+        <div class="driver-age">
+          <span class="field-title">Date de naissance : </span>
+          <span class="field">
+            {{ driver.Driver.date_of_birth | date: "dd/MM/yyyy" }}
+            ({{ driver.Driver.date_of_birth ? getAge(driver.Driver.date_of_birth) : 'N/A' }} ans)
+          </span>
+        </div>
+
         <div class="driver-nationality">
           <span class="fi fi-{{ NATIONALITY_TO_ISO[driver.Driver.nationality] }} flag-icon"></span>
         </div>
 
-        <div class="driver-code">
-          {{ driver.Driver.code }}
-        </div>
+        <div class="driver-team-identity">
+          <div class="driver-number">
+            {{ driver.Driver.driverNumber }}
+          </div>
 
-        <div class="driver-number" [ngClass]="driver.Driver.team_id">
-          {{ driver.Driver.driverNumber }}
+          <img src="/logos/{{ driver.Driver.team_id }}.svg" alt="{{ driver.Driver.team_id }}" class="driver-team-img">
         </div>
-
-        <img src="/logos/{{ driver.Driver.team_id }}.svg" alt="{{ driver.Driver.team_id }}" class="driver-team-img" [ngClass]="driver.Driver.team_id">
 
         <div class="driver-team">
-          <span>Ecurie : </span>
-          <span>
+          <span class="field-title">Ecurie : </span>
+          <span class="field">
             {{ driver.Driver.team }}
-          </span>
-        </div>
-
-        <div class="driver-age">
-          <span>Date de naissance : </span>
-          <span>
-            {{ driver.Driver.date_of_birth | date }}
-            ({{ driver.Driver.date_of_birth ? getAge(driver.Driver.date_of_birth) : 'N/A' }} ans)
           </span>
         </div>
       </div>
