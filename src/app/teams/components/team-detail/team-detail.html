@@ -7,7 +7,7 @@
     <h1 class="section-title">Pilotes</h1>
     <div class="driver-section">
       @for (driver of team.Team.drivers; track driver.driverId) {
-        <a [routerLink]="['/drivers', driver.driverId]" class="link">
+        <a [routerLink]="['/drivers', year, driver.driverId]" class="link">
           <app-team-driver-card
             [driver]="driver">
           </app-team-driver-card>

@@ -5,7 +5,6 @@ import { DriverStats } from '../../models/driverStats.model';
 import { DatePipe, NgClass } from '@angular/common';
 import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
 import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
-import {format} from 'node:url';
 
 @Component({
   selector: 'app-driver-standing-detail',
@@ -21,6 +20,7 @@ export class DriverDetail implements OnInit {
   protected readonly NATIONALITY_TO_ISO = NATIONALITY_TO_ISO;
   private driverService = inject(DriverService);
   driverId!: string;
+  season!: number;
   driver!: DriverStats;
 
   constructor(
@@ -28,8 +28,9 @@ export class DriverDetail implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.season = this.route.snapshot.params['season'];
     this.driverId = this.route.snapshot.params['driverId'];
-    this.driverService.getDriverStats(this.driverId).subscribe((data) => {
+    this.driverService.getDriverStats(this.season, this.driverId).subscribe((data) => {
        this.driver = data
     });
   }
@@ -46,13 +47,7 @@ export class DriverDetail implements OnInit {
     return age;
   }
 
-  getYear(): number{
-    return this.driverService.selectedYear
-  }
-
   onImageError(event: any) {
     event.target.src = '/drivers/default.avif';
   }
-
-  protected readonly format = format;
 }
