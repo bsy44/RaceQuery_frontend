@@ -4,9 +4,14 @@
 }
 
 .driver-profil {
+  width: 85%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  border-radius: 10px;
 }
 
 .driver-name{
@@ -15,24 +20,22 @@
 
 .driver-info{
   display: grid;
-  gap: 10px;
-}
-
-.driver-img {
-  overflow: hidden;
-  position: relative;
+  gap: 8px;
 }
 
 .driver-img img {
-  width: 100%;
-  height: auto;
+  width: 320px;
+  height: 240px;
   object-fit: cover;
+  object-position: top;
 }
 
-
 .driver-team-img {
+  padding-right: 40px;
   width: 65px;
   height: 65px;
+  margin-left: auto;
+  align-self: flex-start;
 }
 
 .flag-icon{
@@ -64,7 +67,7 @@
 
 .separator {
   display: block;
-  width: 80%;
+  width: 85%;
   height: 10px;
   margin: 50px auto;
   border-radius: 3px;

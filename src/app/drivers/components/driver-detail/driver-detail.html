@@ -5,11 +5,7 @@
   @if (driver){
     <div class="driver-profil" [ngClass]="driver.Driver.team_id">
       <div class="driver-img">
-        @if (driver.Driver.driverId){
-          <img
-            [src]="'/drivers/' + driver.Driver.driverId + '.avif'"
-            (error)="onImageError($event)">
-        }
+        <img src="/drivers/{{ season }}/{{ driverId }}.png" alt="{{ driverId }}">
       </div>
 
       <div class="driver-info">
@@ -31,22 +27,22 @@
           <div class="driver-number">
             {{ driver.Driver.driverNumber }}
           </div>
-
-          <img src="/logos/{{ driver.Driver.team_id }}.svg" alt="{{ driver.Driver.team_id }}" class="driver-team-img">
         </div>
 
         <div class="driver-team">
-          <span class="field-title">Ecurie : </span>
+          <span class="field-title">Écurie : </span>
           <span class="field">
             {{ driver.Driver.team }}
           </span>
         </div>
       </div>
+
+      <img src="/logos/{{ driver.Driver.team_id }}.svg" alt="{{ driver.Driver.team_id }}" class="driver-team-img">
     </div>
 
     <span class="separator" [ngClass]="driver.Driver.team_id"></span>
 
-    <h1>Statistique saison - {{ season }}</h1>
+    <h1>Statistique - {{ season }}</h1>
     <div class="driver-stats">
       <div class="stat-container">
         <div class="driver-standing">
