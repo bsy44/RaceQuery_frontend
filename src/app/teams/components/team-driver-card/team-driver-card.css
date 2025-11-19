@@ -118,3 +118,13 @@
     font-style: italic;
   }
 }
+
+.alphatauri{
+  --team-color: #002841;
+
+}
+
+.alfa{
+  --team-color: #88172a;
+  --driver-number : #88172a;
+}

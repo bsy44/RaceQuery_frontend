@@ -22,10 +22,7 @@
     </div>
 
     <div class="team-car" [ngClass]="team.constructorId">
-      <img
-        [src]="getCarImagePath(team.constructorId)"
-        alt="{{ team.constructorId }} car"
-        (error)="onImageError($event, team.constructorId)">
+      <img src="/team-car/{{ year }}/{{ team.constructorId }}.avif" alt="{{ team.constructorId }} car">
     </div>
   }
 </div>

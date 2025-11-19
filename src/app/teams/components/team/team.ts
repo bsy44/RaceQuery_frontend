@@ -25,8 +25,8 @@ export class Team implements OnInit {
   ngOnInit() {
     const currentYear = new Date().getFullYear();
     this.years = Array.from({
-      length: currentYear - 2024 + 1
-    }, (_, i) => 2024 + i).reverse();
+      length: currentYear - 2022 + 1
+    }, (_, i) => 2022 + i).reverse();
 
     this.loadTeams()
   }

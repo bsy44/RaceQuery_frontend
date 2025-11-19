@@ -89,6 +89,8 @@
 .card-header.williams      { background-color: #5ab1e6; }
 .card-header.alpine        { background-color: #0093CC; }
 .card-header.sauber        { background-color: #42ca42; }
+.card-header.alphatauri    { background-color: #002841; }
+.card-header.alfa          { background-color: #88172a; }
 
 .team-car.mclaren       { background: linear-gradient(to bottom, #ffb366, #FF8000); }
 .team-car.ferrari       { background: linear-gradient(to bottom, #ff5c5c, #E80020); }
@@ -100,11 +102,15 @@
 .team-car.williams      { background: linear-gradient(to bottom, #9de0ff, #64C4FF); }
 .team-car.alpine        { background: linear-gradient(to bottom, #4cb6e0, #0093CC); }
 .team-car.sauber        { background: linear-gradient(to bottom, #94f594, #52E252); }
+.team-car.alfa          { background: linear-gradient(to bottom, #9f1f34, #88172a); }
+.team-car.alphatauri    { background: linear-gradient(to bottom, #033859, #002841); }
 
 
 .info-team img.rb,
 .info-team img.williams,
 .info-team img.alpine,
-.info-team img.mclaren
+.info-team img.mclaren,
+.info-team img.alfa,
+.info-team img.alphatauri
 { filter: brightness(0) invert(1); }
 

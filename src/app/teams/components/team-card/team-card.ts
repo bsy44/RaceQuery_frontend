@@ -24,17 +24,4 @@ export class TeamCard implements OnInit {
     });
   }
 
-  getCarImagePath(constructorId: string): string  | undefined {
-    return `team-car/${this.year}-${constructorId}-car.avif`;
-  }
-
-  onImageError(event: Event, constructorId: string) {
-    const img = event.target as HTMLImageElement;
-    if (img.src.endsWith('.avif')) {
-      img.src = `team-car/${this.year}-${constructorId}-car.png`;
-    } else {
-      img.style.display = 'none';
-    }
-  }
-
 }
