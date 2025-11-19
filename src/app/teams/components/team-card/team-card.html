@@ -22,7 +22,7 @@
     </div>
 
     <div class="team-car" [ngClass]="team.constructorId">
-      <img src="/team-car/{{ year }}/{{ team.constructorId }}.avif" alt="{{ team.constructorId }} car">
+      <img src="/team-car/{{ getYear() }}/{{ team.constructorId }}.avif" alt="{{ team.constructorId }} car">
     </div>
   }
 </div>

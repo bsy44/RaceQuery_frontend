@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { TeamModel } from '../../models/team.model';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
 import { TeamCard } from '../team-card/team-card';
@@ -17,24 +17,28 @@ import { TeamService } from '../../services/team-service';
 })
 export class Team implements OnInit {
   teamList: TeamModel[] = [];
-  years: number[] = [];
-  selectedYear: number = new Date().getFullYear();
-
-  constructor(private teamService: TeamService) {}
+  private teamService = inject(TeamService);
 
   ngOnInit() {
-    const currentYear = new Date().getFullYear();
-    this.years = Array.from({
-      length: currentYear - 2022 + 1
-    }, (_, i) => 2022 + i).reverse();
-
-    this.loadTeams()
+    this.load()
   }
 
-  loadTeams() {
-    this.teamService.listTeams(this.selectedYear).subscribe((result) => {
+  load() {
+    this.teamService.listTeams().subscribe((result) => {
       this.teamList = result;
     });
   }
 
+  onYearChange(year: number): void {
+    this.teamService.setYear(year);
+    this.load();
+  }
+
+  get years(): number[] {
+    return this.teamService.years;
+  }
+
+  get selectedYear(): number {
+    return this.teamService.selectedYear;
+  }
 }

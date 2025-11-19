@@ -3,24 +3,36 @@ import { HttpClient } from '@angular/common/http';
 import { TeamModel } from '../models/team.model';
 import { Observable } from 'rxjs';
 import { TeamDetailModel } from '../models/teamDetail.model';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamService {
-  private apiUrl = 'http://127.0.0.1:5000/teams';
+  private apiUrl = environment.API_URL;
+  years: number[] = [];
+  selectedYear: number = new Date().getFullYear();
 
-  constructor(private http: HttpClient) {}
-
-  listTeams(year: number): Observable<TeamModel[]> {
-    return this.http.get<TeamModel[]>(`${this.apiUrl}/${year}`);
+  constructor(private http: HttpClient) {
+    const currentYear = new Date().getFullYear();
+    this.years = Array.from({
+      length: currentYear - 2022 + 1
+    }, (_, i) => 2022 + i).reverse();
   }
 
-  getTeam(teamId: string, year: number): Observable<TeamModel> {
-    return this.http.get<TeamModel>(`${this.apiUrl}/${year}/${teamId}`);
+  listTeams(): Observable<TeamModel[]> {
+    return this.http.get<TeamModel[]>(`${this.apiUrl}/teams/${this.selectedYear}`);
   }
 
-  getTeamDetail(teamId: string, year: number): Observable<TeamDetailModel> {
-    return this.http.get<TeamDetailModel>(`${this.apiUrl}/${year}/${teamId}/info`);
+  getTeam(teamId: string): Observable<TeamModel> {
+    return this.http.get<TeamModel>(`${this.apiUrl}/teams/${this.selectedYear}/${teamId}`);
+  }
+
+  getTeamDetail(teamId: string, season: number): Observable<TeamDetailModel> {
+    return this.http.get<TeamDetailModel>(`${this.apiUrl}/teams/${season}/${teamId}/info`);
+  }
+
+  setYear(year: number){
+    this.selectedYear = year;
   }
 }

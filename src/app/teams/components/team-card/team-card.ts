@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import { TeamModel } from '../../models/team.model';
 import { NgClass } from '@angular/common';
 import { TeamService } from '../../services/team-service';
@@ -13,15 +13,18 @@ import { TeamService } from '../../services/team-service';
 })
 export class TeamCard implements OnInit {
   team!: TeamModel;
+  private readonly teamService = inject(TeamService)
   @Input()idTeam!: string;
-  @Input() year!: number;
 
-  constructor(private teamService: TeamService) {}
 
   ngOnInit() {
-    this.teamService.getTeam(this.idTeam, this.year).subscribe((result) => {
+    this.teamService.getTeam(this.idTeam).subscribe((result) => {
       this.team = result
     });
+  }
+
+  getYear(): number {
+    return this.teamService.selectedYear;
   }
 
 }
