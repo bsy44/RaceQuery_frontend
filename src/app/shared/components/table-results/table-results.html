@@ -70,15 +70,29 @@
                 <span>
                   {{
                     r.position > 1
-                      ? "+ " + r.time + (r.time.includes('Tour') ? '' : ' s')
+                      ? (r.time.startsWith('+') ? r.time : '+ ' + r.time + (r.time.includes('Tour') ? '' : ' s'))
                       : r.time
                   }}
                 </span>
-              } @else {
-                <span>{{ r.status }}</span>
+              }
+              @else {
+
+                @if (r.status === 'Disqualified') {
+                  <span class="tag-disqualified">DISQUALIFIÉ</span>
+
+                } @else if (
+                  r.status !== 'Finished' &&
+                  r.status !== 'Lapped' &&
+                  !r.status.includes('+1Lap') &&
+                  !r.status.toLowerCase().includes('lap') &&
+                  r.status !== 'Lap'
+                ) {
+                  <span class="tag-abandon">ABANDON</span>
+                } @else {
+                  <span>{{ r.status }}</span>
+                }
               }
             </td>
-
             <td class="txt-center">{{ r.points }}</td>
           }
         </tr>

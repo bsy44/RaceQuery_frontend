@@ -1,9 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RaceCard } from '../race-card/race-card';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
+import { RaceService } from '../../services/race-service';
+import { RaceModel } from '../../models/race.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -12,75 +14,46 @@ import { PageHeader } from '../../../shared/components/page-header/page-header';
     CommonModule,
     FormsModule,
     RaceCard,
-    PageHeader
+    PageHeader,
+    RouterLink
   ],
-  templateUrl: '../../pages/races.html',
+  templateUrl: './races.html',
   styleUrl: './race.css'
 })
 
 export class Race implements OnInit{
-  years: number [] = [];
-  raceList: any[] = [];
-  selectedYear: number = new Date().getFullYear();
-
-  constructor(private http:HttpClient) {}
+  private readonly raceService = inject(RaceService);
+  raceList: RaceModel[] = [];
 
   ngOnInit() {
-    const currentYear = new Date().getFullYear();
-    this.years = Array.from({length: currentYear - 2024 + 1}, (_, i) => 2024 + i).reverse();
-    this.getRaces();
+    this.load();
   }
 
-
-  getRaces() {
-    this.http.get(`http://127.0.0.1:5000/events/${this.selectedYear}`).subscribe((result: any) => {
-
-      const formatDateRange = (
-        sessions: any[] | undefined,
-        raceEndStr: string | null | undefined
-      ): string => {
-        if (!sessions || sessions.length === 0) return '—';
-
-        const fp1 = sessions.find((s: any) => s.name?.toLowerCase().includes('fp1')) || sessions[0];
-        const startStr = fp1?.local_date;
-        const endStr = raceEndStr;
-
-        if (!startStr || !endStr) return '—';
-
-        const start = new Date(startStr.replace(' ', 'T'));
-        const end = new Date(endStr.replace(' ', 'T'));
-
-        if (isNaN(start.getTime()) || isNaN(end.getTime())) return '—';
-
-        const startDay = start.getDate().toString().padStart(2, '0');
-        const endDay = end.getDate().toString().padStart(2, '0');
-        const month = end.toLocaleDateString('fr-FR', { month: 'short' })
-          .replace('.', '')
-          .toUpperCase();
-
-        return `${startDay} - ${endDay} ${month}`;
-      };
-
-      this.raceList = (result || []).map((race: any) => {
-        const fp1Session = race.sessions?.find((s: any) => {
-          const name = s.name?.toLowerCase().replace(/\s+/g, '');
-          return name === 'practice1' || name === 'fp1';
-        });
-
-        const fp1Date = fp1Session ? new Date(fp1Session.utc_date) : null;
-        const raceStarted = fp1Date ? fp1Date.getTime() < Date.now() : false;
-
-        return {
-          circuitName: race.circuit_name,
-          country: race.country,
-          eventDate: formatDateRange(race.sessions, race.event_date),
-          location: race.location,
-          round: race.round,
-          gpName: race.short_name,
-          eventFormat: race.event_format,
-          isFinished: raceStarted,
-        };
-      });
+  load(){
+    this.raceService.getAll().subscribe((result) => {
+      this.raceList = result;
     });
+  }
+
+  onYearChange(year: number): void {
+    this.raceService.setYear(year);
+    this.load();
+  }
+
+  get years(): number[] {
+    return this.raceService.years;
+  }
+
+  get selectedYear(): number {
+    return this.raceService.selectedYear;
+  }
+
+  slugify(name: string): string {
+    return name
+      .toLowerCase()
+      .normalize('NFD')                 // enlève les accents
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')     // remplace tout ce qui n’est pas lettre ou chiffre par "-"
+      .replace(/^-+|-+$/g, '');        // retire les tirets en trop
   }
 }

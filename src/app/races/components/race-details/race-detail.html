@@ -1,15 +1,18 @@
-@if (raceData) {
+@if (race) {
   <div class="container">
     <div class="page-header">
       <app-go-back-button></app-go-back-button>
 
       <div class="titles">
-        <h1 class="page-title">{{ raceData.gpName }} - {{ season }}</h1>
-        <h3 class="subtitle">Manche {{ raceData.round }}</h3>
+        <h1 class="page-title">{{ race.gpName }} - {{ season }}</h1>
+        <h3 class="subtitle">Manche {{ race.round }}</h3>
       </div>
     </div>
 
-    @for (session of raceData.sessions; track session; let i = $index) {
+    <div>  {{ race.circuit_name }}
+    </div>
+
+    @for (session of race.sessions; track session; let i = $index) {
       <app-race-detail-card
       [sessionName]="session.name"
       [sessionDate]="session.utc_date"

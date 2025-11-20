@@ -1,25 +1,20 @@
-<div [routerLink]="raceIsFinished
-        ? ['/race', selectedYear, slugify(raceGpName), 'results']
-        : ['/race', selectedYear, slugify(raceGpName), 'details']"
-     [state]="{ round: raceRound, race: raceGpName }"
-     class="card">
-
-  @if (raceEventFormat === "sprint_qualifying"){
+<div class="card">
+  @if (race.eventFormat.includes("sprint")){
     <span class="sprint-badge">SPRINT</span>
   }
   <div class="card-header">
-    <div class="card-round">Manche {{ raceRound }}</div>
+    <div class="card-round">Manche {{ race.round }}</div>
     <div class="card-date">
-      <i class="fa-solid fa-flag-checkered"></i> {{ raceEventDate }}
+      <i class="fa-solid fa-flag-checkered"></i> {{ race.eventDate }}
     </div>
   </div>
   <div class="card-content">
     <div class="card-flag">
-      <span [class]="'fi fi-' + getFlagClass(raceCountry)"></span>
+      <span [class]="'fi fi-' + COUNTRY_TO_ISO[race.country]"></span>
     </div>
     <div class="card-text">
-      <h2 class="card-title">{{ raceGpName }}</h2>
-      <div class="card-locality">{{ raceLocation }}</div>
+      <h2 class="card-title">{{ race.gpName }}</h2>
+      <div class="card-locality">{{ race.location }}</div>
     </div>
   </div>
 </div>

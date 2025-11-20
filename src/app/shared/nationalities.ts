@@ -45,6 +45,9 @@ export const COUNTRY_TO_ISO: Record<string, string> = {
   "Mexico": "mx",
   "Brazil": "br",
   "Qatar": "qa",
-  "United Arab Emirates": "ae"
+  "United Arab Emirates": "ae",
+  "Abu Dhabi": "ae",
+  "France": "fr",
+  "Great Britain": "gb"
 };
 

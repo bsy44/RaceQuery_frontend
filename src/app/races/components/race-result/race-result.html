@@ -1,8 +1,10 @@
 <div class="container">
-  <div class="page-header">
-    <app-go-back-button></app-go-back-button>
-    <h1 class="page-title">{{ eventInfo }} - {{ season }}</h1>
-  </div>
+  @if (race) {
+    <div class="page-header">
+      <app-go-back-button></app-go-back-button>
+      <h1 class="page-title">{{ race.gpName }} - {{ getSeason() }}</h1>
+    </div>
+  }
 
   <app-race-info
     [winner]="winner"
