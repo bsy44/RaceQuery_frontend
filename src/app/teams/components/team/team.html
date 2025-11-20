@@ -7,7 +7,7 @@
 </app-page-header>
 
 <div class="container">
-  @for (team of teamList; track team){
+  @for (team of teamList; track team.constructorId){
     <a routerLink='{{ selectedYear }}/{{ team.constructorId }}' class="link">
       <app-team-card
         [idTeam]="team.constructorId">

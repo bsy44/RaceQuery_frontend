@@ -56,7 +56,7 @@
 .team-car {
   position: relative;
   overflow: hidden;
-  padding: 25px;
+  padding: 20px;
 }
 
 .team-car::before {
@@ -73,7 +73,7 @@
 .team-car img {
   position: relative;
   z-index: 1;
-  width: 380px;
+  width: 400px;
   height: auto;
   max-width: 100%;
 }
