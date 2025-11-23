@@ -1,0 +1,40 @@
+.driver-result {
+  text-align: center;
+}
+
+.driver-result table {
+  border-collapse: collapse;
+}
+
+.driver-label{
+  font-weight: 700;
+}
+
+th:first-child{
+  border: none;
+}
+
+th, td {
+  border: 1px solid #666;
+  padding: 8px;
+
+}
+
+pos {
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.pos[data-pos="1"] {
+  color: #f5c400;
+}
+
+.pos[data-pos="2"] {
+  color: #C0C0C0;
+}
+
+.pos[data-pos="3"] {
+  color: #b06f2d;
+}

@@ -1,0 +1,35 @@
+<div class="driver-result">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        @if (seasonResult) {
+          @for (gp of seasonResult.gps; track gp) {
+            <th>
+              <span class="fi fi-{{ getFlag(gp) }} race-country"></span>
+
+              {{ gp.slice(0,3) }}
+            </th>
+          }
+        }
+      </tr>
+    </thead>
+
+    <tbody>
+      @if (seasonResult) {
+        @for (driver of seasonResult.driver; track driver) {
+          <tr>
+            <td class="driver-label">{{ driver }}</td>
+
+            @for (gp of seasonResult.gps; track gp) {
+              <td class="pos"
+                  [attr.data-pos]="seasonResult.results[driver][gp]">
+                {{ seasonResult.results[driver][gp] }}
+              </td>
+            }
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>

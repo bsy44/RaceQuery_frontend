@@ -14,4 +14,5 @@ export interface DriverStats{
   sprint_pole: number;
   avg_race_finish: number;
   avg_qualifying_finish: number;
+  best_result: number;
 }

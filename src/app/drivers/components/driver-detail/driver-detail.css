@@ -74,8 +74,14 @@
   background: var(--team-color);
 }
 
+.driver-result-container{
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
 .driver-standing{
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 .driver-stats {

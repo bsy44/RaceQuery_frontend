@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { RaceModel } from '../models/race.model';
 import { map, Observable } from 'rxjs';
-import { formatDateRange } from '../components/utils/race-utils';
+import { formatDateRange } from '../utils/race-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class RaceService {
   }
 
   getSessionResults(session: string, round: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/races/${session}-results/${this.selectedYear}/${round}`);
+    return this.http.get<any>(`${this.apiUrl}/races/${this.selectedYear}/${round}/${session}-results`);
   }
 
   setYear(year: number){

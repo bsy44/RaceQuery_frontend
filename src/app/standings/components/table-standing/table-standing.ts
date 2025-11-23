@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
-import {TEAMS_LOGO} from "../../../shared/teams-logo";
+import { NAME_TO_ISO } from '../../../shared/nationalities';
+import { TEAMS_LOGO } from "../../../shared/teams-logo";
 
 @Component({
   selector: 'app-table-standing',
@@ -15,9 +15,11 @@ export class TableStanding {
   @Input() data: any[] = [];
   @Input() tableType: 'drivers' | 'teams' = 'drivers';
   protected readonly TEAMS_INFO = TEAMS_LOGO;
+  protected readonly Math = Math;
+
 
   getDriverFlag(driverNationality: string): string {
-    return NATIONALITY_TO_ISO[driverNationality] || 'un';
+    return NAME_TO_ISO[driverNationality] || 'un';
   }
 
   getLastName(fullName: string): string {
@@ -26,5 +28,4 @@ export class TableStanding {
     return parts[parts.length - 1];
   }
 
-  protected readonly Math = Math;
 }

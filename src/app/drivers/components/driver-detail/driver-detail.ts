@@ -3,24 +3,29 @@ import { DriverService } from '../../services/driver.service';
 import { ActivatedRoute } from '@angular/router';
 import { DriverStats } from '../../models/driverStats.model';
 import { DatePipe, NgClass } from '@angular/common';
-import { NATIONALITY_TO_ISO } from '../../../shared/nationalities';
+import { NAME_TO_ISO } from '../../../shared/nationalities';
 import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
+import { SeasonResult } from '../../models/season-result.model';
+import { RaceTableResult } from '../race-table-result/race-table-result';
+import { getIsoFromGpName } from '../../utils/driver-utils';
 
 @Component({
   selector: 'app-driver-standing-detail',
   imports: [
     DatePipe,
     NgClass,
-    GoBackButton
+    GoBackButton,
+    RaceTableResult
   ],
   templateUrl: './driver-detail.html',
   styleUrl: './driver-detail.css',
 })
 export class DriverDetail implements OnInit {
-  protected readonly NATIONALITY_TO_ISO = NATIONALITY_TO_ISO;
+  protected readonly NAME_TO_ISO = NAME_TO_ISO;
   private driverService = inject(DriverService);
   driverId!: string;
   season!: number;
+  seasonResult!: SeasonResult;
   driver!: DriverStats;
 
   constructor(
@@ -30,9 +35,17 @@ export class DriverDetail implements OnInit {
   ngOnInit() {
     this.season = this.route.snapshot.params['season'];
     this.driverId = this.route.snapshot.params['driverId'];
+    this.load();
+  }
+
+  load(){
     this.driverService.getDriverStats(this.season, this.driverId).subscribe((data) => {
-       this.driver = data
+      this.driver = data
     });
+
+    this.driverService.getSeasonResult(this.driverId).subscribe((data) => {
+      this.seasonResult = data;
+    })
   }
 
   getAge(dateOfBirth: string): number {
@@ -45,9 +58,5 @@ export class DriverDetail implements OnInit {
       age--;
     }
     return age;
-  }
-
-  onImageError(event: any) {
-    event.target.src = '/drivers/default.avif';
   }
 }

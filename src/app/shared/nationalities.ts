@@ -1,53 +1,107 @@
-export const NATIONALITY_TO_ISO: Record<string, string> = {
-  "Australian": "au",
-  "New Zealander": "nz",
-  "British": "gb",
-  "German": "de",
-  "Dutch": "nl",
-  "French": "fr",
-  "Spanish": "es",
-  "Finnish": "fi",
-  "Italian": "it",
-  "Canadian": "ca",
-  "American": "us",
-  "Mexican": "mx",
-  "Japanese": "jp",
-  "Danish": "dk",
-  "Monegasque": "mc",
-  "Brazilian": "br",
-  "Argentine": "ar",
-  "Thai": "th",
-  "Chinese": "cn",
-  "Polish": "pl",
-  "Russian": "ru",
-  "Austrian": "at",
-  "Swiss": "ch"
-};
-
-export const COUNTRY_TO_ISO: Record<string, string> = {
-  "Australia": "au",
-  "China": "cn",
-  "Japan": "jp",
-  "Bahrain": "bh",
-  "Saudi Arabia": "sa",
-  "United States": "us",
-  "Italy": "it",
-  "Monaco": "mc",
-  "Spain": "es",
-  "Canada": "ca",
-  "Austria": "at",
-  "United Kingdom": "gb",
-  "Belgium": "be",
-  "Hungary": "hu",
-  "Netherlands": "nl",
-  "Azerbaijan": "az",
-  "Singapore": "sg",
-  "Mexico": "mx",
-  "Brazil": "br",
-  "Qatar": "qa",
-  "United Arab Emirates": "ae",
+export const NAME_TO_ISO: Record<string, string> = {
+  // --- A ---
   "Abu Dhabi": "ae",
-  "France": "fr",
-  "Great Britain": "gb"
-};
+  "American": "us",
+  "Argentine": "ar",
+  "Australia": "au",
+  "Australian": "au",
+  "Austria": "at",
+  "Austrian": "at",
+  "Azerbaijan": "az",
 
+  // --- B ---
+  "Bahrain": "bh",
+  "Belgium": "be",
+  "Belgian":"be",
+  "Brazil": "br",
+  "Brazilian": "br",
+  "British": "gb",
+
+  // --- C ---
+  "Canada": "ca",
+  "Canadian": "ca",
+  "China": "cn",
+  "Chinese": "cn",
+
+  // --- D ---
+  "Dallas": "us",
+  "Danish": "dk",
+  "Dutch": "nl",
+
+  // --- E ---
+  "Emilia Romagna": "it",
+  "Eifel": "de",
+
+  // --- F ---
+  "Finnish": "fi",
+  "France": "fr",
+  "French": "fr",
+
+  // --- G ---
+  "German": "de",
+  "Great Britain": "gb",
+
+  // --- H ---
+  "Hungary": "hu",
+  "Hungarian":"hu",
+
+  // --- I ---
+  "Italy": "it",
+  "Italian": "it",
+
+  // --- J ---
+  "Japan": "jp",
+  "Japanese": "jp",
+
+  // --- L ---
+  "Las Vegas": "us",
+
+
+  // --- M ---
+  "Mexican": "mx",
+  "Mexico": "mx",
+  "Miami": "us",
+  "Monaco": "mc",
+  "Monegasque": "mc",
+
+  // --- N ---
+  "Netherlands": "nl",
+  "New Zealander": "nz",
+
+  // --- P ---
+  "Polish": "pl",
+
+  // --- Q ---
+  "Qatar": "qa",
+
+  // --- R ---
+  "Russian": "ru",
+
+  // --- S ---
+  "Sakhir": "bh",
+  "São Paulo": "br",
+  "Sao Paulo": "br",
+  "Saudi Arabia": "sa",
+  "Saudi Arabian": "sa",
+  "Singapore": "sg",
+  "Spain": "es",
+  "Spanish": "es",
+  "Styrian": "at",
+  "Swiss": "ch",
+
+  // --- T ---
+  "Thai": "th",
+  "Tuscan": "it",
+
+
+  // --- U ---
+  "UAE": "ae",
+  "UK": "gb",
+  "USA": "us",
+  "United Arab Emirates": "ae",
+  "United Kingdom": "gb",
+  "United States": "us",
+
+  // --- Special ---
+  "70th Anniversary": "gb"
+};

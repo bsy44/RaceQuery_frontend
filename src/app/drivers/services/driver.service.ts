@@ -4,6 +4,7 @@ import { DriverModel } from '../models/driver.model';
 import { Observable } from 'rxjs';
 import { DriverStats } from '../models/driverStats.model';
 import { environment } from '../../../environments/environment';
+import {SeasonResult} from '../models/season-result.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,10 @@ export class DriverService {
 
   getDriverStats(season:number, driver_id: string): Observable<DriverStats> {
     return this.http.get<DriverStats>(`${this.API_URL}/drivers/${season}/${driver_id}/detail`)
+  }
+
+  getSeasonResult(driver_id: string): Observable<SeasonResult> {
+    return this.http.get<SeasonResult>(`${this.API_URL}/drivers/${this.selectedYear}/${driver_id}/season-results`)
   }
 
   setYear(year: number){
