@@ -1,8 +1,8 @@
 <app-page-header
   [title]="'Classement Pilotes saison - ' + selectedYear"
   [years]="years"
-  [(selectedYear)]="selectedYear"
-  (selectedYearChange)="getDrivers()">
+  [selectedYear]="selectedYear"
+  (selectedYearChange)="onYearChange($event)">
 </app-page-header>
 
 <app-table-standing

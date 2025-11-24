@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { TableStanding } from '../table-standing/table-standing';
 import { TeamStandingModel } from '../../models/teamStanding.model';
 import {PageHeader} from '../../../shared/components/page-header/page-header';
+import {StandingsService} from '../../services/standings-service';
 
 @Component({
   selector: 'app-team-standing',
@@ -16,27 +17,32 @@ import {PageHeader} from '../../../shared/components/page-header/page-header';
   styleUrls: ['./teamStanding.css']
 })
 export class TeamStanding implements OnInit {
+  private readonly standingService = inject(StandingsService)
   teamList: TeamStandingModel[] = [];
-  years: number[] = [];
-  selectedYear: number = new Date().getFullYear();
   columns = ['Pos.', 'Écurie', 'Points', 'Évo.'];
 
-  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    const currentYear = new Date().getFullYear();
-    this.years = Array.from({
-      length: currentYear - 2022 + 1
-    }, (_, i) => 2022 + i).reverse();
-
-    this.getTeams();
+    this.load()
   }
 
-  getTeams() {
-    this.http
-      .get<TeamStandingModel[]>(`http://127.0.0.1:5000/teams/standings/${this.selectedYear}`)
-      .subscribe((result) => {
-        this.teamList = result
-      });
+  load(){
+    this.standingService.getTeamStandings().subscribe((data) => {
+      this.teamList = data;
+    })
+  }
+
+  onYearChange(year: number): void {
+    this.standingService.setYear(year);
+    this.load();
+  }
+
+  get years(): number[] {
+    return this.standingService.years;
+  }
+
+  get selectedYear(): number {
+    return this.standingService.selectedYear;
   }
 }
+
