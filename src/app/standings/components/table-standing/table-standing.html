@@ -25,13 +25,11 @@
           @if (columns.includes('Écurie')) {
             <td>
               <div class="team-wrapper">
-                @if (row.Team) {
-                  <img [src]="TEAMS_INFO[row.Team].logo" width="40" height="24"
-                       alt="{{ row.Team }}" class="team-logo">
-                  <span class="team-name">{{ row.Team }}</span>
+                @if (tableType === 'teams') {
+                  <img src="/logos/{{ row.Team.constructorId }}.avif" class="team-logo">
+                  <span class="team-name">{{ row.Team.constructorName }}</span>
                 } @else {
-                  <img [src]="TEAMS_INFO[row.team].logo" width="40" height="24"
-                       alt="{{ row.team }}" class="team-logo">
+                  <img src="/logos/{{ row.team_id }}.avif" class="team-logo">
                   <span class="team-name">{{ row.team }}</span>
                 }
               </div>

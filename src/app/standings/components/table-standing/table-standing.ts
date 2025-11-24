@@ -14,7 +14,6 @@ export class TableStanding {
   @Input() columns: string[] = [];
   @Input() data: any[] = [];
   @Input() tableType: 'drivers' | 'teams' = 'drivers';
-  protected readonly TEAMS_INFO = TEAMS_LOGO;
   protected readonly Math = Math;
 
 

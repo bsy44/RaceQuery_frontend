@@ -95,6 +95,10 @@
   font-size: 1.2rem;
 }
 
+.teams-table td{
+  padding: 15px;
+}
+
 .team-wrapper {
   display: flex;
   align-items: center;

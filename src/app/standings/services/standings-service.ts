@@ -23,7 +23,7 @@ export class StandingsService {
   }
 
   getTeamStandings(): Observable<TeamStandingModel[]> {
-    return this.http.get<DriverStandingsModel[]>(`${this.apiURL}/teams/${this.selectedYear}/standings`)
+    return this.http.get<TeamStandingModel[]>(`${this.apiURL}/teams/${this.selectedYear}/standings`)
   }
 
   setYear(year: number){
