@@ -9,9 +9,6 @@
       </div>
     </div>
 
-    <div>  {{ race.circuit_name }}
-    </div>
-
     @for (session of race.sessions; track session; let i = $index) {
       <app-race-detail-card
       [sessionName]="session.name"

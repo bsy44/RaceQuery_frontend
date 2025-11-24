@@ -59,39 +59,25 @@
           }
 
           @if (isPractice()) {
-            <td class="txt-center">{{ r.best_lap }}</td>
+            <td class="txt-center">{{ r.time }}</td>
             <td class="txt-center">{{ r.laps }}</td>
           }
 
           @if (isRaceOrSprint()) {
             <td class="txt-center">{{ r.laps }}</td>
             <td class="txt-center">
-              @if (r.time && r.time !== 'NaT') {
-                <span>
-                  {{
-                    r.position > 1
-                      ? (r.time.startsWith('+') ? r.time : '+ ' + r.time + (r.time.includes('Tour') ? '' : ' s'))
-                      : r.time
-                  }}
-                </span>
-              }
-              @else {
 
-                @if (r.status === 'Disqualified') {
-                  <span class="tag-disqualified">DISQUALIFIÉ</span>
+              @if (r.status === 'Disqualified') {
+                <span class="tag-disqualified">DISQUALIFIÉ</span>
 
-                } @else if (
-                  r.status !== 'Finished' &&
-                  r.status !== 'Lapped' &&
-                  !r.status.includes('+1Lap') &&
-                  !r.status.toLowerCase().includes('lap') &&
-                  r.status !== 'Lap'
-                ) {
-                  <span class="tag-abandon">ABANDON</span>
-                } @else {
-                  <span>{{ r.status }}</span>
-                }
+              } @else if (r.status === 'Finished' || r.status === 'Lapped' || r.status.includes('+')) {
+
+                <span>{{ r.time }}</span>
+
+              } @else {
+                <span class="tag-abandon">ABANDON</span>
               }
+
             </td>
             <td class="txt-center">{{ r.points }}</td>
           }

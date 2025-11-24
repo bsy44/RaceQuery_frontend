@@ -10,7 +10,7 @@ import {TEAMS_LOGO} from '../../teams-logo';
 })
 export class SessionResultTableComponent {
   @Input() sessionCode!: string;
-  @Input() results: any[] = [];
+  @Input() results: RaceResultModel[] = [];
 
   isQualifying() {
     return this.sessionCode?.includes('Q') || this.sessionCode?.startsWith('SQ');

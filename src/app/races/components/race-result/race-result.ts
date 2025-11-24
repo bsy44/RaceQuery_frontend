@@ -24,7 +24,7 @@ export class RaceResult implements OnInit {
 
   round!: number;
   race!: RaceModel;
-  raceList: RaceModel[] = [];
+  raceList: RaceResultModel[] = [];
   isLoading = false;
   sessionCode: string = 'R';
   sessions: string[] = [];

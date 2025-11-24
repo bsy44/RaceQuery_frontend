@@ -1,6 +1,7 @@
 interface RaceResultModel {
   DriverNumber: string;
   driver: string;
+  evolution: number;
   grid_position: number;
   laps: number;
   points: number;
@@ -12,5 +13,4 @@ interface RaceResultModel {
   team: string;
   teamColor?: string;
   time?: string;
-  teamLogo?: string;
 }
