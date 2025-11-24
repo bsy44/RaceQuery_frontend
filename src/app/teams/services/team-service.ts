@@ -29,7 +29,7 @@ export class TeamService {
   }
 
   getTeamDetail(teamId: string, season: number): Observable<TeamDetailModel> {
-    return this.http.get<TeamDetailModel>(`${this.apiUrl}/teams/${season}/${teamId}/info`);
+    return this.http.get<TeamDetailModel>(`${this.apiUrl}/teams/${season}/${teamId}/stats`);
   }
 
   setYear(year: number){
