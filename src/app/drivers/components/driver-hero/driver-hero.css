@@ -1,9 +1,3 @@
-:root {
-  --card-height: 280px;
-  --text-light: #ffffff;
-  --text-dim: rgba(255, 255, 255, 0.7);
-}
-
 .driver-card {
   margin: 2rem auto;
   display: flex;
@@ -14,7 +8,7 @@
     repeating-linear-gradient(120deg, rgba(255,255,255,0) 0px, rgba(255,255,255,0) 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px),
     linear-gradient(105deg, var(--team-color) 20%, #0e101b 85%);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.1);
-  color: var(--text-light);
+  color: white;
 }
 
 .absolute-team-logo {
@@ -123,7 +117,7 @@
   align-items: center;
   gap: 1rem;
   font-size: 1rem;
-  color: var(--text-dim);
+  color: white;
   background: rgba(0, 0, 0, 0.31);
   padding: 0.5rem 1rem;
   border-radius: 50px;
@@ -167,10 +161,6 @@
 
   .last-name {
     font-size: 2.5rem;
-  }
-
-  .team-name {
-    font-size: 1.5rem;
   }
 
   .bg-number {
@@ -223,13 +213,13 @@
 }
 
 
-.mercedes {--team-color: #00d2be; .driver-number {color: #000000;-webkit-text-stroke: 2px white;} }
+.mercedes {--team-color: #00d2be; .bg-number {color: #000000;-webkit-text-stroke: 2px white;} }
 .ferrari { --team-color: #a50e0e; --driver-number: #fff; }
 .red_bull {--team-color: #1e41ff; --driver-number: #e4202d; .driver-number{ letter-spacing: -6px;}}
 .mclaren { --team-color: #ff8700; --driver-number: #ff8700; }
 .aston_martin { --team-color: #006f62; --driver-number: #fff; }
 .alpine { --team-color: #2293d1; --driver-number: #fff; .bg-number{ -webkit-text-stroke: 2px #f38fb9 }}
-.haas { --team-color: #ffffff; --driver-number: #D3172B; }
+.haas { --team-color: #d3d3d3; --driver-number: #D3172B; }
 .rb {--team-color: #6a93f6;
   .bg-number {color: #fff; -webkit-text-stroke: 2px var(--team-color);letter-spacing: -8px;}
   .absolute-team-logo{filter: brightness(0) invert(1);}

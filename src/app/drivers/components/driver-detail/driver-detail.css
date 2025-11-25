@@ -4,24 +4,29 @@
 }
 
 .driver-result-container{
-  max-width: 1800px;
-  margin: 0 auto;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
-.driver-standing{
-  padding-bottom: 30px;
+.stats-title{
+  margin: 0;
+  border-left: 4px solid #FF1E1E;
+  padding-left: 15px;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 .driver-stats {
   padding: 10px 40px;
 }
 
+.driver-standing{
+  padding-bottom: 30px;
+}
+
 .driver-position {
   display: flex;
   align-items: center;
   gap: 30px;
-  padding: 0 40px;
 }
 
 .pos {
@@ -66,15 +71,6 @@
 .race-stat > div:last-child,
 .sprint-stat > div:last-child {
   border-bottom: none;
-}
-
-@media (max-width: 600px) {
-  .race-stat span:first-child {
-    font-size: 0.85rem;
-  }
-  .race-stat span:last-child {
-    font-size: 1.1rem;
-  }
 }
 
 .pos-1 .pos {

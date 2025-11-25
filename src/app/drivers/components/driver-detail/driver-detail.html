@@ -2,18 +2,15 @@
 
 @if (driver) {
   <div class="container">
-
     <app-driver-hero
       [season]="season"
       [driver]="driver">
     </app-driver-hero>
 
-
-    <h1>Statistique - {{ season }}</h1>
+    <h1 class="stats-title">Saison - {{ season }}</h1>
 
     <div class="driver-stats">
       <div class="stat-container">
-
         <div class="driver-standing">
           <h2>Classement championnat</h2>
           <div class="driver-position" [ngClass]="'pos-' + driver.position">
@@ -21,23 +18,21 @@
             <span class="points">{{ +driver.points }} pts</span>
           </div>
         </div>
-
       </div>
     </div>
-  <h2 class="driver-result-title">Résultat saison</h2>
 
-</div>
-
-  <div class="driver-result-container">
-    <app-race-table-result
-      [seasonResult]="seasonResult">
-    </app-race-table-result>
-  </div>
+    <h2 class="driver-result-title">Résultat saison</h2>
+    <div class="driver-result-container">
+      <app-race-table-result
+        [seasonResult]="seasonResult">
+      </app-race-table-result>
+    </div>
 
 
-  <div class="container">
+    <h1 class="stats-title">Statistique</h1>
+
     <div class="driver-stats">
-      <h2 class="stat-title">Grand Prix statistique</h2>
+      <h2 class="stat-name">Grand Prix statistique</h2>
       <div class="race-stat">
         <div class="race-win">
           <span>Victoire Grand Prix</span>
@@ -99,5 +94,4 @@
       </div>
     </div>
   </div>
-
 }
