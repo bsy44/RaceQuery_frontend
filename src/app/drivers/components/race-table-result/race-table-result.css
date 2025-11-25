@@ -1,40 +1,117 @@
-.driver-result {
-  text-align: center;
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+  background-color: #15151e;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  cursor: grab;
+  user-select: none;
 }
 
-.driver-result table {
+.table-container.active {
+  cursor: grabbing;
+}
+
+.table-container::-webkit-scrollbar {
+  height: 0;
+  background: transparent;
+}
+
+.table-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+table {
+  width: 100%;
   border-collapse: collapse;
+  white-space: nowrap;
 }
 
-.driver-label{
+thead th {
+  background-color: #1c1f2e;
+  color: #8d9096;
+  font-size: 0.8rem;
   font-weight: 700;
-}
-
-th:first-child{
-  border: none;
-}
-
-th, td {
-  border: 1px solid #666;
-  padding: 8px;
-
-}
-
-pos {
-  font-weight: 600;
+  padding: 12px 8px;
   text-align: center;
-  padding: 6px 8px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #2c2f3e;
 }
 
-.pos[data-pos="1"] {
-  color: #f5c400;
+.gp-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
 
-.pos[data-pos="2"] {
-  color: #C0C0C0;
+.gp-name{
+  color: #cfcfcf;
+  font-size: 0.9rem;
 }
 
-.pos[data-pos="3"] {
-  color: #b06f2d;
+tbody td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #fff;
+  text-align: center;
 }
+
+
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background-color: #15151e;
+  z-index: 10;
+  text-align: left;
+  padding-left: 20px;
+  border-right: 1px solid #2c2f3e;
+}
+
+thead .sticky-col {
+  background-color: #1c1f2e;
+  z-index: 11;
+}
+
+.flag-icon{
+  font-size: 1.5rem;
+  border-radius: 5px;
+}
+
+.driver-name {
+  font-weight: 700;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.result-cell {
+  min-width: 45px;
+}
+
+.pos-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.pos-badge[data-pos="1"] {
+  background-color: #f5c400;
+  color: #000;
+}
+
+.pos-badge[data-pos="2"] {
+  background-color: #a8a8a8;
+  color: #000;
+}
+
+.pos-badge[data-pos="3"] {
+  background-color: #cd7f32;
+  color: #000;
+}
+
