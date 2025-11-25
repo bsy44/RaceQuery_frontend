@@ -1,0 +1,40 @@
+<div class="driver-card" [ngClass]="driver.Driver.team_id">
+
+  <div class="absolute-team-logo">
+    <img src="/logos/{{ driver.Driver.team_id }}.svg" alt="{{ driver.Driver.team }}">
+  </div>
+
+  <div class="bg-number">{{ driver.Driver.driverNumber }}</div>
+
+  <div class="card-visual">
+    <div class="img-wrapper">
+      <img src="/drivers/{{ season }}/{{ driver.Driver.driverId }}.png" alt="{{ driver.Driver.driverId }}">
+    </div>
+  </div>
+
+  <div class="card-content">
+
+    <div class="driver-header">
+      <span class="fi fi-{{ NAME_TO_ISO[driver.Driver.nationality] }} flag-icon"></span>
+
+      <div class="identity">
+        <h1 class="last-name">{{ driver.Driver.fullName }}</h1>
+      </div>
+    </div>
+
+    <div class="driver-team">
+      <span class="team-label">Écurie</span>
+      <span class="team-name">{{ driver.Driver.team }}</span>
+    </div>
+
+    <div class="driver-meta">
+      <div class="meta-item">
+        <i class="icon-calendar"></i> <span>{{ driver.Driver.date_of_birth | date: "dd/MM/yyyy" }}</span>
+      </div>
+      <div class="separator"></div>
+      <div class="meta-item">
+        <span>{{ driver.Driver.date_of_birth ? getAge(driver.Driver.date_of_birth) : 'N/A' }} ans</span>
+      </div>
+    </div>
+  </div>
+</div>

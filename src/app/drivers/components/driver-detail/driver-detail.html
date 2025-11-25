@@ -2,44 +2,12 @@
 
 @if (driver) {
   <div class="container">
-    <div class="driver-profil" [ngClass]="driver.Driver.team_id">
 
-      <div class="driver-img">
-        <img src="/drivers/{{ season }}/{{ driverId }}.png" alt="{{ driverId }}">
-      </div>
+    <app-driver-hero
+      [season]="season"
+      [driver]="driver">
+    </app-driver-hero>
 
-      <div class="driver-info">
-        <h1 class="driver-name">{{ driver.Driver.fullName }}</h1>
-
-        <div class="driver-age">
-          <span class="field-title">Date de naissance : </span>
-          <span class="field">
-            {{ driver.Driver.date_of_birth | date: "dd/MM/yyyy" }}
-            ({{ driver.Driver.date_of_birth ? getAge(driver.Driver.date_of_birth) : 'N/A' }} ans)
-          </span>
-        </div>
-
-        <div class="driver-nationality">
-          <span class="fi fi-{{ NAME_TO_ISO[driver.Driver.nationality] }} flag-icon"></span>
-        </div>
-
-        <div class="driver-team-identity">
-          <div class="driver-number">
-            {{ driver.Driver.driverNumber }}
-          </div>
-        </div>
-
-        <div class="driver-team">
-          <span class="field-title">Écurie : </span>
-          <span class="field">{{ driver.Driver.team }}</span>
-        </div>
-      </div>
-
-      <img src="/logos/{{ driver.Driver.team_id }}.svg" alt="{{ driver.Driver.team_id }}" class="driver-team-img">
-
-    </div>
-
-    <span class="separator" [ngClass]="driver.Driver.team_id"></span>
 
     <h1>Statistique - {{ season }}</h1>
 

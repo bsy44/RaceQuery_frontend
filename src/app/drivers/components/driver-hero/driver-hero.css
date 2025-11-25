@@ -1,0 +1,245 @@
+:root {
+  --card-height: 280px;
+  --text-light: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.7);
+}
+
+.driver-card {
+  margin: 2rem auto;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--team-color);
+  background-image:
+    repeating-linear-gradient(120deg, rgba(255,255,255,0) 0px, rgba(255,255,255,0) 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px),
+    linear-gradient(105deg, var(--team-color) 20%, #0e101b 85%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.1);
+  color: var(--text-light);
+}
+
+.absolute-team-logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: clamp(40px, 8vw, 70px);
+  width: auto;
+  z-index: 10;
+  opacity: 0.9;
+}
+
+.absolute-team-logo img {
+  height: 100%;
+  width: auto;
+}
+
+.bg-number {
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
+  font-size: clamp(6rem, 10vw, 10rem);
+  font-weight: 900;
+  color: var(--driver-number);
+  z-index: 0;
+  line-height: 1;
+}
+
+.card-visual {
+  flex: 0 0 25%;
+  position: relative;
+  z-index: 1;
+}
+
+.img-wrapper {
+  height: 100%;
+  width: 100%;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.card-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.driver-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.flag-icon {
+  font-size: 3rem;
+  border-radius: 4px;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.last-name {
+  font-size: clamp(2rem, 4cqi, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.driver-team{
+  padding-bottom: 10px;
+}
+
+.team-label {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+  filter: brightness(1.5);
+  margin-bottom: 0.2rem;
+}
+
+.team-name {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.driver-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: var(--text-dim);
+  background: rgba(0, 0, 0, 0.31);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  align-self: flex-start;
+  backdrop-filter: blur(5px);
+}
+
+.separator {
+  width: 1px;
+  height: 15px;
+  background-color: rgba(255,255,255,0.3);
+}
+
+
+@media screen and (max-width: 1024px) {
+
+  .driver-card {
+    flex-direction: column;
+    height: auto;
+    max-width: 450px;
+    margin: 2rem auto;
+    border-radius: 12px;
+  }
+
+  .card-visual {
+    flex: none;
+    width: 100%;
+    height: 300px;
+  }
+
+  .img-wrapper img {
+    object-position: top center;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    margin-top: -40px;
+    z-index: 5;
+  }
+
+  .last-name {
+    font-size: 2.5rem;
+  }
+
+  .team-name {
+    font-size: 1.5rem;
+  }
+
+  .bg-number {
+    font-size: 5rem;
+    right: 20px;
+    bottom: 10px;
+  }
+
+  .absolute-team-logo {
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    opacity: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+
+  .driver-header {
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: none;
+  }
+
+  .flag-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .driver-card {
+    width: 95%;
+    margin: 1rem auto;
+  }
+
+  .card-visual {
+    height: 250px;
+  }
+
+  .last-name {
+    font-size: 2rem;
+  }
+
+  .bg-number {
+    font-size: 6rem;
+  }
+
+  .driver-meta {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+}
+
+
+.mercedes {--team-color: #00d2be; .driver-number {color: #000000;-webkit-text-stroke: 2px white;} }
+.ferrari { --team-color: #a50e0e; --driver-number: #fff; }
+.red_bull {--team-color: #1e41ff; --driver-number: #e4202d; .driver-number{ letter-spacing: -6px;}}
+.mclaren { --team-color: #ff8700; --driver-number: #ff8700; }
+.aston_martin { --team-color: #006f62; --driver-number: #fff; }
+.alpine { --team-color: #2293d1; --driver-number: #fff; .bg-number{ -webkit-text-stroke: 2px #f38fb9 }}
+.haas { --team-color: #ffffff; --driver-number: #D3172B; }
+.rb {--team-color: #6a93f6;
+  .bg-number {color: #fff; -webkit-text-stroke: 2px var(--team-color);letter-spacing: -8px;}
+  .absolute-team-logo{filter: brightness(0) invert(1);}
+}
+.williams { --team-color: #005aff; --driver-number: #fff; .bg-number{ font-style: italic }}
+.sauber { --team-color: #52e252; --driver-number: #52e252; .bg-number{ font-style: italic } }
+.alphatauri { --team-color: #002841; .driver-team-img{ filter: brightness(0) invert(1);} }
+.alfa {
+  --team-color: #88172a;
+  --driver-number: #88172a;
+  .driver-team-img{ filter: brightness(0) invert(1);}
+  .bg-number{font-style: italic}
+}
