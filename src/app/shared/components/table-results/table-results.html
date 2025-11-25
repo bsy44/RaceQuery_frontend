@@ -45,9 +45,10 @@
           </td>
 
           <td>{{ r.driver }}</td>
+
           <td>
             <div class="team-wrapper">
-              <img src="{{ TEAMS_INFO[r.team].logo }}" alt="{{ TEAMS_INFO[r.team].logo }}" class="team-logo">
+              <img src="/logos/{{ r.team_id }}.avif" alt="{{ r.team_id }}" class="team-logo">
               <span class="team-name">{{ r.team }}</span>
             </div>
           </td>

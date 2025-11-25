@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NAME_TO_ISO } from '../../../shared/nationalities';
-import { TEAMS_LOGO } from "../../../shared/teams-logo";
 
 @Component({
   selector: 'app-table-standing',

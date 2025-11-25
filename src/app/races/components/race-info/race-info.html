@@ -6,11 +6,11 @@
     </div>
     <div class="card-main">
       <div class="card-driver">
-        <img src="{{ TEAMS_INFO[winner?.team]?.logo }}" class="team-logo">
+        <img src="/logos/{{ winner?.team_id }}.avif" class="team-logo">
         <span class="driver-name">{{ winner?.driver }}</span>
       </div>
       <div class="card-time">
-        {{ winner?.time }}
+        {{ winner.time }}
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
     </div>
     <div class="card-main">
       <div class="card-driver">
-        <img src="{{ TEAMS_INFO[poleman?.team]?.logo }}" class="team-logo">
+        <img src="/logos/{{ winner.team_id }}.avif" class="team-logo">
         <span class="driver-name">{{ poleman?.driver }}</span>
       </div>
       <div class="card-time">
@@ -38,7 +38,7 @@
     </div>
     <div class="card-main">
       <div class="card-driver">
-        <img src="{{ TEAMS_INFO[fastestLap?.team]?.logo }}" class="team-logo">
+        <img src="/logos/{{ winner.team_id }}.avif" class="team-logo">
         <span class="driver-name">{{ fastestLap?.driver }}</span>
       </div>
       <div class="card-time">

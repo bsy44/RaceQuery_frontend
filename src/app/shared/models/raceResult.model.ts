@@ -11,6 +11,7 @@ interface RaceResultModel {
   q3?: string | null;
   status: string;
   team: string;
+  team_id: string;
   teamColor?: string;
   time?: string;
 }
