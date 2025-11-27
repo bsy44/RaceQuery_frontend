@@ -1,4 +1,3 @@
-<app-go-back-button></app-go-back-button>
 
 @if (driver) {
   <div class="container">
@@ -7,89 +6,91 @@
       [driver]="driver">
     </app-driver-hero>
 
-    <h1 class="stats-title">Saison - {{ season }}</h1>
-
-    <div class="driver-stats">
-      <div class="stat-container">
-        <div class="driver-standing">
-          <h2>Classement championnat</h2>
-          <div class="driver-position" [ngClass]="'pos-' + driver.position">
-            <span class="pos">{{ driver.position }}{{ driver.position === '1' ? 'er' : 'ème' }}</span>
-            <span class="points">{{ +driver.points }} pts</span>
+    <div class="driver-season">
+      <h1 class="stats-title">Saison - {{ season }}</h1>
+      <div class="driver-stats">
+        <div class="driver-standing-container">
+          <div class="driver-standing">
+            <h2>Classement championnat</h2>
+            <div class="driver-position" [ngClass]="'pos-' + driver.position">
+              <span class="pos">{{ driver.position }}{{ driver.position === '1' ? 'er' : 'ème' }}</span>
+              <span class="points">{{ +driver.points }} pts</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <h2 class="driver-result-title">Résultat saison</h2>
     <div class="driver-result-container">
+      <h1 class="stats-title">Résultat saison</h1>
       <app-race-table-result
         [seasonResult]="seasonResult">
       </app-race-table-result>
     </div>
 
 
-    <h1 class="stats-title">Statistique</h1>
+    <div class="stat-container">
+      <h1 class="stats-title">Statistique</h1>
+      <div class="driver-stats">
+        <h2 class="stat-name">Grand Prix statistique</h2>
+        <div class="race-stat">
+          <div class="race-win">
+            <span>Victoire Grand Prix</span>
+            <span>{{ driver.win }}</span>
+          </div>
 
-    <div class="driver-stats">
-      <h2 class="stat-name">Grand Prix statistique</h2>
-      <div class="race-stat">
-        <div class="race-win">
-          <span>Victoire Grand Prix</span>
-          <span>{{ driver.win }}</span>
+          <div class="sprint-podium">
+            <span>Podium</span>
+            <span>{{ driver.podium }}</span>
+          </div>
+
+          <div class="sprint-pole">
+            <span>Pôle position</span>
+            <span>{{ driver.pole }}</span>
+          </div>
+
+          <div class="best-result">
+            <span>Meilleur résultat</span>
+            <span>{{ driver.best_result }}</span>
+          </div>
+
+          <div class="top10">
+            <span>Top 10</span>
+            <span>{{ driver.top10 }}</span>
+          </div>
+
+          <div class="race-avg-pos">
+            <span>Arrivée moyenne en course</span>
+            <span>{{ driver.avg_race_finish }}</span>
+          </div>
+
+          <div class="quali-avg-pos">
+            <span>Arrivée moyenne en qualification</span>
+            <span>{{ driver.avg_qualifying_finish }}</span>
+          </div>
+
+          <div class="dnf">
+            <span>Abandon</span>
+            <span>{{ driver.dnf }}</span>
+          </div>
         </div>
 
-        <div class="sprint-podium">
-          <span>Podium</span>
-          <span>{{ driver.podium }}</span>
-        </div>
+        <h2 class="stat-title">Sprint statistique</h2>
+        <div class="sprint-stat">
+          <div class="sprint-win">
+            <span>Victoire course Sprint</span>
+            <span>{{ driver.sprint_win }}</span>
+          </div>
 
-        <div class="sprint-pole">
-          <span>Pôle position</span>
-          <span>{{ driver.pole }}</span>
-        </div>
+          <div class="sprint-podium">
+            <span>Podium course Sprint</span>
+            <span>{{ driver.sprint_podium }}</span>
+          </div>
 
-        <div class="best-result">
-          <span>Meilleur résultat</span>
-          <span>{{ driver.best_result }}</span>
-        </div>
-
-        <div class="top10">
-          <span>Top 10</span>
-          <span>{{ driver.top10 }}</span>
-        </div>
-
-        <div class="race-avg-pos">
-          <span>Arrivée moyenne en course</span>
-          <span>{{ driver.avg_race_finish }}</span>
-        </div>
-
-        <div class="quali-avg-pos">
-          <span>Arrivée moyenne en qualification</span>
-          <span>{{ driver.avg_qualifying_finish }}</span>
-        </div>
-
-        <div class="dnf">
-          <span>Abandon</span>
-          <span>{{ driver.dnf }}</span>
-        </div>
-      </div>
-
-      <h2 class="stat-title">Sprint statistique</h2>
-      <div class="sprint-stat">
-        <div class="sprint-win">
-          <span>Victoire course Sprint</span>
-          <span>{{ driver.sprint_win }}</span>
-        </div>
-
-        <div class="sprint-podium">
-          <span>Podium course Sprint</span>
-          <span>{{ driver.sprint_podium }}</span>
-        </div>
-
-        <div class="sprint-pole">
-          <span>Pôle position Sprint</span>
-          <span>{{ driver.sprint_pole }}</span>
+          <div class="sprint-pole">
+            <span>Pôle position Sprint</span>
+            <span>{{ driver.sprint_pole }}</span>
+          </div>
         </div>
       </div>
     </div>

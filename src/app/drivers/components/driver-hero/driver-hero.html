@@ -1,4 +1,7 @@
 <div class="driver-card" [ngClass]="driver.Driver.team_id">
+  <div class="btn-conatianer">
+    <app-go-back-button></app-go-back-button>
+  </div>
 
   <div class="absolute-team-logo">
     <img src="/logos/{{ driver.Driver.team_id }}.svg" alt="{{ driver.Driver.team }}">

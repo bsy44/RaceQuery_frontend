@@ -1,5 +1,4 @@
 .driver-card {
-  margin: 2rem auto;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -9,6 +8,13 @@
     linear-gradient(105deg, var(--team-color) 20%, #0e101b 85%);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.1);
   color: white;
+}
+
+.btn-conatianer{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 2;
 }
 
 .absolute-team-logo {
@@ -226,10 +232,10 @@
 }
 .williams { --team-color: #005aff; --driver-number: #fff; .bg-number{ font-style: italic }}
 .sauber { --team-color: #52e252; --driver-number: #52e252; .bg-number{ font-style: italic } }
-.alphatauri { --team-color: #002841; .driver-team-img{ filter: brightness(0) invert(1);} }
+.alphatauri { --team-color: #002841; .absolute-team-logo{ filter: brightness(0) invert(1);} }
 .alfa {
   --team-color: #88172a;
   --driver-number: #88172a;
-  .driver-team-img{ filter: brightness(0) invert(1);}
+  .absolute-team-logo{ filter: brightness(0) invert(1);}
   .bg-number{font-style: italic}
 }

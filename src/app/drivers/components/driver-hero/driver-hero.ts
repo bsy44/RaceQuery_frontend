@@ -3,12 +3,14 @@ import {NAME_TO_ISO} from "../../../shared/nationalities";
 import {DatePipe, NgClass} from "@angular/common";
 import {DriverStats} from '../../models/driverStats.model';
 import {DriverService} from '../../services/driver.service';
+import {GoBackButton} from '../../../shared/components/go-back-button/go-back-button';
 
 @Component({
   selector: 'app-driver-hero',
   imports: [
     DatePipe,
-    NgClass
+    NgClass,
+    GoBackButton
   ],
   templateUrl: './driver-hero.html',
   styleUrl: './driver-hero.css',

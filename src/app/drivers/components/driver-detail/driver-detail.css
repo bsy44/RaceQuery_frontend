@@ -3,24 +3,24 @@
   margin: 0 auto;
 }
 
+.driver-season{
+  padding:  35px 0;
+}
+
 .driver-result-container{
-  padding-bottom: 50px;
+  padding: 35px 0;
 }
 
 .stats-title{
   margin: 0;
-  border-left: 4px solid #FF1E1E;
+  border-left: 5px solid #FF1E1E;
   padding-left: 15px;
   text-transform: uppercase;
   font-weight: 900;
 }
 
 .driver-stats {
-  padding: 10px 40px;
-}
-
-.driver-standing{
-  padding-bottom: 30px;
+  padding: 0 40px;
 }
 
 .driver-position {
@@ -38,6 +38,10 @@
   font-size: 2.5rem;
   font-weight: 850;
   color: rgba(163, 163, 163, 0.69);
+}
+
+.stat-container{
+  padding:  35px 0;
 }
 
 .race-stat,
