@@ -1,14 +1,23 @@
-<nav id="links">
-  <a routerLink="home" routerLinkActive="active" class="link">Acceuil</a>
+<nav id="nav">
+  <button class="burger" (click)="toggleMenu()" [class.active]="isMenuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-  <div class="dropdown">
-    <span class="link dropdown-trigger">Classements</span>
-    <div class="dropdown-content">
-      <a routerLink="driver/standings" routerLinkActive="active">Pilotes</a>
-      <a routerLink="team/standings" routerLinkActive="active">Équipes</a>
+  <div class="menu" [class.is-open]="isMenuOpen">
+    <a routerLink="home" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Acceuil</a>
+
+    <div class="dropdown">
+      <span class="menu-item link dropdown-trigger">Classements</span>
+      <div class="dropdown-content">
+        <a routerLink="driver/standings" routerLinkActive="active" (click)="closeMenu()">Classement Pilotes</a>
+        <a routerLink="team/standings" routerLinkActive="active" (click)="closeMenu()">Classement Équipes</a>
+      </div>
     </div>
+
+    <a routerLink="drivers" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Pilotes</a>
+    <a routerLink="teams" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Équipe</a>
+    <a routerLink="races" class="menu-item" routerLinkActive="active" (click)="closeMenu()">Courses</a>
   </div>
-  <a routerLink="drivers" routerLinkActive="active" class="link">Pilotes</a>
-  <a routerLink="teams" routerLinkActive="active" class="link">Équipes</a>
-  <a routerLink="races" routerLinkActive="active" class="link">Courses</a>
 </nav>
