@@ -95,6 +95,14 @@
   -webkit-text-fill-color: transparent;
 }
 
+@media (max-width: 900px) {
+  .container{
+    padding: 12px;
+  }
+
+  .driver-stats{ padding: 0 15px}
+}
+
 .mercedes {--team-color: #00d2be; .driver-number {color: #000000;-webkit-text-stroke: 2px white;} }
 .ferrari { --team-color: #dc0000; --driver-number: #fff; }
 .red_bull {--team-color: #1e41ff; --driver-number: #e4202d; .driver-number{ letter-spacing: -6px;}}

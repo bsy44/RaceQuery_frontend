@@ -138,7 +138,7 @@
 }
 
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 900px) {
 
   .driver-card {
     flex-direction: column;
