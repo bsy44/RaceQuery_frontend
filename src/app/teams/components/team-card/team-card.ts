@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { TeamModel } from '../../models/team.model';
 import { NgClass } from '@angular/common';
 import { TeamService } from '../../services/team-service';
@@ -11,20 +11,13 @@ import { TeamService } from '../../services/team-service';
   templateUrl: './team-card.html',
   styleUrl: './team-card.css',
 })
-export class TeamCard implements OnInit {
-  team!: TeamModel;
-  private readonly teamService = inject(TeamService)
-  @Input()idTeam!: string;
+export class TeamCard {
+  private readonly teamService = inject(TeamService);
 
+  @Input() team!: TeamModel;
 
-  ngOnInit() {
-    this.teamService.getTeam(this.idTeam).subscribe((result) => {
-      this.team = result
-    });
-  }
 
   getYear(): number {
     return this.teamService.selectedYear;
   }
-
 }

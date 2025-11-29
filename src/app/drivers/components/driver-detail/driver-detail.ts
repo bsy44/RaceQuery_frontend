@@ -41,7 +41,7 @@ export class DriverDetail implements OnInit {
       this.driver = data
     });
 
-    this.driverService.getSeasonResult(this.driverId).subscribe((data) => {
+    this.driverService.getSeasonResult(this.season, this.driverId).subscribe((data) => {
       this.seasonResult = data;
     })
   }

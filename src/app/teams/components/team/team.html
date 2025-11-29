@@ -10,7 +10,7 @@
   @for (team of teamList; track team.constructorId){
     <a routerLink='{{ selectedYear }}/{{ team.constructorId }}' class="link">
       <app-team-card
-        [idTeam]="team.constructorId">
+        [team]="team">
       </app-team-card>
     </a>
   }

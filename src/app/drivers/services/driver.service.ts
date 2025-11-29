@@ -34,8 +34,8 @@ export class DriverService {
     return this.http.get<DriverStats>(`${this.API_URL}/drivers/${season}/${driver_id}/detail`)
   }
 
-  getSeasonResult(driver_id: string): Observable<SeasonResult> {
-    return this.http.get<SeasonResult>(`${this.API_URL}/drivers/${this.selectedYear}/${driver_id}/season-results`)
+  getSeasonResult(season: number, driver_id: string): Observable<SeasonResult> {
+    return this.http.get<SeasonResult>(`${this.API_URL}/drivers/${season}/${driver_id}/season-results`)
   }
 
   setYear(year: number){
