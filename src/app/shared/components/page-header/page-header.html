@@ -6,9 +6,11 @@
     }
   </div>
 
-  <app-year-selector
-    [years]="years"
-    [(selectedYear)]="selectedYear"
-    (selectedYearChange)="onYearChange($event)">
-  </app-year-selector>
+  <div class="selector">
+    <app-year-selector
+      [years]="years"
+      [(selectedYear)]="selectedYear"
+      (selectedYearChange)="onYearChange($event)">
+    </app-year-selector>
+  </div>
 </div>
