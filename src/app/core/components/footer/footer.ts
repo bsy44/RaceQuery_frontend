@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
@@ -10,11 +10,8 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
   templateUrl: './footer.html',
   styleUrl: './footer.css'
 })
-export class Footer implements OnInit {
+export class Footer{
   currentYear: number = new Date().getFullYear();
 
-  ngOnInit() {
-    // Optionnel ici, currentYear est déjà initialisé
-  }
 }
 

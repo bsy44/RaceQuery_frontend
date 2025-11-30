@@ -8,7 +8,8 @@ import {Footer} from './core/components/footer/footer';
   imports: [
     Header,
     RouterOutlet,
-    Footer
+    Footer,
+
   ],
   standalone: true,
   templateUrl: './app.component.html',
