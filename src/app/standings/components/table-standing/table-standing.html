@@ -17,8 +17,10 @@
           @if (columns.includes('Pilote')) {
             <td class="driver-cell">
               <span class="fi fi-{{ getDriverFlag(row.nationality) }} flag-icon"></span>
-              <span class="driver-fullname">{{ row.fullName }}</span>
-              <span class="driver-lastname">{{ getLastName(row.fullName) }}</span>
+
+              <span class="driver-full">{{ row.fullName }}</span>
+
+              <span class="driver-short">{{ row.familyName || getLastName(row.fullName) }}</span>
             </td>
           }
 

@@ -1,6 +1,7 @@
 export interface DriverModel {
   driverId: string;
   fullName: string;
+  familyName: string;
   nationality: string;
   code: string;
   driverNumber: string;
