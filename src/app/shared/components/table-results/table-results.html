@@ -1,91 +1,87 @@
-@if (results.length) {
-  <table class="table">
-    <thead class="head">
-      <tr class="head-title">
-        <th>Pos.</th>
-        <th>Pilote</th>
-        <th>Écurie</th>
+<div class="table-responsive">
+  @if (results.length) {
+    <table class="race-table">
+      <thead>
+      <tr>
+        <th class="col-pos center">Pos</th>
+        <th class="col-driver">Pilote</th>
+        <th class="col-team">Écurie</th>
 
         @if (isQualifying()) {
-          <th>Q1</th>
-          <th>Q2</th>
-          <th>Q3</th>
+          <th class="col-time center">Q1</th>
+          <th class="col-time center">Q2</th>
+          <th class="col-time center">Q3</th>
         }
 
         @if (isPractice()) {
-          <th>Temps</th>
-          <th>Tours</th>
+          <th class="col-time center">Temps</th>
+          <th class="col-laps center">Tours</th>
         }
 
         @if (isRaceOrSprint()) {
-          <th>Tours</th>
-          <th>Temps / Écart</th>
-          <th>Points</th>
+          <th class="col-laps center">Tours</th>
+          <th class="col-time center">Temps / Écart</th>
+          <th class="col-points">Pts</th>
         }
       </tr>
-    </thead>
+      </thead>
 
-    <tbody>
-      @for (r of results; track r.DriverNumber ?? r.position) {
-        <tr>
-          <td>
-            <span class="position-wrapper">
-              <span class="position-number">{{ r.position }}</span>
+      <tbody>
+        @for (r of results; track r.DriverNumber ?? r.position) {
+          <tr class="data-row">
 
-              @if (isRaceOrSprint() && r.evolution > 0){
-                <span class="evo-positive">
-                  ▲ {{ r.evolution }}
-                </span>
-              } @else if (isRaceOrSprint() && r.evolution < 0){
-                <span class="evo-negative">
-                  ▼ {{ Math.abs(r.evolution) }}
-                </span>
-              }
-            </span>
-          </td>
-
-          <td>{{ r.driver }}</td>
-
-          <td>
-            <div class="team-wrapper">
-              <img src="/logos/{{ r.team_id }}.avif" alt="{{ r.team_id }}" class="team-logo">
-              <span class="team-name">{{ r.team }}</span>
-            </div>
-          </td>
-
-          @if (isQualifying()) {
-            <td class="txt-center">{{ r.q1 }}</td>
-            <td class="txt-center">{{ r.q2 }}</td>
-            <td class="txt-center">{{ r.q3 }}</td>
-          }
-
-          @if (isPractice()) {
-            <td class="txt-center">{{ r.time }}</td>
-            <td class="txt-center">{{ r.laps }}</td>
-          }
-
-          @if (isRaceOrSprint()) {
-            <td class="txt-center">{{ r.laps }}</td>
-            <td class="txt-center">
-
-              @if (r.status === 'Disqualified') {
-                <span class="tag-disqualified">DISQUALIFIÉ</span>
-
-              } @else if (r.status === 'Finished' || r.status === 'Lapped' || r.status.includes('+')) {
-
-                <span>{{ r.time }}</span>
-
-              } @else {
-                <span class="tag-abandon">ABANDON</span>
-              }
-
+            <td class="cell-pos">
+              <div class="pos-content">
+                <span class="pos-number">{{ r.position }}</span>
+                @if (isRaceOrSprint()) {
+                  @if (r.evolution > 0) { <span class="evo up">▲ {{ r.evolution }}</span> }
+                  @else if (r.evolution < 0) { <span class="evo down">▼ {{ Math.abs(r.evolution) }}</span> }
+                }
+              </div>
             </td>
-            <td class="txt-center">{{ r.points }}</td>
-          }
-        </tr>
-      }
-    </tbody>
-  </table>
-} @else {
-  <p>Aucun résultat disponible.</p>
-}
+
+            <td class="cell-driver" [style.border-left-color]="'#' + r.teamColor">
+              <span class="driver-name">{{ r.driver }}</span>
+              <span class="short-name">{{ r.last_name }}</span>
+            </td>
+
+            <td class="cell-team">
+              <img src="/logos/{{ r.team_id }}.svg" alt="{{ r.team }}" class="team-logo-mini">
+              <span class="team-name-short">{{ r.team }}</span> </td>
+
+            @if (isQualifying()) {
+              <td class="cell-time mono" [class.purple-sector]="r.q1 === bestQ1">{{ r.q1 || '-' }}</td>
+              <td class="cell-time mono" [class.purple-sector]="r.q2 === bestQ2">{{ r.q2 || '-' }}</td>
+              <td class="cell-time mono" [class.purple-sector]="r.q3 === bestQ3">{{ r.q3 || '-' }}</td>
+            }
+
+            @if (isPractice()) {
+              <td class="cell-time mono">{{ r.time }}</td>
+              <td class="cell-laps">{{ r.laps }}</td>
+            }
+
+            @if (isRaceOrSprint()) {
+              <td class="cell-laps">{{ r.laps }}</td>
+
+              <td class="cell-time mono">
+                @if (r.status === 'Disqualified') {
+                  <span class="badge-dq">DSQ</span>
+                } @else if (r.status === 'Finished' || r.status === 'Lapped' || r.status.includes('+')) {
+                  <span [class.winner-time]="r.position === 1">{{ r.time }}</span>
+                } @else {
+                  <span class="badge-dnf">Abandon</span>
+                }
+              </td>
+
+              <td class="cell-points">
+                @if (r.points > 0) { <span class="points-pill">+ {{ r.points }}</span> }
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <div class="no-data">Données non disponibles pour cette session.</div>
+  }
+</div>

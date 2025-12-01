@@ -1,6 +1,7 @@
 interface RaceResultModel {
   DriverNumber: string;
   driver: string;
+  last_name: string;
   evolution: number;
   grid_position: number;
   laps: number;

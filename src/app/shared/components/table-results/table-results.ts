@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 
 @Component({
   selector: 'app-session-result-table',
@@ -7,9 +7,19 @@ import { Component, Input } from '@angular/core';
   templateUrl: './table-results.html',
   styleUrls: ['./table-results.css']
 })
-export class SessionResultTableComponent {
+export class SessionResultTableComponent implements OnChanges {
   @Input() sessionCode!: string;
   @Input() results: RaceResultModel[] = [];
+  protected readonly Math = Math;
+  bestQ1: string = '';
+  bestQ2: string = '';
+  bestQ3: string = '';
+
+  ngOnChanges() {
+    if (this.results && this.isQualifying()) {
+      this.calculateBestQualiTimes();
+    }
+  }
 
   isQualifying() {
     return this.sessionCode?.includes('Q') || this.sessionCode?.startsWith('SQ');
@@ -22,5 +32,43 @@ export class SessionResultTableComponent {
          (this.sessionCode?.startsWith('S') && !this.sessionCode?.startsWith('SQ'));
   }
 
-  protected readonly Math = Math;
+  private timeToMs(timeStr: string | null | undefined): number {
+    if (!timeStr) return Infinity;
+
+    const cleanTime = timeStr.replace('+', '').trim();
+
+    try {
+      const parts = cleanTime.split(':');
+      let seconds = 0;
+
+      if (parts.length === 2) {
+        seconds = parseInt(parts[0]) * 60 + parseFloat(parts[1]);
+      } else {
+        seconds = parseFloat(parts[0]);
+      }
+      return isNaN(seconds) ? Infinity : seconds;
+    } catch {
+      return Infinity;
+    }
+  }
+
+  private calculateBestQualiTimes() {
+    let minQ1 = Infinity;
+    let minQ2 = Infinity;
+    let minQ3 = Infinity;
+
+    this.bestQ1 = '';
+    this.bestQ2 = '';
+    this.bestQ3 = '';
+
+    this.results.forEach(r => {
+      const tQ1 = this.timeToMs(r.q1);
+      const tQ2 = this.timeToMs(r.q2);
+      const tQ3 = this.timeToMs(r.q3);
+
+      if (tQ1 < minQ1) { minQ1 = tQ1; this.bestQ1 = r.q1 || ''; }
+      if (tQ2 < minQ2) { minQ2 = tQ2; this.bestQ2 = r.q2 || ''; }
+      if (tQ3 < minQ3) { minQ3 = tQ3; this.bestQ3 = r.q3 || ''; }
+    });
+  }
 }
