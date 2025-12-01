@@ -46,8 +46,9 @@
             </td>
 
             <td class="cell-team">
-              <img src="/logos/{{ r.team_id }}.svg" alt="{{ r.team }}" class="team-logo-mini">
-              <span class="team-name-short">{{ r.team }}</span> </td>
+              <img src="/logos/{{ r.team_id }}.avif" alt="{{ r.team }}" class="team-logo-mini">
+              <span class="team-name-short">{{ r.team }}</span>
+            </td>
 
             @if (isQualifying()) {
               <td class="cell-time mono" [class.purple-sector]="r.q1 === bestQ1">{{ r.q1 || '-' }}</td>

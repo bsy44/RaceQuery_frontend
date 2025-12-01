@@ -94,14 +94,18 @@ td:first-child{
   display: none;
 }
 
+.cell-team{
+  display: flex;
+  align-items: center;
+}
+
 .cell-team img {
   float: left;
   margin-right: 10px;
 }
 
 .team-logo-mini {
-  width: 24px;
-  height: 24px;
+  width: 32px;
   object-fit: contain;
 }
 
