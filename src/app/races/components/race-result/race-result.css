@@ -1,12 +1,16 @@
-.material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
-  font-size: 24px;
-  vertical-align: middle;
-  margin-right: 8px;
+.container{
+  max-width: 1600px;
+  margin-inline: auto;
+  margin-bottom: 100px;
+  padding: 1rem;
+}
+
+.session-selector-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 40px 0;
 }
 
 .page-header{
@@ -17,56 +21,79 @@
 }
 
 .page-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.container{
-  max-width: 1600px;
-  margin-inline: auto;
-  margin-bottom: 100px;
-  padding: 1rem;
+.selector-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.info-session{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 0;
+.select-wrapper {
+  position: relative;
+  width: 240px;
 }
 
-.session{
-  font-size: 2rem;
-  letter-spacing: 1.5px;
-}
-
-.form-select {
-  background-color: transparent;
-  color: #E6E6E6;
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  background-color: #11141b;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 12px 20px;
   border: 2px solid #FF1E1E;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-align-last: center;
-  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.form-select option {
-  text-align: left;
-  background: #1A1A1A;
-  color: #E6E6E6;
+.custom-select:hover {
+  background-color: #25293d;
 }
 
-.form-select:hover {
-  background: #2A2A2A;
-  box-shadow: 0 0 8px rgba(255, 30, 30, 0.4);
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #FF1E1E;
+  pointer-events: none;
+  transition: transform 0.3s ease;
 }
 
-/* Focus du select */
-.form-select:focus {
-  outline: none;
-  border-color: #FF4D4D;
-  box-shadow: 0 0 8px rgba(255, 77, 77, 0.5);
+.custom-select:focus + .select-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.custom-select option {
+  background-color: #11141b;
+  color: #fff;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .session-selector-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .custom-select {
+    font-size: 1.1rem;
+    padding: 15px;
+  }
+
+  .page-title{
+    font-size: 2rem;
+  }
 }

@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SessionResultTableComponent } from '../table-results/table-results';
 import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
 import { RaceService } from '../../services/race-service';
 import { RaceModel } from '../../models/race.model';
-import {RaceSummary} from '../race-summary/race-summary';
+import { RaceSummary } from '../race-summary/race-summary';
 
 @Component({
   selector: 'app-race-result',
@@ -26,11 +26,12 @@ export class RaceResult implements OnInit {
   race!: RaceModel;
   raceList: RaceResultModel[] = [];
   isLoading = false;
-  sessionCode: string = 'R';
+  sessionCode: string = 'FP1';
   sessions: string[] = [];
-  winner!: string;
-  pole!: string;
-  fastestLap!: string;
+
+  winner!: any;
+  pole!: any;
+  fastestLap!: any;
 
   sessionMapping: { [key: string]: string } = {
     'Essais libres 1': 'FP1',
@@ -42,27 +43,60 @@ export class RaceResult implements OnInit {
     'Course': 'R'
   };
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     const nav = this.router.lastSuccessfulNavigation;
-    this.round = nav?.extras?.state?.['round']!;
+    if (nav?.extras?.state?.['round']) {
+      this.round = nav.extras.state['round'];
+      this.loadRaceData();
+    }
+  }
 
-    this.raceService.getRace(this.round)
-      .subscribe(event => {
-        this.race = event;
+  loadRaceData() {
+    this.raceService.getRace(this.round).subscribe(event => {
+      this.race = event;
 
-        this.sessions = event.eventFormat === 'sprint_qualifying'
-          ? ['Essais libres 1', 'Qualification sprint', 'Qualification', 'Course sprint', 'Course']
-          : ['Essais libres 1', 'Essais libres 2', 'Essais libres 3', 'Qualification', 'Course'];
+      this.sessions = event.eventFormat === 'sprint_qualifying' || event.eventFormat === 'sprint'
+        ? ['Essais libres 1', 'Qualification sprint', 'Course sprint', 'Qualification', 'Course']
+        : ['Essais libres 1', 'Essais libres 2', 'Essais libres 3', 'Qualification', 'Course'];
 
-        this.sessionCode = this.sessionMapping['Course'];
+      this.sessionCode = this.determineLastCompletedSession();
 
-        this.getSessionResult();
-      });
+      this.getSessionResult();
+    });
+  }
+
+  private determineLastCompletedSession(): string {
+    if (!this.race || !this.race.sessions) return 'FP1';
+
+    const now = new Date();
+    let lastCompletedCode = 'FP1';
+
+    for (const session of this.race.sessions) {
+      const dateStr = session.utc_date || session.local_date;
+      if (!dateStr) continue;
+
+      const sessionDate = new Date(dateStr);
+
+      if (sessionDate < now) {
+        lastCompletedCode = this.getCodeFromApiName(session.name);
+      }
+    }
+    return lastCompletedCode;
+  }
+
+  private getCodeFromApiName(apiName: string): string {
+    const map: { [key: string]: string } = {
+      'Practice 1': 'FP1',
+      'Practice 2': 'FP2',
+      'Practice 3': 'FP3',
+      'Qualifying': 'Q',
+      'Sprint Qualifying': 'SQ',
+      'Sprint': 'S',
+      'Race': 'R'
+    };
+    return map[apiName] || 'R';
   }
 
   getSessionResult() {
@@ -77,20 +111,26 @@ export class RaceResult implements OnInit {
           this.winner = response.winner || null;
           this.pole = response.poleman || null;
           this.fastestLap = response.fastestLap || null;
-
           this.raceList = response.results || [];
-
+          this.isLoading = false;
+        },
+        error: (err) => {
+          console.error("Erreur chargement session", err);
           this.isLoading = false;
         }
       });
   }
 
-  getSessionLabel(code: string): string {
-    return Object.entries(this.sessionMapping)
-      .find(([label, val]) => val === code)?.[0] || '';
-  }
-
   getSeason(): number {
     return this.raceService.selectedYear;
+  }
+
+  onSessionChange(newCode: string) {
+    this.sessionCode = newCode;
+    this.getSessionResult();
+
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   }
 }
