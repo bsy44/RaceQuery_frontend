@@ -39,7 +39,7 @@ export class SessionResultTableComponent implements OnChanges {
 
     try {
       const parts = cleanTime.split(':');
-      let seconds = 0;
+      let seconds;
 
       if (parts.length === 2) {
         seconds = parseInt(parts[0]) * 60 + parseFloat(parts[1]);
