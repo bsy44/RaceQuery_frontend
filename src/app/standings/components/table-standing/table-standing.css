@@ -3,7 +3,7 @@
   max-width: 1200px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #2b2b37;
+  background-color: #15151e;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   overflow-x: auto;
 }
@@ -15,7 +15,7 @@
 }
 
 .table-common thead {
-  background-color: #15151e;
+  background-color: #1c1f2e;
   border-bottom: 3px solid #FF1E1E;
 }
 

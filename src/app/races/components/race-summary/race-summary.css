@@ -1,0 +1,99 @@
+.race-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.summary-card {
+  background-color: #15151e;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  border: solid 1px #3f4351;
+}
+
+.fa-trophy { color: #f5c400; }
+
+.fa-bolt { color: #FF1E1E; }
+
+.fa-stopwatch { color: #d459dd; }
+
+.card-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.card-label i {
+  font-size: 1.2rem;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.driver-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.driver-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.team-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.team-badge img {
+  width: 40px;
+  object-fit: contain;
+}
+
+/* --- TEMPS --- */
+.time-info {
+  font-family: 'Roboto Mono', monospace; /* Police technique pour les chiffres */
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .race-summary {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .summary-card {
+    padding: 15px;
+  }
+
+  .driver-name {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,60 @@
+<div class="race-summary">
+
+  @if (winner?.driver) {
+    <div class="summary-card card-winner">
+      <div class="card-label">
+        <i class="fa-solid fa-trophy"></i>
+        <span>Vainqueur</span>
+      </div>
+      <div class="card-content">
+        <div class="driver-info">
+          <span class="driver-name">{{ winner.driver }}</span>
+          <div class="team-badge">
+            <img src="/logos/{{ winner.team_id }}.avif" alt="{{ winner.team }}">
+            <span>{{ winner.team }}</span>
+          </div>
+        </div>
+        <div class="time-info">{{ winner.time }}</div>
+      </div>
+    </div>
+  }
+
+  @if (poleman?.driver) {
+    <div class="summary-card card-pole">
+      <div class="card-label">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Pole Position</span>
+      </div>
+      <div class="card-content">
+        <div class="driver-info">
+          <span class="driver-name">{{ poleman.driver }}</span>
+          <div class="team-badge">
+            <img src="/logos/{{ poleman.team_id }}.avif" alt="{{ poleman.team }}">
+            <span>{{ poleman.team }}</span>
+          </div>
+        </div>
+        <div class="time-info">{{ poleman.time }}</div>
+      </div>
+    </div>
+  }
+
+  @if (fastestLap?.driver) {
+    <div class="summary-card card-fastest">
+      <div class="card-label">
+        <i class="fa-solid fa-stopwatch"></i>
+        <span>Meilleur Tour</span>
+      </div>
+      <div class="card-content">
+        <div class="driver-info">
+          <span class="driver-name">{{ fastestLap.driver }}</span>
+          <div class="team-badge">
+            <img src="/logos/{{ fastestLap.team_id }}.avif" alt="{{ fastestLap.team }}">
+            <span>{{ fastestLap.team }}</span>
+          </div>
+        </div>
+        <div class="time-info">{{ fastestLap.time }}</div>
+      </div>
+    </div>
+  }
+
+</div>

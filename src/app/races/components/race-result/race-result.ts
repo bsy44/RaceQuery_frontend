@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { SessionResultTableComponent } from '../../../shared/components/table-results/table-results';
-import { RaceInfo } from '../race-info/race-info';
+import { SessionResultTableComponent } from '../table-results/table-results';
 import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
 import { RaceService } from '../../services/race-service';
 import { RaceModel } from '../../models/race.model';
+import {RaceSummary} from '../race-summary/race-summary';
 
 @Component({
   selector: 'app-race-result',
@@ -13,7 +13,7 @@ import { RaceModel } from '../../models/race.model';
   imports: [
     FormsModule,
     SessionResultTableComponent,
-    RaceInfo,
+    RaceSummary,
     GoBackButton
   ],
   templateUrl: './race-result.html',

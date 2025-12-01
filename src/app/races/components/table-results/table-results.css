@@ -27,7 +27,7 @@ th {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
-  border-bottom: 2px solid #2c2f3e;
+  border-bottom: 3px solid #FF1E1E;
 }
 
 .center {
@@ -48,6 +48,10 @@ td {
   border-bottom: 1px solid rgba(255,255,255,0.05);
   color: #fff;
   font-size: 0.95rem;
+}
+
+td:first-child{
+  padding: 12px 8px;
 }
 
 .cell-pos {
@@ -107,7 +111,7 @@ td {
 
 .cell-time {
   text-align: center;
-  padding-right: 30px;
+  font-weight: 500;
 }
 
 .cell-laps {
@@ -140,8 +144,8 @@ td {
   color: #fff;
 }
 
-
 .cell-points {
+  font-weight: 500;
   width: 80px;
 }
 
