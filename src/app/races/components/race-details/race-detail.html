@@ -3,18 +3,30 @@
     <div class="page-header">
       <app-go-back-button></app-go-back-button>
 
-      <div class="titles">
-        <h1 class="page-title">{{ race.gpName }} - {{ season }}</h1>
-        <h3 class="subtitle">Manche {{ race.round }}</h3>
+      <div class="header-content">
+        <div class="header-top">
+          <h1 class="page-title">{{ race.gpName }} <span class="season">{{ season }}</span></h1>
+        </div>
+
+        <div class="circuit-info subtitle">
+          <span class="circuit-name">{{ race.circuit_name }}</span>
+          <span class="separator">-</span>
+          <span class="location">{{ race.location }}</span>
+        </div>
       </div>
     </div>
 
-    @for (session of race.sessions; track session; let i = $index) {
-      <app-race-detail-card
-      [sessionName]="session.name"
-      [sessionDate]="session.utc_date"
-      [ind]="i">
-      </app-race-detail-card>
-    }
+    <div class="sessions-timeline">
+      <h1 class="section-title">Programme</h1>
+      <div class="session-container">
+        @for (session of race.sessions; track session; let i = $index) {
+          <app-race-detail-card
+            [sessionName]="session.name"
+            [sessionDate]="session.utc_date"
+            [ind]="i">
+          </app-race-detail-card>
+        }
+      </div>
+    </div>
   </div>
 }

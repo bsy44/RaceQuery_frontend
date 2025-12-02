@@ -1,10 +1,15 @@
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
 .page-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 20px;
+  gap: 40px;
+  padding: 30px 10px;
   border-bottom: solid 4px #ff2a2a;
-  margin-bottom: 50px;
 }
 
 .titles {
@@ -12,24 +17,11 @@
   flex-direction: column;
 }
 
-.container {
-  max-width: 1600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 45px;
-  padding: 20px;
-  box-sizing: border-box;
-  margin-bottom: 70px;
-}
-
 .page-title {
   margin: 0;
-  padding-left: 50px;
   text-align: left;
   font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 0.2rem;
   color: #E6E6E6;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -38,148 +30,98 @@
 .subtitle {
   text-align: left;
   font-size: 1.2rem;
+  font-weight: 500;
   color: #888;
-  padding-left: 50px;
   margin-top: 5px;
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
+.circuit-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  margin-top: 5px;
+}
 
-/* TABLETTE (≈ ≤ 1024px) */
+.sessions-timeline{
+  padding: 25px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  border-left: 4px solid #FF1E1E;
+  padding-left: 15px;
+}
+
+.session-container{
+  display: grid;
+  gap: 30px;
+}
+
 @media (max-width: 1024px) {
+
+  .container {
+    padding: 15px 15px 50px;
+  }
+
   .page-title {
-    font-size: 2rem;
-    padding-left: 30px;
+    font-size: 2.2rem;
+    padding-left: 20px;
+  }
+
+  .subtitle, .circuit-info {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    align-items: flex-start;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom-width: 3px;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+    padding-left: 0;
+    padding-bottom: 15px;
+    line-height: 1.1;
+    word-wrap: break-word;
   }
 
   .subtitle {
     font-size: 1rem;
-    padding-left: 30px;
-  }
-
-  .session-card {
-    padding: 25px 15px;
-  }
-
-  .session-info .title {
-    font-size: 1.3rem;
     padding-left: 0;
   }
 
-  .session-info .time {
-    font-size: 1.1rem;
+  .circuit-info {
+    padding-left: 0;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
   }
 
-  .session-info i{
-    padding-right: 0;
-  }
-}
-
-/* MOBILE GRAND (≈ ≤ 768px) */
-@media (max-width: 768px) {
-  .page-title {
-    font-size: 1.8rem;
-    padding-left: 20px;
+  .sessions-timeline {
+    padding: 20px 0;
   }
 
-  .subtitle {
-    font-size: 0.9rem;
-    padding-left: 20px;
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-left-width: 3px;
   }
 
-  .session-card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 15px;
-  }
-
-  .separator {
-    display: none;
-  }
-
-  .date {
-    flex-direction: row;
-    width: auto;
-    gap: 8px;
-  }
-
-  .date .day {
-    font-size: 1.2rem;
-  }
-
-  .date .month {
-    font-size: 1rem;
-  }
-
-  .session-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  .session-info .title {
-    font-size: 1.2rem;
-  }
-
-  .session-info .time {
-    font-size: 1rem;
-    padding-right: 0;
-  }
-
-  .page-header {
-    padding: 10px;
-    gap: 15px;
-    margin-bottom: 5px;
-  }
-
-  .back-button {
-    width: 40px;
-    height: 40px;
-  }
-
-  .page-title {
-    font-size: 1.6rem;
-  }
-
-  .subtitle {
-    font-size: 0.9rem;
+  .session-container {
+    gap: 25px;
   }
 }
 
-/* MOBILE PETIT (≈ ≤ 480px) */
-@media (max-width: 480px) {
-  .page-header{
-    padding: 10px;
-    margin-bottom: 5px;
-  }
-
+@media (max-width: 400px) {
   .page-title {
     font-size: 1.5rem;
-  }
-
-  .subtitle {
-    font-size: 0.85rem;
-  }
-
-  .session-card {
-    padding: 15px;
-    gap: 10px;
-  }
-
-  .date .day {
-    font-size: 1rem;
-  }
-
-  .date .month {
-    font-size: 0.8rem;
-  }
-
-  .session-info .title {
-    font-size: 1rem;
-  }
-
-  .session-info .time {
-    font-size: 0.9rem;
   }
 }
