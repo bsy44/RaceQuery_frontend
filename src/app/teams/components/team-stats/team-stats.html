@@ -1,13 +1,7 @@
 <div class="team-stats">
-  <div class="stat-container">
-    <div class="team-standing">
-      <h2>Classement championnat</h2>
-      <div class="team-position" [ngClass]="'pos-' + team.position">
-        <span class="pos">{{ team.position }}{{ team.position == '1' ? 'er' : 'ème' }}</span>
-        <span class="points">{{ +team.points }} pts</span>
-      </div>
-    </div>
+  <h1 class="section-title">Statistique</h1>
 
+  <div class="stat-container">
     <h2 class="stat-title">Grand Prix statistique</h2>
     <div class="race-stat">
       <div class="race-win">

@@ -17,7 +17,17 @@
 
     <span class="separator" [ngClass]="team.Team.constructorId"></span>
 
-    <h1 class="section-title">Statistique - {{ year }}</h1>
+    <div class="team-resume">
+      <h1 class="section-title">Saison - {{ year }}</h1>
+      <div class="team-standing">
+        <h2>Classement championnat</h2>
+        <div class="team-position" [ngClass]="'pos-' + team.position">
+          <span class="pos">{{ team.position }}{{ team.position == '1' ? 'er' : 'ème' }}</span>
+          <span class="points">{{ +team.points }} pts</span>
+        </div>
+      </div>
+    </div>
+
     <app-team-stats
     [team]="team">
     </app-team-stats>
