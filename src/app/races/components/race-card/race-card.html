@@ -1,13 +1,18 @@
-<div class="card">
+<div class="card" [class.is-sprint]="race.eventFormat.includes('sprint')">
+
   @if (race.eventFormat.includes("sprint")){
-    <span class="sprint-badge">SPRINT</span>
+    <span class="sprint-badge">
+      Sprint
+    </span>
   }
+
   <div class="card-header">
     <div class="card-round">Manche {{ race.round }}</div>
     <div class="card-date">
       <i class="fa-solid fa-flag-checkered"></i> {{ race.eventDate }}
     </div>
   </div>
+
   <div class="card-content">
     <div class="card-flag">
       <span [class]="'fi fi-' + NAME_TO_ISO[race.country]"></span>

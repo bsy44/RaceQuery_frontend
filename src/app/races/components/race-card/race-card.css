@@ -1,82 +1,129 @@
-.card{
-  padding: 15px;
+.card {
+  position: relative;
+  padding: 20px;
   border-radius: 12px;
-  border: 2px solid transparent;
   background-color: #010102;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+  border: 2px solid transparent;
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
 }
 
-.card:hover {
-  transform: scale(1.05) translateY(-5px);
-  border-color: #FF1E1E;
+.card-round {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #7a7a7a;
+  letter-spacing: 1px;
 }
 
-.driver{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.card-round{
-  font-weight: 600;
-  color: #A0A0A0;
-}
-
-.card-date{
+.card-date {
   color: #FF1E1E;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
-.card-date i{
-  color: #E6E6E6;
+.card-date i {
+  color: #e0e0e0;
   margin-right: 5px;
 }
 
-.card-content{
+.card-content {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
-.card-flag{
-  font-size: 4rem;
-  margin-right: 10px;
+.card-flag {
+  font-size: 3.5rem;
 }
 
-.card-text{
+.card-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 800;
   margin: 0;
+  line-height: 1.1;
+  color: #fff;
 }
 
 .card-locality {
   font-size: 0.9rem;
-  margin-top: 4px;
+  margin-top: 6px;
+  color: #b0b0b0;
+  font-weight: 500;
 }
 
 .sprint-badge {
   position: absolute;
   bottom: 15px;
-  right: 20px;
-  background-color: #ff1e1e;
+  right: 15px;
+  background: linear-gradient(45deg, #ff1e1e, #d90000);
   color: #fff;
   font-size: 0.7rem;
-  font-weight: bold;
-  padding: 2px 6px;
+  font-weight: 800;
+  padding: 4px 8px;
   border-radius: 4px;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.card {
-  position: relative; /* nécessaire pour que la pastille se positionne correctement */
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #FF1E1E;
+  background-color: #0a0a0c;
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .card-header {
+    margin-bottom: 10px;
+  }
+
+  .card-flag {
+    font-size: 2.8rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-locality {
+    font-size: 0.85rem;
+  }
+
+  .sprint-badge {
+    top: auto;
+    bottom: 12px;
+    right: 12px;
+    font-size: 0.6rem;
+    padding: 4px 6px;
+  }
+
+  .card-date {
+    margin-right: 0;
+  }
 }
