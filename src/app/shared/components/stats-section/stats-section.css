@@ -1,26 +1,21 @@
 .stat-container {
-  padding: 0; /* Le padding externe sera géré par le parent si besoin */
+  padding: 0;
 }
 
-/* Titres (h2) */
 .section-title {
   margin-top: 30px;
   margin-bottom: 15px;
   margin-left: 15px;
-  text-transform: uppercase;
   font-weight: 900;
   color: white;
-  border-left: 5px solid #FF1E1E;
   padding-left: 15px;
   font-size: 1.5rem;
 }
 
-/* Conteneur de la liste */
 .stat-list {
   padding: 0 40px 20px;
 }
 
-/* Chaque ligne (div) */
 .stat-row {
   display: flex;
   justify-content: space-between;
@@ -29,12 +24,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Le dernier élément n'a pas de bordure */
 .stat-row:last-child {
   border-bottom: none;
 }
 
-/* Label (Gauche) */
 .stat-row span:first-child {
   font-size: 1.1rem;
   font-weight: 700;
@@ -42,21 +35,19 @@
   letter-spacing: 1px;
 }
 
-/* Valeur (Droite) */
 .stat-row span:last-child {
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
 }
 
-/* --- RESPONSIVE (Ton media query adapté) --- */
 @media (max-width: 900px) {
   .stat-list {
     padding: 0 15px 25px;
   }
 
   .stat-row span:first-child {
-    font-size: 0.9rem; /* Un peu plus petit sur mobile */
+    font-size: 0.9rem;
   }
 
   .stat-row span:last-child {
