@@ -8,7 +8,7 @@
 }
 
 .driver-result-container{
-  padding: 35px 0;
+  padding: 35px 0 50px;
 }
 
 .stats-title{
@@ -44,9 +44,39 @@
   color: rgba(163, 163, 163, 0.69);
 }
 
+.pos-1 .pos {
+  background: linear-gradient(45deg, #ffd700, #ffef8a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pos-2 .pos {
+  background: linear-gradient(45deg, #c0c0c0, #f5f5f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pos-3 .pos {
+  background: linear-gradient(45deg, #CD7F32, #cd9054);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (max-width: 900px) {
   .container{
-    padding: 12px;
+    padding: 12px 12px 50px;
+  }
+
+  .driver-stats{
+    padding: 0 15px;
+  }
+
+  .stats-title{
+    font-size: 1.7rem;
+  }
+
+  .stats-title{
+    margin: 0;
   }
 }
 

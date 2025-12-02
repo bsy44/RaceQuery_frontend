@@ -9,11 +9,13 @@
 
   <div class="bg-number">{{ driver.Driver.driverNumber }}</div>
 
-  <div class="card-visual">
-    <div class="img-wrapper">
-      <img src="/drivers/{{ season }}/{{ driver.Driver.driverId }}.png" alt="{{ driver.Driver.driverId }}">
+    <div class="card-visual">
+        <div class="img-wrapper">
+            <img [src]="'/drivers/' + season + '/' + driver.Driver.driverId + '.png'"
+                 alt="{{ driver.Driver.driverId }}"
+                 appImgFallback="/drivers/default.png">
+        </div>
     </div>
-  </div>
 
   <div class="card-content">
 
