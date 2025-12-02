@@ -3,7 +3,7 @@
     <div class="team-standing">
       <h2>Classement championnat</h2>
       <div class="team-position" [ngClass]="'pos-' + team.position">
-        <span class="pos">{{ team.position }}{{ team.position === '1' ? 'er' : 'ème' }}</span>
+        <span class="pos">{{ team.position }}{{ team.position == '1' ? 'er' : 'ème' }}</span>
         <span class="points">{{ +team.points }} pts</span>
       </div>
     </div>

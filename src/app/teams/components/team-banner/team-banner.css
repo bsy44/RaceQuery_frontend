@@ -8,6 +8,7 @@
 .flag-icon{
   font-size: 2.25rem;
   padding-left: 10px;
+  border-radius: 8px;
 }
 
 .team-name{
@@ -73,59 +74,23 @@
   border-radius: 2px;
 }
 
-
 img {
   width: 60px;
   height: 60px;
 }
 
-.mercedes {
-  --team-color: #00d2be;
-}
-
-.ferrari {
-  --team-color: #dc0000;
-}
-
-.red_bull {
-  --team-color: #1e41ff;
-}
-
-.mclaren {
-  --team-color: #ff8700;
-}
-
-.aston_martin {
-  --team-color: #006f62;
-}
-
-.alpine {
-  --team-color: #2293d1;
-}
-
-.haas {
-  --team-color: #ffffff;
-}
-
-.rb {
-  --team-color: #6692ff;
-}
-
-.williams {
-  --team-color: #005aff;
-}
-
-.sauber {
-  --team-color: #52e252;
-}
-
-.alfa {
-  --team-color: #88172a;
-}
-
-.alphatauri {
-  --team-color: #002841;
-}
+.mercedes { --team-color: #00d2be; }
+.ferrari { --team-color: #c10000; }
+.red_bull { --team-color: #1e41ff; }
+.mclaren { --team-color: #ff8700; }
+.aston_martin { --team-color: #006f62; }
+.alpine { --team-color: #2293d1; }
+.haas { --team-color: #ffffff; }
+.rb { --team-color: #6692ff; }
+.williams { --team-color: #005aff; }
+.sauber { --team-color: #52e252; }
+.alfa { --team-color: #88172a; }
+.alphatauri { --team-color: #002841; }
 
 .rb img,
 .williams img,

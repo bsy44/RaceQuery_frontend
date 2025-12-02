@@ -22,7 +22,7 @@
 }
 
 .team-stats {
-  padding: 10px 40px;
+  padding: 10px 35px;
 }
 
 .team-position {
@@ -82,5 +82,25 @@
   }
   .race-stat span:last-child {
     font-size: 1.1rem;
+  }
+
+  .team-standing{
+    padding-bottom: 25px;
+  }
+
+  .team-stats{
+    padding: 0 25px;
+  }
+
+  .team-position{
+    padding: 0;
+  }
+
+  .race-stat{
+    padding: 0 15px 25px;
+  }
+
+  .sprint-stat{
+    padding: 0 15px;
   }
 }

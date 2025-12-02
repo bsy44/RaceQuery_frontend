@@ -1,15 +1,18 @@
 .container{
   margin: auto;
   max-width: 1600px;
+  padding-bottom: 100px;
 }
 
 .section-title{
-  margin-left: 40px;
+  margin-left: 15px;
   text-transform: uppercase;
   font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: -1px;
+  font-weight: 900;
   color: white;
+  border-left: 5px solid #FF1E1E;
+  padding-left: 15px;
+
 }
 
 .separator {
@@ -21,7 +24,7 @@
 }
 
 .driver-section{
-  padding: 50px 0;
+  padding: 30px 0;
   display: flex;
   justify-content: center;
   gap: 5rem;
@@ -34,6 +37,11 @@
   color: inherit;
 }
 
+@media (max-width: 900px) {
+  .driver-section{
+    gap: 2rem;
+  }
+}
 
 .mercedes { --team-color: #00d2be; }
 .ferrari { --team-color: #dc0000; }
