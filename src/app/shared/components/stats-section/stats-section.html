@@ -1,1 +1,68 @@
-<p>stats-section works!</p>
+<div class="stat-container">
+
+  <h2 class="section-title">Grand Prix statistique</h2>
+
+  <div class="stat-list">
+
+    <div class="stat-row">
+      <span>Victoire Grand Prix</span>
+      <span>{{ stats.win }}</span>
+    </div>
+
+    <div class="stat-row">
+      <span>Podium</span>
+      <span>{{ stats.podium }}</span>
+    </div>
+
+    <div class="stat-row">
+      <span>Pôle position</span>
+      <span>{{ stats.pole }}</span>
+    </div>
+
+    @if (stats.best_result) {
+      <div class="stat-row">
+        <span>Meilleur résultat</span>
+        <span>{{ stats.best_result }}</span>
+      </div>
+    }
+
+    <div class="stat-row">
+      <span>Top 10</span>
+      <span>{{ stats.top10 }}</span>
+    </div>
+
+    <div class="stat-row">
+      <span>Arrivée moyenne en course</span>
+      <span>{{ stats.avg_race_finish || '-' }}</span>
+    </div>
+
+    <div class="stat-row">
+      <span>Arrivée moyenne en qualification</span>
+      <span>{{ stats.avg_qualifying_finish || '-' }}</span>
+    </div>
+
+    <div class="stat-row">
+      <span>Abandon</span>
+      <span>{{ stats.dnf }}</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Sprint statistique</h2>
+
+  <div class="stat-list">
+    <div class="stat-row">
+      <span>Victoire course Sprint</span>
+      <span>{{ stats.sprint_win }}</span>
+    </div>
+
+    <div class="stat-row">
+      <span>Podium course Sprint</span>
+      <span>{{ stats.sprint_podium }}</span>
+    </div>
+
+    <div class="stat-row">
+      <span>Pôle position Sprint</span>
+      <span>{{ stats.sprint_pole }}</span>
+    </div>
+  </div>
+</div>

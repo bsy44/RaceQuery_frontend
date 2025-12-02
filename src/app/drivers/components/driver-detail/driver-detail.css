@@ -12,15 +12,19 @@
 }
 
 .stats-title{
-  margin: 0;
   border-left: 5px solid #FF1E1E;
   padding-left: 15px;
+  margin: 0 0 0 15px;
   text-transform: uppercase;
   font-weight: 900;
 }
 
 .driver-stats {
   padding: 0 40px;
+}
+
+.table-result{
+  padding: 0 15px;
 }
 
 .driver-position {
@@ -40,67 +44,10 @@
   color: rgba(163, 163, 163, 0.69);
 }
 
-.stat-container{
-  padding:  35px 0;
-}
-
-.race-stat,
-.sprint-stat{
-  padding: 0 40px 50px;
-}
-
-.race-stat > div,
-.sprint-stat > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.race-stat span:first-child,
-.sprint-stat span:first-child {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 1px;
-}
-
-.race-stat span:last-child,
-.sprint-stat span:last-child{
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.race-stat > div:last-child,
-.sprint-stat > div:last-child {
-  border-bottom: none;
-}
-
-.pos-1 .pos {
-  background: linear-gradient(45deg, #ffd700, #ffef8a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.pos-2 .pos {
-  background: linear-gradient(45deg, #c0c0c0, #f5f5f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.pos-3 .pos {
-  background: linear-gradient(45deg, #CD7F32, #cd9054);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 @media (max-width: 900px) {
   .container{
     padding: 12px;
   }
-
-  .driver-stats{ padding: 0 15px}
 }
 
 .mercedes {--team-color: #00d2be; .driver-number {color: #000000;-webkit-text-stroke: 2px white;} }

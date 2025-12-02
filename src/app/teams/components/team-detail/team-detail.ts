@@ -4,17 +4,17 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TeamService } from '../../services/team-service';
 import { TeamDriverCard } from '../team-driver-card/team-driver-card';
 import { TeamBanner } from '../team-banner/team-banner';
-import { TeamStats } from '../team-stats/team-stats';
 import {NgClass} from '@angular/common';
+import {StatsSection} from '../../../shared/components/stats-section/stats-section';
 
 @Component({
   selector: 'app-team-standing-detail',
   imports: [
     TeamDriverCard,
     TeamBanner,
-    TeamStats,
     RouterLink,
-    NgClass
+    NgClass,
+    StatsSection
   ],
   templateUrl: './team-detail.html',
   styleUrl: './team-detail.css',

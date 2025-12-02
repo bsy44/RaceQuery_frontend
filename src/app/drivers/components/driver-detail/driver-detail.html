@@ -1,4 +1,3 @@
-
 @if (driver) {
   <div class="container">
     <app-driver-hero
@@ -23,76 +22,16 @@
 
     <div class="driver-result-container">
       <h1 class="stats-title">Résultat saison</h1>
-      <app-race-table-result
-        [seasonResult]="seasonResult">
-      </app-race-table-result>
-    </div>
-
-
-    <div class="stat-container">
-      <h1 class="stats-title">Statistique</h1>
-      <div class="driver-stats">
-        <h2 class="stat-name">Grand Prix statistique</h2>
-        <div class="race-stat">
-          <div class="race-win">
-            <span>Victoire Grand Prix</span>
-            <span>{{ driver.win }}</span>
-          </div>
-
-          <div class="sprint-podium">
-            <span>Podium</span>
-            <span>{{ driver.podium }}</span>
-          </div>
-
-          <div class="sprint-pole">
-            <span>Pôle position</span>
-            <span>{{ driver.pole }}</span>
-          </div>
-
-          <div class="best-result">
-            <span>Meilleur résultat</span>
-            <span>{{ driver.best_result }}</span>
-          </div>
-
-          <div class="top10">
-            <span>Top 10</span>
-            <span>{{ driver.top10 }}</span>
-          </div>
-
-          <div class="race-avg-pos">
-            <span>Arrivée moyenne en course</span>
-            <span>{{ driver.avg_race_finish }}</span>
-          </div>
-
-          <div class="quali-avg-pos">
-            <span>Arrivée moyenne en qualification</span>
-            <span>{{ driver.avg_qualifying_finish }}</span>
-          </div>
-
-          <div class="dnf">
-            <span>Abandon</span>
-            <span>{{ driver.dnf }}</span>
-          </div>
-        </div>
-
-        <h2 class="stat-title">Sprint statistique</h2>
-        <div class="sprint-stat">
-          <div class="sprint-win">
-            <span>Victoire course Sprint</span>
-            <span>{{ driver.sprint_win }}</span>
-          </div>
-
-          <div class="sprint-podium">
-            <span>Podium course Sprint</span>
-            <span>{{ driver.sprint_podium }}</span>
-          </div>
-
-          <div class="sprint-pole">
-            <span>Pôle position Sprint</span>
-            <span>{{ driver.sprint_pole }}</span>
-          </div>
-        </div>
+      <div class="table-result">
+        <app-race-table-result
+          [seasonResult]="seasonResult">
+        </app-race-table-result>
       </div>
+
     </div>
+
+    <app-stats-section
+    [stats]="driver">
+    </app-stats-section>
   </div>
 }
