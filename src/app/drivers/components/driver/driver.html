@@ -8,7 +8,7 @@
 
 <div class="container">
   @for (driver of drivers; track driver.driverId) {
-    <a routerLink="{{selectedYear}}/{{ driver.driverId }}" class="link">
+    <a [routerLink]="['/pilotes', selectedYear, driver.driverId]" class="link">
       <app-driver-card
         [driver]="driver">
       </app-driver-card>

@@ -13,8 +13,8 @@ import { Driver } from './drivers/components/driver/driver';
 
 export const routes: Routes = [
   {path: 'home', component: Dashboard},
-  {path: 'drivers', component: Driver},
-  {path: 'drivers/:season/:driverId', component: DriverDetail},
+  {path: 'pilotes', component: Driver},
+  {path: 'pilotes/:season/:driverId', component: DriverDetail},
   {path: 'driver/standings', component: DriverStanding},
   {path: 'teams', component: Team},
   {path: 'teams/:season/:teamId', component: TeamDetail},
