@@ -19,6 +19,13 @@
       <span>{{ stats.pole }}</span>
     </div>
 
+    @if (stats.q3_appearance ){
+      <div class="stat-row">
+        <span>Apparition en Q3</span>
+        <span>{{ stats.q3_appearance }} / {{ stats.total_quali }}</span>
+      </div>
+    }
+
     @if (stats.best_result) {
       <div class="stat-row">
         <span>Meilleur résultat</span>

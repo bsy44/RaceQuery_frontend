@@ -7,7 +7,8 @@ export interface StatModel {
   avg_race_finish: number | string;
   avg_qualifying_finish: number | string;
   best_result?: number;
-  q3_apprence?: number;
+  q3_appearance?: number;
+  total_quali?: number;
   sprint_win: number;
   sprint_podium: number;
   sprint_pole: number;
