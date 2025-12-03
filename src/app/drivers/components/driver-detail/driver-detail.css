@@ -78,6 +78,10 @@
   .stats-title{
     margin: 0;
   }
+
+  .pos, .points{
+    font-size: 2rem;
+  }
 }
 
 .mercedes {--team-color: #00d2be; .driver-number {color: #000000;-webkit-text-stroke: 2px white;} }
