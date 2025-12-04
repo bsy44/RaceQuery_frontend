@@ -3,7 +3,9 @@
     <thead>
     <tr>
       @for (col of columns; track col) {
-        <th>{{ col }}</th>
+        @if (col !== 'Évo.') {
+          <th>{{ col }}</th>
+        }
       }
     </tr>
     </thead>
@@ -11,7 +13,21 @@
       @for (row of data; track $index) {
         <tr>
           @if (columns.includes('Pos.')) {
-            <td>{{ row.position }}</td>
+            <td class="pos-cell">
+              <div class="pos-wrapper">
+                <span class="rank">{{ row.position }}</span>
+
+                @if (row.evolution > 0){
+                  <span class="trend up" title="Gagné {{ row.evolution }} places">
+                    <i class="fa-solid fa-caret-up"></i> {{ row.evolution }}
+                  </span>
+                } @else if (row.evolution < 0){
+                  <span class="trend down" title="Perdu {{ Math.abs(row.evolution) }} places">
+                    <i class="fa-solid fa-caret-down"></i> {{ Math.abs(row.evolution) }}
+                  </span>
+                }
+              </div>
+            </td>
           }
 
           @if (columns.includes('Pilote')) {
@@ -25,13 +41,15 @@
           }
 
           @if (columns.includes('Écurie')) {
-            <td class="team-cell" [ngClass]="row.Team.constructorId">
+            <td class="team-cell"
+                [ngClass]="tableType === 'teams' ? row.Team.constructorId : ''">
+
               <div class="team-wrapper">
                 @if (tableType === 'teams') {
-                  <img src="/logos/{{ row.Team.constructorId }}.avif" class="team-logo">
+                  <img src="/logos/{{ row.Team.constructorId }}.avif" class="team-logo" alt="">
                   <span class="team-name">{{ row.Team.constructorName }}</span>
                 } @else {
-                  <img src="/logos/{{ row.constructorId }}.avif" class="team-logo">
+                  <img src="/logos/{{ row.constructorId }}.avif" class="team-logo" alt="">
                   <span class="team-name">{{ row.team }}</span>
                 }
               </div>
@@ -46,24 +64,6 @@
                   <span id="diff-points"> -{{ +row.points_diff }} </span>
                 }
               </span>
-            </td>
-          }
-
-          @if (columns.includes('Évo.')){
-            <td class="standing_evo">
-              @if (row.evolution > 0){
-                <span class="evo-positive">
-                  ▲ {{ row.evolution }}
-                </span>
-              } @else if (row.evolution < 0){
-                <span class="evo-negative">
-                  ▼ {{ Math.abs(row.evolution) }}
-                </span>
-              } @else if (row.evolution === 0){
-                <span class="evo-null">
-                  -
-                </span>
-              }
             </td>
           }
         </tr>

@@ -123,14 +123,49 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
   display: none;
 }
 
-.evo-positive { color: #2ecc71; }
-.evo-negative { color: #e74c3c; }
-.evo-null { color: #4b5563; }
+.pos-cell {
+  width: 80px;
+  padding: 10px 5px;
+}
+
+.pos-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.rank {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  min-width: 25px;
+  text-align: right;
+}
+
+
+.trend {
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 30px;
+}
+
+
+.trend.up {
+  color: #2ecc71;
+}
+
+.trend.down {
+  color: #e74c3c;
+}
 
 
 @media (max-width: 768px) {
   .table-container {
-    margin: 0 10px 50px;
+    margin: 0 15px 50px;
     border-radius: 8px;
   }
 
@@ -154,6 +189,7 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
 
   .driver-cell .flag-icon {
     font-size: 1.2rem;
+    padding-left: 15px;
   }
 
   .driver-cell{
@@ -161,8 +197,14 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
     border-left: solid 4px var(--team-color);
   }
 
-  .team-cell{
+  .teams-table .team-cell{
+    padding-left: 1rem;
     border-left: solid 4px var(--team-color);
+  }
+
+  .table-common td:first-child,
+  .table-common th:first-child {
+    width: 30px;
   }
 }
 
