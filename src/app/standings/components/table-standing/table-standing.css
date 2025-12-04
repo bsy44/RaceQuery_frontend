@@ -164,11 +164,6 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
 
 
 @media (max-width: 768px) {
-  .table-container {
-    margin: 0 15px 50px;
-    border-radius: 8px;
-  }
-
   .table-common th,
   .table-common td {
     font-size: 0.9rem;

@@ -6,9 +6,12 @@
   (selectedYearChange)="onYearChange($event)">
 </app-page-header>
 
-<app-table-standing
-  [columns]="columns"
-  [data]="teamList"
-  [tableType]="'teams'">
-</app-table-standing>
+<div class="standing-container">
+  <app-table-standing
+    [columns]="columns"
+    [data]="teamList"
+    [tableType]="'teams'">
+  </app-table-standing>
+</div>
+
 
