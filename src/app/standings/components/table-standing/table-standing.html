@@ -15,7 +15,7 @@
           }
 
           @if (columns.includes('Pilote')) {
-            <td class="driver-cell">
+            <td class="driver-cell" [ngClass]="row.constructorId">
               <span class="fi fi-{{ getDriverFlag(row.nationality) }} flag-icon"></span>
 
               <span class="driver-full">{{ row.fullName }}</span>
@@ -25,13 +25,13 @@
           }
 
           @if (columns.includes('Écurie')) {
-            <td>
+            <td class="team-cell" [ngClass]="row.Team.constructorId">
               <div class="team-wrapper">
                 @if (tableType === 'teams') {
                   <img src="/logos/{{ row.Team.constructorId }}.avif" class="team-logo">
                   <span class="team-name">{{ row.Team.constructorName }}</span>
                 } @else {
-                  <img src="/logos/{{ row.team_id }}.avif" class="team-logo">
+                  <img src="/logos/{{ row.constructorId }}.avif" class="team-logo">
                   <span class="team-name">{{ row.team }}</span>
                 }
               </div>

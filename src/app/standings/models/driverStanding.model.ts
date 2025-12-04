@@ -6,7 +6,7 @@ export interface DriverStandingsModel {
   family_name: DriverModel["familyName"];
   nationality: DriverModel["nationality"];
   team: DriverModel["team"];
-  team_id: DriverModel["team_id"];
+  constructorId: DriverModel["team_id"];
   evolution: string;
   points: string;
   points_diff: string;

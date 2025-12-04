@@ -10,23 +10,26 @@
 
 .table-common {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   white-space: nowrap;
 }
 
 .table-common thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background-color: #1c1f2e;
-  border-bottom: 3px solid #FF1E1E;
 }
 
 .table-common th {
-  padding: 15px 20px;
+  padding: 15px ;
   text-align: left;
   font-weight: 600;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #a6a8ae;
+  border-bottom: 3px solid #FF1E1E;
 }
 
 .table-common th:nth-child(4),
@@ -48,10 +51,11 @@
 }
 
 .table-common td {
-  padding: 12px 20px;
+  padding: 10px;
   font-size: 1rem;
   color: #fff;
   vertical-align: middle;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .table-common td:first-child,
@@ -65,14 +69,9 @@ tbody tr:nth-child(1) td:first-child { color: #f5c400; }
 tbody tr:nth-child(2) td:first-child { color: #e0e0e0; }
 tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
 
-.driver-cell {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
 .flag-icon {
   width: 24px;
+  margin-right: 1rem;
 }
 
 .team-wrapper {
@@ -137,7 +136,6 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
 
   .table-common th,
   .table-common td {
-    padding: 12px 10px;
     font-size: 0.9rem;
   }
 
@@ -157,4 +155,26 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
   .driver-cell .flag-icon {
     font-size: 1.2rem;
   }
+
+  .driver-cell{
+    display: table-cell;
+    border-left: solid 4px var(--team-color);
+  }
+
+  .team-cell{
+    border-left: solid 4px var(--team-color);
+  }
 }
+
+.mercedes { --team-color: #00d2be; }
+.ferrari { --team-color: #dc0000; }
+.red_bull { --team-color: #1e41ff; }
+.mclaren { --team-color: #ff8700; }
+.aston_martin { --team-color: #006f62; }
+.alpine { --team-color: #2293d1; }
+.haas { --team-color: #ffffff; }
+.rb { --team-color: #6692ff; }
+.williams { --team-color: #005aff; }
+.sauber { --team-color: #52e252; }
+.alfa { --team-color: #88172a; }
+.alphatauri { --team-color: #002841; }
