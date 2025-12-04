@@ -28,7 +28,7 @@ export class RaceDetail implements OnInit {
   }
 
   load(){
-    this.raceService.getRace(this.round).subscribe((result) => {
+    this.raceService.getRace(this.season, this.round).subscribe((result) => {
       this.race = result;
     })
   }

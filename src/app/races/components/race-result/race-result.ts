@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SessionResultTableComponent } from '../table-results/table-results';
 import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
@@ -21,7 +21,7 @@ import { RaceSummary } from '../race-summary/race-summary';
 })
 export class RaceResult implements OnInit {
   private readonly raceService: RaceService = inject(RaceService);
-
+  season!: number;
   round!: number;
   race!: RaceModel;
   raceList: RaceResultModel[] = [];
@@ -43,10 +43,11 @@ export class RaceResult implements OnInit {
     'Course': 'R'
   };
 
-  constructor(private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     const nav = this.router.lastSuccessfulNavigation;
+    this.season = +this.route.snapshot.paramMap.get('season')!;
     if (nav?.extras?.state?.['round']) {
       this.round = nav.extras.state['round'];
       this.loadRaceData();
@@ -54,17 +55,27 @@ export class RaceResult implements OnInit {
   }
 
   loadRaceData() {
-    this.raceService.getRace(this.round).subscribe(event => {
+    this.raceService.getRace(this.season, this.round).subscribe(event => {
       this.race = event;
 
-      this.sessions = event.eventFormat === 'sprint_qualifying' || event.eventFormat === 'sprint'
-        ? ['Essais libres 1', 'Qualification sprint', 'Course sprint', 'Qualification', 'Course']
-        : ['Essais libres 1', 'Essais libres 2', 'Essais libres 3', 'Qualification', 'Course'];
+      this.sessions = event.sessions.map(s => this.getFrenchSessionName(s.name));
 
       this.sessionCode = this.determineLastCompletedSession();
 
       this.getSessionResult();
     });
+  }
+
+  private getFrenchSessionName(apiName: string): string {
+    const name = apiName.toLowerCase();
+    if (name.includes('practice 1')) return 'Essais libres 1';
+    if (name.includes('practice 2')) return 'Essais libres 2';
+    if (name.includes('practice 3')) return 'Essais libres 3';
+    if (name.includes('sprint qualifying') || name.includes('sprint shootout')) return 'Qualification sprint';
+    if (name.includes('qualifying')) return 'Qualification';
+    if (name.includes('sprint')) return 'Course sprint';
+    if (name.includes('race')) return 'Course';
+    return apiName;
   }
 
   private determineLastCompletedSession(): string {
@@ -105,7 +116,7 @@ export class RaceResult implements OnInit {
     const session = this.sessionCode.trim().toUpperCase();
     this.isLoading = true;
 
-    this.raceService.getSessionResults(session, this.round)
+    this.raceService.getSessionResults(this.season, this.round, session)
       .subscribe({
         next: (response: any) => {
           this.winner = response.winner || null;
@@ -119,10 +130,6 @@ export class RaceResult implements OnInit {
           this.isLoading = false;
         }
       });
-  }
-
-  getSeason(): number {
-    return this.raceService.selectedYear;
   }
 
   onSessionChange(newCode: string) {

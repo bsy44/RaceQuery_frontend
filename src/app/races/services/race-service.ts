@@ -24,14 +24,14 @@ export class RaceService {
     );
   }
 
-  getRace(round: number): Observable<RaceModel> {
-    return this.http.get<RawRace>(`${this.apiUrl}/races/${this.selectedYear}/${round}`).pipe(
+  getRace(season: number, round: number): Observable<RaceModel> {
+    return this.http.get<RawRace>(`${this.apiUrl}/races/${season}/${round}`).pipe(
       map(race => this.mapToRaceModel(race))
     );
   }
 
-  getSessionResults(session: string, round: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/races/${this.selectedYear}/${round}/${session}-results`);
+  getSessionResults(season: number, round: number, session: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/races/${season}/${round}/${session}-results`);
   }
 
   setYear(year: number){
