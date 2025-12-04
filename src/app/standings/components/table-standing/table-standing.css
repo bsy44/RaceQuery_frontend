@@ -62,7 +62,7 @@
 .table-common th:first-child {
   text-align: center;
   font-weight: 700;
-  width: 60px;
+  width: 70px;
 }
 
 tbody tr:nth-child(1) td:first-child { color: #f5c400; }

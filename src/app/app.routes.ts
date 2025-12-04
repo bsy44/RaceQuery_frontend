@@ -20,8 +20,8 @@ export const routes: Routes = [
   {path: 'teams/:season/:teamId', component: TeamDetail},
   {path: 'team/standings', component: TeamStanding},
   {path: 'races', component: Race},
-  {path: 'race/:season/:gpName/results', component: RaceResult},
-  {path: 'race/:season/:gpName/details', component: RaceDetail},
+  {path: 'races/:season/:gpName/results', component: RaceResult},
+  {path: 'races/:season/:gpName/details', component: RaceDetail},
   {path: '', redirectTo:'home', pathMatch: 'full' }
 ];
 
