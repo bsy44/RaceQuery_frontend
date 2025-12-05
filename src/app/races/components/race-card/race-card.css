@@ -21,9 +21,10 @@
 }
 
 .card-round {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #7a7a7a;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #b0b0b0;
   letter-spacing: 1px;
 }
 
