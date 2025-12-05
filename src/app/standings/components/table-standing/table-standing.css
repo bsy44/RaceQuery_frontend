@@ -5,7 +5,6 @@
   overflow: hidden;
   background-color: #15151e;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  overflow-x: auto;
 }
 
 .table-common {
@@ -162,8 +161,34 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
   color: #e74c3c;
 }
 
+.driver-team-mobile {
+  display: none;
+}
+
+.driver-info-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 @media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+
+  .driver-team-mobile {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #a0a0a0;
+    font-style: italic;
+    margin-top: 5px;
+  }
+
+  .driver-cell .flag-icon {
+    font-size: 1.5rem;
+  }
+
   .table-common th,
   .table-common td {
     font-size: 0.9rem;
@@ -171,20 +196,18 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
 
   .team-logo { display: none; }
 
-  .driver-fullname { font-size: 1rem; }
-
   .driver-full {
     display: none;
   }
 
   .driver-short {
     display: inline;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 800;
   }
 
   .driver-cell .flag-icon {
     font-size: 1.2rem;
-    padding-left: 15px;
   }
 
   .driver-cell{
@@ -195,11 +218,6 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
   .teams-table .team-cell{
     padding-left: 1rem;
     border-left: solid 4px var(--team-color);
-  }
-
-  .table-common td:first-child,
-  .table-common th:first-child {
-    width: 30px;
   }
 }
 
