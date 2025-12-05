@@ -15,4 +15,5 @@ interface RaceResultModel {
   team_id: string;
   teamColor?: string;
   time?: string;
+  tyre: string;
 }

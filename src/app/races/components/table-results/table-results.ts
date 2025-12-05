@@ -1,9 +1,12 @@
 import {Component, Input, OnChanges} from '@angular/core';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-session-result-table',
   standalone: true,
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './table-results.html',
   styleUrls: ['./table-results.css']
 })
@@ -70,5 +73,21 @@ export class SessionResultTableComponent implements OnChanges {
       if (tQ2 < minQ2) { minQ2 = tQ2; this.bestQ2 = r.q2 || ''; }
       if (tQ3 < minQ3) { minQ3 = tQ3; this.bestQ3 = r.q3 || ''; }
     });
+  }
+
+  getTyreClass(tyre: string): string {
+    if (!tyre) return '';
+    return tyre.toLowerCase();
+  }
+
+  getTyreLetter(tyre: string): string {
+    if (!tyre) return '-';
+    const t = tyre.toUpperCase();
+    if (t.includes('SOFT')) return 'S';
+    if (t.includes('MEDIUM')) return 'M';
+    if (t.includes('HARD')) return 'H';
+    if (t.includes('INTER')) return 'I';
+    if (t.includes('WET')) return 'W';
+    return '?';
   }
 }

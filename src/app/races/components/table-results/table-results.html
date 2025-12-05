@@ -11,16 +11,20 @@
           <th class="col-time center">Q1</th>
           <th class="col-time center">Q2</th>
           <th class="col-time center">Q3</th>
+          <th class="tyre">Pneus</th>
         }
 
         @if (isPractice()) {
           <th class="col-time center">Temps</th>
           <th class="col-laps center">Tours</th>
+          <th class="tyre">Pneus</th>
         }
+
 
         @if (isRaceOrSprint()) {
           <th class="col-laps center">Tours</th>
           <th class="col-time center">Temps / Écart</th>
+          <th class="tyre">Pneus</th>
           <th class="col-points">Pts</th>
         }
       </tr>
@@ -54,11 +58,30 @@
               <td class="cell-time mono" [class.purple-sector]="r.q1 === bestQ1">{{ r.q1 || '-' }}</td>
               <td class="cell-time mono" [class.purple-sector]="r.q2 === bestQ2">{{ r.q2 || '-' }}</td>
               <td class="cell-time mono" [class.purple-sector]="r.q3 === bestQ3">{{ r.q3 || '-' }}</td>
-            }
+
+              <td class="cell-tyre">
+                @if (r.tyre) {
+                  <div class="pirelli-tyre" [ngClass]="getTyreClass(r.tyre)" title="{{ r.tyre }}">
+                    <span class="tyre-letter">{{ getTyreLetter(r.tyre) }}</span>
+                  </div>
+                } @else {
+                  <span>-</span>
+                }
+              </td>            }
 
             @if (isPractice()) {
               <td class="cell-time mono">{{ r.time }}</td>
               <td class="cell-laps">{{ r.laps }}</td>
+
+              <td class="cell-tyre">
+                @if (r.tyre) {
+                  <div class="pirelli-tyre" [ngClass]="getTyreClass(r.tyre)" title="{{ r.tyre }}">
+                    <span class="tyre-letter">{{ getTyreLetter(r.tyre) }}</span>
+                  </div>
+                } @else {
+                  <span>-</span>
+                }
+              </td>
             }
 
             @if (isRaceOrSprint()) {
@@ -71,6 +94,16 @@
                   <span [class.winner-time]="r.position === 1">{{ r.time }}</span>
                 } @else {
                   <span class="badge-dnf">Abandon</span>
+                }
+              </td>
+
+              <td class="cell-tyre">
+                @if (r.tyre) {
+                  <div class="pirelli-tyre" [ngClass]="getTyreClass(r.tyre)" title="{{ r.tyre }}">
+                    <span class="tyre-letter">{{ getTyreLetter(r.tyre) }}</span>
+                  </div>
+                } @else {
+                  <span>-</span>
                 }
               </td>
 
