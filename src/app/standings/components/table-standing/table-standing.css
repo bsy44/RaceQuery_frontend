@@ -59,14 +59,9 @@
 
 .table-common td:first-child,
 .table-common th:first-child {
-  text-align: center;
   font-weight: 700;
   width: 70px;
 }
-
-tbody tr:nth-child(1) td:first-child { color: #f5c400; }
-tbody tr:nth-child(2) td:first-child { color: #e0e0e0; }
-tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
 
 .flag-icon {
   width: 24px;
@@ -141,7 +136,6 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
   min-width: 25px;
   text-align: right;
 }
-
 
 .trend {
   font-size: 1rem;
@@ -233,3 +227,19 @@ tbody tr:nth-child(3) td:first-child { color: #cd7f32; }
 .sauber { --team-color: #52e252; }
 .alfa { --team-color: #88172a; }
 .alphatauri { --team-color: #002841; }
+
+
+tbody tr:nth-child(1) .rank {
+  color: #FFD700;
+  font-size: 1.3rem;
+}
+
+tbody tr:nth-child(2) .rank {
+  color: #E0E0E0;
+  font-size: 1.2rem;
+}
+
+tbody tr:nth-child(3) .rank {
+  color: #CD7F32;
+  font-size: 1.2rem;
+}

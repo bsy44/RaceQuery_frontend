@@ -5,7 +5,7 @@
       <tr>
         <th class="col-pos center">Pos</th>
         <th class="col-driver">Pilote</th>
-        <th class="col-team">Écurie</th>
+        <th class="col-team mobile-hidden">Écurie</th>
 
         @if (isQualifying()) {
           <th class="col-time center">Q1</th>
@@ -47,9 +47,13 @@
             <td class="cell-driver" [style.border-left-color]="'#' + r.teamColor">
               <span class="driver-name">{{ r.driver }}</span>
               <span class="short-name">{{ r.last_name }}</span>
+
+              <div class="driver-info-group">
+                <span class="driver-team-mobile">{{ r.team }}</span>
+              </div>
             </td>
 
-            <td class="cell-team">
+            <td class="cell-team mobile-hidden">
               <img src="/logos/{{ r.team_id }}.avif" alt="{{ r.team }}" class="team-logo-mini">
               <span class="team-name-short">{{ r.team }}</span>
             </td>

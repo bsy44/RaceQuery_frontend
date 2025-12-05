@@ -54,9 +54,6 @@ td:first-child{
   padding: 12px 8px;
 }
 
-.cell-pos {
-  width: 68px;
-}
 
 .pos-content {
   display: flex;
@@ -91,6 +88,16 @@ td:first-child{
 }
 
 .short-name{
+  display: none;
+}
+
+.driver-info-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.driver-team-mobile {
   display: none;
 }
 
@@ -214,9 +221,12 @@ th.tyre {
     display: none;
   }
 
+  td.cell-pos{
+    padding: 3px;
+  }
+
   .cell-team{
     display: table-cell;
-
   }
 
   .cell-driver{
@@ -224,6 +234,19 @@ th.tyre {
   }
 
   .driver-name{
+    display: none;
+  }
+
+  .driver-team-mobile {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #a0a0a0;
+    font-style: italic;
+    margin-top: 5px;
+  }
+
+  .mobile-hidden {
     display: none;
   }
 
