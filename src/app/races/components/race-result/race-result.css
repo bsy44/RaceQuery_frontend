@@ -111,6 +111,12 @@
   padding: 10px;
 }
 
+@media (max-width: 900px) {
+  .btn-program{
+    padding-bottom: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .race-links{
     flex-wrap: wrap;
