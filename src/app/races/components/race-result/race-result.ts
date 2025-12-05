@@ -1,11 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SessionResultTableComponent } from '../table-results/table-results';
 import { GoBackButton } from '../../../shared/components/go-back-button/go-back-button';
 import { RaceService } from '../../services/race-service';
 import { RaceModel } from '../../models/race.model';
 import { RaceSummary } from '../race-summary/race-summary';
+// Importe ton modèle RaceResultModel si nécessaire
+// import { RaceResultModel } from '../../models/race-result.model';
 
 @Component({
   selector: 'app-race-result',
@@ -14,18 +16,21 @@ import { RaceSummary } from '../race-summary/race-summary';
     FormsModule,
     SessionResultTableComponent,
     RaceSummary,
-    GoBackButton
+    GoBackButton,
+    RouterLink // Nécessaire pour le lien [routerLink]
   ],
   templateUrl: './race-result.html',
   styleUrls: ['./race-result.css']
 })
 export class RaceResult implements OnInit {
   private readonly raceService: RaceService = inject(RaceService);
+
   season!: number;
   round!: number;
   race!: RaceModel;
-  raceList: RaceResultModel[] = [];
+  raceList: any[] = [];
   isLoading = false;
+
   sessionCode: string = 'FP1';
   sessions: string[] = [];
 
@@ -48,6 +53,7 @@ export class RaceResult implements OnInit {
   ngOnInit() {
     const nav = this.router.lastSuccessfulNavigation;
     this.season = +this.route.snapshot.paramMap.get('season')!;
+
     if (nav?.extras?.state?.['round']) {
       this.round = nav.extras.state['round'];
       this.loadRaceData();
@@ -57,13 +63,26 @@ export class RaceResult implements OnInit {
   loadRaceData() {
     this.raceService.getRace(this.season, this.round).subscribe(event => {
       this.race = event;
-
-      this.sessions = event.sessions.map(s => this.getFrenchSessionName(s.name));
-
+      this.sessions = event.sessions.map((s: any) => this.getFrenchSessionName(s.name));
       this.sessionCode = this.determineLastCompletedSession();
-
       this.getSessionResult();
     });
+  }
+
+  private determineLastCompletedSession(): string {
+    if (!this.race || !this.race.sessions) return 'FP1';
+    const now = new Date();
+    let lastCompletedCode = 'FP1';
+
+    for (const session of this.race.sessions) {
+      const dateStr = session.utc_date || session.local_date;
+      if (!dateStr) continue;
+      const sessionDate = new Date(dateStr);
+      if (sessionDate < now) {
+        lastCompletedCode = this.getCodeFromApiName(session.name);
+      }
+    }
+    return lastCompletedCode;
   }
 
   private getFrenchSessionName(apiName: string): string {
@@ -78,41 +97,20 @@ export class RaceResult implements OnInit {
     return apiName;
   }
 
-  private determineLastCompletedSession(): string {
-    if (!this.race || !this.race.sessions) return 'FP1';
-
-    const now = new Date();
-    let lastCompletedCode = 'FP1';
-
-    for (const session of this.race.sessions) {
-      const dateStr = session.utc_date || session.local_date;
-      if (!dateStr) continue;
-
-      const sessionDate = new Date(dateStr);
-
-      if (sessionDate < now) {
-        lastCompletedCode = this.getCodeFromApiName(session.name);
-      }
-    }
-    return lastCompletedCode;
-  }
-
   private getCodeFromApiName(apiName: string): string {
     const map: { [key: string]: string } = {
-      'Practice 1': 'FP1',
-      'Practice 2': 'FP2',
-      'Practice 3': 'FP3',
-      'Qualifying': 'Q',
-      'Sprint Qualifying': 'SQ',
-      'Sprint': 'S',
-      'Race': 'R'
+      'Practice 1': 'FP1', 'Practice 2': 'FP2', 'Practice 3': 'FP3',
+      'Qualifying': 'Q', 'Sprint Qualifying': 'SQ', 'Sprint Shootout': 'SQ',
+      'Sprint': 'S', 'Race': 'R'
     };
-    return map[apiName] || 'R';
+    for (const key in map) {
+      if (apiName.toLowerCase().includes(key.toLowerCase())) return map[key];
+    }
+    return 'R';
   }
 
   getSessionResult() {
     if (!this.sessionCode) return;
-
     const session = this.sessionCode.trim().toUpperCase();
     this.isLoading = true;
 
@@ -135,9 +133,27 @@ export class RaceResult implements OnInit {
   onSessionChange(newCode: string) {
     this.sessionCode = newCode;
     this.getSessionResult();
-
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
+  }
+
+  getSessionLabel(code: string): string {
+    return Object.keys(this.sessionMapping).find(key => this.sessionMapping[key] === code) || code;
+  }
+
+  getSeason(): number {
+    return this.raceService.selectedYear;
+  }
+
+  // Helper pour créer des URLs propres (ex: "Australian Grand Prix" -> "australian-grand-prix")
+  slugify(text: string): string {
+    return text
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')     // Remplace les espaces par -
+      .replace(/[^\w\-]+/g, '') // Enlève les caractères non-word
+      .replace(/\-\-+/g, '-');  // Remplace les multiples - par un seul
   }
 }

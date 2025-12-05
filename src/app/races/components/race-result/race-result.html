@@ -12,21 +12,35 @@
     [fastestLap]="fastestLap">
   </app-race-summary>
 
-  <div class="session-selector-container">
-    <label for="session-select" class="selector-label">Session :</label>
-    <div class="select-wrapper">
-      <select
-        id="session-select"
-        class="custom-select"
-        [ngModel]="sessionCode"
-        (ngModelChange)="onSessionChange($event)"> @for (s of sessions; track s) {
-        <option [value]="sessionMapping[s]">{{ s }}</option>
-      }
-      </select>
+  <div class="race-links">
+    <div class="session-selector-container">
+      <label for="session-select" class="selector-label">Session :</label>
+      <div class="select-wrapper">
+        <select
+          id="session-select"
+          class="custom-select"
+          [ngModel]="sessionCode"
+          (ngModelChange)="onSessionChange($event)"> @for (s of sessions; track s) {
+          <option [value]="sessionMapping[s]">{{ s }}</option>
+        }
+        </select>
 
-      <div class="select-arrow"></div>
+        <div class="select-arrow"></div>
+      </div>
+    </div>
+
+    <div class="race-program">
+      @if (race) {
+        <a [routerLink]="['/races', getSeason(), slugify(race.gpName), 'details']"
+           [state]="{ round: race.round, race: race.gpName }"
+           class="btn-program">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Voir le Programme</span>
+        </a>
+      }
     </div>
   </div>
+
 
   <app-session-result-table
     [sessionCode]="sessionCode"

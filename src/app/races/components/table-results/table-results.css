@@ -115,7 +115,8 @@ td:first-child{
 
 .cell-time {
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .cell-laps {
@@ -201,6 +202,10 @@ th.tyre {
 }
 
 @media (max-width: 968px){
+  .race-table {
+    min-width: 0;
+  }
+
   .pos-number {
     font-size: 1rem;
   }
@@ -211,10 +216,6 @@ th.tyre {
 
   .cell-driver{
     border-left: 4px solid;
-  }
-
-  .cell-team {
-    display: table-cell;
   }
 
   .driver-name{
