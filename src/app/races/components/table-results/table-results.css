@@ -214,6 +214,11 @@ th.tyre {
     display: none;
   }
 
+  .cell-team{
+    display: table-cell;
+
+  }
+
   .cell-driver{
     border-left: 4px solid;
   }
