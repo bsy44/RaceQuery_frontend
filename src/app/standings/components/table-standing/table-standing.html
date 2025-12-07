@@ -4,11 +4,6 @@
     <tr>
       @for (col of columns; track col) {
         @if (col !== 'Évo.') {
-          <!--
-             MODIFICATION 1 :
-             On ajoute une classe pour cacher l'en-tête 'Écurie' sur mobile
-             UNIQUEMENT si c'est le tableau des pilotes (pas celui des équipes)
-          -->
           <th [class.mobile-hidden]="col === 'Écurie' && tableType !== 'teams'">
             {{ col }}
           </th>

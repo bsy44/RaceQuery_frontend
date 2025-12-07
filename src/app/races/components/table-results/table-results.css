@@ -3,7 +3,6 @@
   border-radius: 8px;
   background-color: #15151e;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  margin-bottom: 40px;
 }
 
 .race-table {
@@ -207,6 +206,51 @@ th.tyre {
   top: 2px; left: 2px; right: 2px; bottom: 2px;
   border-color: transparent var(--tyre-color) transparent var(--tyre-color);
 }
+
+.no-data-container {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #15151e;
+  border-radius: 12px;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.01) 0px,
+    rgba(255, 255, 255, 0.01) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.no-data-content {
+  text-align: center;
+  color: #6b7280;
+  max-width: 400px;
+}
+
+.icon-placeholder {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.no-data-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.no-data-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #8d9096;
+}
+
 
 @media (max-width: 968px){
   .race-table {
