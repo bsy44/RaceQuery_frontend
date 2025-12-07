@@ -10,6 +10,7 @@ import { Team } from './teams/components/team/team';
 import { TeamDetail } from './teams/components/team-detail/team-detail';
 import { DriverDetail } from './drivers/components/driver-detail/driver-detail';
 import { Driver } from './drivers/components/driver/driver';
+import {Error} from './core/components/error/error';
 
 export const routes: Routes = [
   {path: 'home', component: Dashboard},
@@ -22,7 +23,8 @@ export const routes: Routes = [
   {path: 'races', component: Race},
   {path: 'races/:season/:gpName/results', component: RaceResult},
   {path: 'races/:season/:gpName/details', component: RaceDetail},
-  {path: '', redirectTo:'home', pathMatch: 'full' }
+  {path: '', redirectTo:'home', pathMatch: 'full' },
+  {path: '**', component: Error }
 ];
 
 @NgModule({
