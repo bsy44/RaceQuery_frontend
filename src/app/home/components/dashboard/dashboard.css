@@ -1,0 +1,38 @@
+.dashboard-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.standings-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+@media (max-width: 1400px) {
+  .standings-container {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .standings-container {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 0 15px 60px;
+  }
+
+  .standings-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  app-top-standings {
+    width: 100%;
+  }
+}

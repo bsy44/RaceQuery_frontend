@@ -57,7 +57,9 @@
             <td>
               <span class="points-wrapper">
                 {{ +row.points }}
-                @if (row.points_diff > 0) { <span id="diff-points"> -{{ +row.points_diff }} </span> }
+                @if (row.points_diff > 0) {
+                  <span id="diff-points"> -{{ +row.points_diff }} </span>
+                }
               </span>
             </td>
           }

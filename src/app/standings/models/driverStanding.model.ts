@@ -1,12 +1,10 @@
-import {DriverModel} from '../../drivers/models/driver.model';
-
 export interface DriverStandingsModel {
-  driverId: DriverModel["driverId"];
-  driver: DriverModel["fullName"];
-  family_name: DriverModel["familyName"];
-  nationality: DriverModel["nationality"];
-  team: DriverModel["team"];
-  constructorId: DriverModel["team_id"];
+  driverId: string;
+  fullName: string;
+  family_name: string;
+  nationality: string;
+  team: string;
+  constructorId: string;
   evolution: string;
   points: string;
   points_diff: string;

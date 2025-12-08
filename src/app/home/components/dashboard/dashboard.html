@@ -1,0 +1,20 @@
+<div class="dashboard-container">
+
+  <app-year-selector
+    [years]="years"
+    [selectedYear]="selectedYear"
+    (selectedYearChange)="onYearChange($event)">
+  </app-year-selector>
+
+  <div class="standings-container">
+    <app-top-standings
+      [type]="'drivers'"
+      [top5]="top5Drivers">
+    </app-top-standings>
+
+    <app-top-standings
+      [type]="'teams'"
+      [top5]="top5Teams">
+    </app-top-standings>
+  </div>
+</div>
