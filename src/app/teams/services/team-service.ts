@@ -25,18 +25,12 @@ export class TeamService {
   listTeams(): Observable<TeamModel[]> {
     const year = this.selectedYear;
 
-    // 2. VÉRIFICATION DU CACHE
     if (this.cache.has(year)) {
-      // Si on a déjà les données, retour immédiat (pas de squelette)
       return of(this.cache.get(year)!);
     }
 
-    // 3. APPEL API (Premier chargement)
     return this.http.get<TeamModel[]>(`${this.apiUrl}/teams/${year}`).pipe(
-      // Délai artificiel pour afficher le squelette la première fois (UX)
       delay(500),
-
-      // On sauvegarde dans le cache
       tap(data => this.cache.set(year, data))
     );
   }

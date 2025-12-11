@@ -21,10 +21,9 @@ import {Loading} from '../../../shared/components/loading/loading';
   styleUrl: './team.css',
 })
 export class Team implements OnInit {
-  teamList: TeamModel[] = [];
   private teamService = inject(TeamService);
 
-  // Variable d'état pour le chargement
+  teamList: TeamModel[] = [];
   isLoading = true;
 
   ngOnInit() {
@@ -32,15 +31,15 @@ export class Team implements OnInit {
   }
 
   load() {
-    this.isLoading = true; // Début du chargement (affiche le squelette)
+    this.isLoading = true;
 
     this.teamService.listTeams().subscribe({
       next: (result) => {
         this.teamList = result;
-        this.isLoading = false; // Fin du chargement
+        this.isLoading = false;
       },
       error: () => {
-        this.isLoading = false; // Toujours arrêter le chargement même en cas d'erreur
+        this.isLoading = false;
       }
     });
   }

@@ -6,7 +6,8 @@ import { PageHeader } from '../../../shared/components/page-header/page-header';
 import { RaceService } from '../../services/race-service';
 import { RaceModel } from '../../models/race.model';
 import { RouterLink } from '@angular/router';
-import {slugify} from '../../utils/race-utils';
+import { slugify } from '../../utils/race-utils';
+import { Loading } from '../../../shared/components/loading/loading';
 
 @Component({
   selector: 'app-events',
@@ -16,24 +17,35 @@ import {slugify} from '../../utils/race-utils';
     FormsModule,
     RaceCard,
     PageHeader,
-    RouterLink
+    RouterLink,
+    Loading,
   ],
   templateUrl: './races.html',
   styleUrl: './race.css'
 })
 
-export class Race implements OnInit{
+export class Race implements OnInit {
   protected readonly slugify = slugify;
   private readonly raceService = inject(RaceService);
+
   raceList: RaceModel[] = [];
+  isLoading = true;
 
   ngOnInit() {
     this.load();
   }
 
-  load(){
-    this.raceService.getAll().subscribe((result) => {
-      this.raceList = result;
+  load() {
+    this.isLoading = true;
+
+    this.raceService.getAll().subscribe({
+      next: (result) => {
+        this.raceList = result;
+        this.isLoading = false;
+      },
+      error: () => {
+        this.isLoading = false;
+      }
     });
   }
 

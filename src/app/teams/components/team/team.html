@@ -7,11 +7,8 @@
 </app-page-header>
 
 <div class="container">
-
-  <!-- CAS CHARGEMENT : Affiche 10 squelettes (nombre moyen d'équipes) -->
   @if (isLoading) {
     @for (i of [].constructor(10); track $index) {
-      <!-- On fixe la hauteur pour matcher la vraie carte TeamCard -->
       <app-loading style="height: 260px;"></app-loading>
     }
   }
@@ -25,5 +22,4 @@
       </a>
     }
   }
-
 </div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { RaceModel } from '../models/race.model';
-import { map, Observable } from 'rxjs';
+import { delay, map, Observable, of, tap } from 'rxjs';
 import { formatDateRange } from '../utils/race-utils';
 
 @Injectable({
@@ -10,6 +10,8 @@ import { formatDateRange } from '../utils/race-utils';
 })
 export class RaceService {
   private readonly apiUrl = environment.API_URL;
+  private cache = new Map<number, RaceModel[]>();
+
   years: number [] = [];
   selectedYear: number = new Date().getFullYear();
 
@@ -19,8 +21,16 @@ export class RaceService {
   }
 
   getAll(): Observable<RaceModel[]> {
-    return this.http.get<RawRace[]>(`${this.apiUrl}/races/${this.selectedYear}`).pipe(
-      map(results => results.map(race => this.mapToRaceModel(race)))
+    const year = this.selectedYear;
+
+    if (this.cache.has(year)) {
+      return of(this.cache.get(year)!);
+    }
+
+    return this.http.get<RawRace[]>(`${this.apiUrl}/races/${year}`).pipe(
+      delay(500), // Délai artificiel pour le squelette
+      map(results => results.map(race => this.mapToRaceModel(race))),
+      tap(data => this.cache.set(year, data)) // Mise en cache
     );
   }
 

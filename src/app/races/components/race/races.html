@@ -7,15 +7,21 @@
 </app-page-header>
 
 <div class="container">
-  @for (race of raceList; track race.gpName){
-    <a [routerLink]="race.isFinished
-        ? ['/races', selectedYear, slugify(race.gpName), 'results']
-        : ['/races', selectedYear, slugify(race.gpName), 'details']"
-       [state]="{ round: race.round, race: race.gpName }">
-      <app-race-card
-        [race]="race">
-      </app-race-card>
-    </a>
+  @if (isLoading) {
+    @for (i of [].constructor(24); track $index) {
+      <app-loading style="height: 140px; border-radius: 12px;"></app-loading>
+    }
+  }
+
+  @else {
+    @for (race of raceList; track race.gpName){
+      <a [routerLink]="race.isFinished
+          ? ['/races', selectedYear, slugify(race.gpName), 'results']
+          : ['/races', selectedYear, slugify(race.gpName), 'details']"
+         [state]="{ round: race.round, race: race.gpName }"
+         class="link-wrapper">
+        <app-race-card [race]="race"></app-race-card>
+      </a>
+    }
   }
 </div>
-
