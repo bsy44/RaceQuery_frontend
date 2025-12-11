@@ -24,15 +24,15 @@
             @if (isDriver(item)) {
               <span class="name">{{ item.fullName }}</span>
               <div class="sub-info">
-                <img src="/logos/{{ item.constructorId }}.svg" alt="logo" class="mini-logo">
+                <img src="/logos/{{ item.constructorId }}.avif" alt="logo" class="mini-logo">
                 <span class="team-name">{{ item.team }}</span>
               </div>
             }
 
             @if (isTeam(item)) {
-              <span class="name">{{ item.Team.constructorName }}</span>
               <div class="sub-info">
-                <img src="/logos/{{ item.Team.constructorId }}.svg" alt="logo" class="mini-logo">
+                <img src="/logos/{{ item.Team.constructorId }}.avif" alt="logo" class="mini-logo">
+                <span class="name">{{ item.Team.constructorName }}</span>
               </div>
             }
           </div>

@@ -7,13 +7,14 @@ import {SelectorYears} from '../../../shared/components/selector-years/selector-
 import {RaceSchedule} from '../race-schedule/race-schedule';
 import {RaceService} from '../../../races/services/race-service';
 import {RaceModel} from '../../../races/models/race.model';
+import {DecimalPipe} from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   imports: [
     TopStandings,
     SelectorYears,
-    RaceSchedule
+    RaceSchedule,
   ],
   templateUrl: './dashboard.html',
   standalone: true,
@@ -35,11 +36,11 @@ export class Dashboard implements OnInit {
 
   load(){
     this.standingService.getDriverStandings().subscribe((data) => {
-      this.top5Drivers = data.slice(0, 3);
+      this.top5Drivers = data.slice(0, 4);
     });
 
     this.standingService.getTeamStandings().subscribe((data) => {
-      this.top5Teams = data.slice(0, 3);
+      this.top5Teams = data.slice(0, 4);
     });
 
     this.raceService.getAll().subscribe((allRaces) => {
