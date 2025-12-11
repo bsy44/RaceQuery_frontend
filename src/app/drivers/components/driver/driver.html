@@ -7,11 +7,16 @@
 </app-page-header>
 
 <div class="container">
-  @for (driver of drivers; track driver.driverId) {
-    <a [routerLink]="['/pilotes', selectedYear, driver.driverId]" class="link">
-      <app-driver-card
-        [driver]="driver">
-      </app-driver-card>
-    </a>
+  @if (isLoading) {
+    @for (i of [].constructor(20); track $index) {
+      <app-loading style="height: 160px;"></app-loading>
+    }
+  }
+  @else {
+    @for (driver of drivers; track driver.driverId) {
+      <a [routerLink]="['/drivers', selectedYear, driver.driverId]" class="link">
+        <app-driver-card [driver]="driver"></app-driver-card>
+      </a>
+    }
   }
 </div>

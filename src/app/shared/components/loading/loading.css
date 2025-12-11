@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.skeleton-box {
+  background-color: #1c1f2e; /* Ta couleur de fond de carte */
+  border-radius: 16px;
+  height: 100%; /* Prend la hauteur définie par le parent */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* L'animation de brillance */
+.skeleton-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%, /* Lueur légère */
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

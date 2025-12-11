@@ -24,6 +24,8 @@ export class Dashboard implements OnInit {
   private readonly standingService = inject(StandingsService);
   private readonly raceService: RaceService = inject(RaceService);
 
+  isLoading = true
+
   top5Drivers!: DriverStandingsModel[];
   top5Teams!: TeamStandingModel[];
 
@@ -35,6 +37,8 @@ export class Dashboard implements OnInit {
   }
 
   load(){
+    this.isLoading = true;
+
     this.standingService.getDriverStandings().subscribe((data) => {
       this.top5Drivers = data.slice(0, 4);
     });
