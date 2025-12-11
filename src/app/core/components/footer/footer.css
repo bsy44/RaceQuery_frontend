@@ -13,6 +13,12 @@
   margin-top: auto;
 }
 
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .footer-content {
   max-width: 1600px;
   margin: 0 auto;
@@ -64,11 +70,14 @@
 }
 
 .footer-links {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
   gap: 12px;
 }
 
@@ -115,6 +124,10 @@
   font-family: monospace;
 }
 
+.brand-col {
+  align-items: flex-start;
+}
+
 @media (max-width: 968px) {
   .footer-content {
     grid-template-columns: 1fr 1fr;
@@ -123,7 +136,7 @@
 
   .brand-col {
     grid-column: span 2;
-    text-align: center;
+    align-self: center;
   }
 
   .footer-logo a, .footer-desc, .disclaimer {
@@ -149,6 +162,7 @@
   }
 
   .brand-col {
+    align-items: center;
     grid-column: span 1;
   }
 
