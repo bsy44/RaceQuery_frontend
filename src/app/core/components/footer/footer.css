@@ -14,7 +14,7 @@
 }
 
 .footer-content {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 60px 30px;
 
@@ -23,7 +23,7 @@
   gap: 60px;
 }
 
-.footer-logo a {
+.footer-logo  {
   font-family: 'logo_font', sans-serif;
   font-size: 2.5rem;
   color: #fff;
@@ -31,6 +31,11 @@
   display: block;
   margin-bottom: 15px;
   letter-spacing: 1px;
+
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .footer-desc {
@@ -41,7 +46,7 @@
 
 .disclaimer {
   font-size: 0.8rem;
-  color: #5c5c5c; /* Très discret */
+  color: #5c5c5c;
   font-style: italic;
 }
 
