@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -9,17 +9,29 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './selector-years.html',
   styleUrls: ['./selector-years.css']
 })
-export class SelectorYears implements OnInit {
+export class SelectorYears {
   @Input() years: number[] = [];
   @Input() selectedYear: number = new Date().getFullYear();
   @Output() selectedYearChange = new EventEmitter<number>();
 
-  ngOnInit() {
+  isOpen = false;
+
+  constructor(private eRef: ElementRef) {}
+
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
 
-  onChange(newYear: number) {
-    this.selectedYear = +newYear;
-    this.selectedYearChange.emit(this.selectedYear);
+  onYearChange(year: number) {
+    this.selectedYear = year;
+    this.selectedYearChange.emit(year);
+    this.isOpen = false;
   }
 
+  @HostListener('document:click', ['$event'])
+  clickOut(event: Event) {
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.isOpen = false;
+    }
+  }
 }

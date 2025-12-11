@@ -1,20 +1,83 @@
-.year-selector select {
-  padding: 15px 40px;
-  background: #1A1A1A;
-  color: #E6E6E6;
-  border: 2px solid #FF1E1E;
-  border-radius: 5px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  cursor: pointer;
-
-  -webkit-appearance: none;  /* Chrome, Safari, Edge */
-  -moz-appearance: none;     /* Firefox */
-  appearance: none;
+.custom-select-container {
+  position: relative;
+  width: 140px;
+  font-family: inherit;
+  user-select: none;
 }
 
-.year-selector select:focus {
-  outline: none;
-  border-color: #ff4d4d;
+.select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #111215;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-trigger:hover {
+  background-color: #151922;
+  border-color: #FF1E1E;
+}
+
+.custom-select-container.open .select-trigger {
+  border-color: #FF1E1E;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #FF1E1E;
+  transition: transform 0.3s ease;
+}
+
+.custom-select-container.open .arrow {
+  transform: rotate(180deg);
+}
+
+.options-list {
+  position: absolute;
+  text-align: center;
+  top: 115%;
+  left: 0;
+  width: 100%;
+  background-color: #111215;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 100;
+  overflow: hidden;
+  max-height: 300px;
+  overflow-y: auto;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.option-item {
+  padding: 12px 20px;
+  color: #c0c0c0;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 600;
+}
+
+.option-item:hover {
+  background-color: rgba(255, 30, 30, 0.2);
+  color: #fff;
+}
+
+.option-item.selected {
+  background-color: #FF1E1E;
+  color: #fff;
 }

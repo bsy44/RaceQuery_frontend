@@ -1,12 +1,20 @@
-<div class="year-selector">
-  <select
-    id="year"
-    [(ngModel)]="selectedYear"
-    (ngModelChange)="onChange($event)"
-    class="form-select"
-  >
-    @for (year of years; track year){
-      <option [value]="year">{{ year }}</option>
-    }
-  </select>
+<div class="custom-select-container" [class.open]="isOpen">
+
+  <div class="select-trigger" (click)="toggle()">
+    <span class="current-value">{{ selectedYear }}</span>
+    <div class="arrow"></div>
+  </div>
+
+  @if (isOpen) {
+    <div class="options-list">
+      @for (year of years; track year) {
+        <div
+          class="option-item"
+          [class.selected]="year === selectedYear"
+          (click)="onYearChange(year)">
+          {{ year }}
+        </div>
+      }
+    </div>
+  }
 </div>
