@@ -12,6 +12,7 @@ import {TeamStandingModel} from '../../../standings/models/teamStanding.model';
   ],
   templateUrl: './top-standings.html',
   styleUrl: './top-standings.css',
+  standalone: true
 })
 export class TopStandings {
   @Input() top5: (DriverStandingsModel | TeamStandingModel)[] = [];

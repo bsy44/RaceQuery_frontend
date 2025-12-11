@@ -6,6 +6,13 @@
     (selectedYearChange)="onYearChange($event)">
   </app-year-selector>
 
+  <div class="last-races">
+    <app-race-schedule
+      [races]="lastRaces"
+      [year]="selectedYear">
+    </app-race-schedule>
+  </div>
+
   <div class="standings-container">
     <app-top-standings
       [type]="'drivers'"

@@ -26,6 +26,7 @@
 
 .card-header h2 {
   font-size: 1.1rem;
+  letter-spacing: 1px;
   font-weight: 800;
   text-transform: uppercase;
   color: #d6d9dd;
@@ -46,6 +47,10 @@
 
 .see-more:hover {
   color: #fff;
+}
+
+.helmet-icon{
+  filter: brightness(0) invert(1);
 }
 
 .list-container {

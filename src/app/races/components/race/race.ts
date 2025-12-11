@@ -6,6 +6,7 @@ import { PageHeader } from '../../../shared/components/page-header/page-header';
 import { RaceService } from '../../services/race-service';
 import { RaceModel } from '../../models/race.model';
 import { RouterLink } from '@angular/router';
+import {slugify} from '../../utils/race-utils';
 
 @Component({
   selector: 'app-events',
@@ -22,6 +23,7 @@ import { RouterLink } from '@angular/router';
 })
 
 export class Race implements OnInit{
+  protected readonly slugify = slugify;
   private readonly raceService = inject(RaceService);
   raceList: RaceModel[] = [];
 
@@ -46,14 +48,5 @@ export class Race implements OnInit{
 
   get selectedYear(): number {
     return this.raceService.selectedYear;
-  }
-
-  slugify(name: string): string {
-    return name
-      .toLowerCase()
-      .normalize('NFD')                 // enlève les accents
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')     // remplace tout ce qui n’est pas lettre ou chiffre par "-"
-      .replace(/^-+|-+$/g, '');        // retire les tirets en trop
   }
 }

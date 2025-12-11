@@ -1,0 +1,163 @@
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 15px;
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #d6d9dd;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-section {
+  background-color: #1c1f2e;
+  border-radius: 8px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.race-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 25px;
+}
+
+.race-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.race-poster-card {
+  position: relative;
+  height: 140px;
+  background-color: #15151e;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.race-poster-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.poster-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+  opacity: 0.15;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+  filter: grayscale(80%) blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-bg span {
+  font-size: 10rem;
+  transform: rotate(20deg) scale(1.5);
+}
+
+.race-poster-card:hover .poster-bg {
+  opacity: 0.4;
+  filter: grayscale(0%) blur(0px);
+  transform: scale(1.05);
+}
+
+.poster-top, .poster-content, .poster-action {
+  position: relative;
+  z-index: 2;
+}
+
+.poster-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.round-badge {
+  font-weight: 700;
+  font-size: 0.8rem;
+  background: rgba(165, 164, 164, 0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #ccc;
+}
+
+.date-badge {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.country-label {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FF1E1E;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.gp-title {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  word-wrap: break-word;
+}
+
+@media (max-width: 900px) {
+  .dashboard-section{
+    padding: 10px;
+  }
+
+  .race-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .race-poster-card {
+    height: 120px;
+    padding: 10px;
+  }
+
+  .gp-title {
+    font-size: 1rem;
+  }
+
+  .poster-bg span {
+    font-size: 8rem;
+  }
+
+  .date-badge, .round-badge, .country-label {
+    font-size: 0.75rem;
+  }
+}

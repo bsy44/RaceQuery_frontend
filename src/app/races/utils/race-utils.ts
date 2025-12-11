@@ -4,7 +4,6 @@ export function formatDateRange(
 ): string {
   if (!sessions || sessions.length === 0) return '—';
 
-  // On récupère FP1 si possible
   const fp1 = sessions.find(s =>
     s.name.toLowerCase().includes('fp1') ||
     s.name.toLowerCase().includes('practice 1')
@@ -30,17 +29,12 @@ export function formatDateRange(
 }
 
 
-export function normalizeSessionName(name: string): string {
-  const n = name.toLowerCase().replace(/\s+/g, '');
-
-  if (n.includes('practice1') || n === 'fp1') return 'FP1';
-  if (n.includes('practice2') || n === 'fp2') return 'FP2';
-  if (n.includes('practice3') || n === 'fp3') return 'FP3';
-  if (n.includes('Sprint Qualifying')) return 'SQ';
-  if (n === 'sprint') return 'SPRINT';
-  if (n.includes('qualifying')) return 'QUALIF';
-  if (n.includes('race')) return 'RACE';
-
-  return name;
+export function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize('NFD')                 // enlève les accents
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')     // remplace tout ce qui n’est pas lettre ou chiffre par "-"
+    .replace(/^-+|-+$/g, '');        // retire les tirets en trop
 }
 

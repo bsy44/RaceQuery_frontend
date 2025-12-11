@@ -1,0 +1,33 @@
+<div class="dashboard-section">
+  <div class="section-header">
+    <h2><i class="fa-solid fa-flag-checkered"></i> Dernières Courses</h2>
+  </div>
+
+  <div class="race-grid">
+    @for (race of races; track race.round){
+      <a [routerLink]="race.isFinished
+        ? ['/races', year, slugify(race.gpName), 'results']
+        : ['/races', year, slugify(race.gpName), 'details']"
+         [state]="{ round: race.round, race: race.gpName }"
+         class="race-link">
+
+        <div class="race-poster-card">
+
+          <div class="poster-bg">
+            <span class="fi fi-{{ NAME_TO_ISO[race.country] }}"></span>
+          </div>
+
+          <div class="poster-top">
+            <span class="round-badge">R{{ race.round }}</span>
+            <span class="date-badge">{{ race.eventDate }}</span>
+          </div>
+
+          <div class="poster-content">
+            <span class="country-label">{{ getCountryName(race.country) }}</span>
+            <h3 class="gp-title">{{ race.gpName }}</h3>
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+</div>

@@ -1,7 +1,11 @@
 <div class="card standings-card">
   <div class="card-header">
     <h2>
-      <i class="fa-solid fa-trophy"></i>
+      @if (type === 'drivers') {
+        <img src="/casque-f1.png" class="helmet-icon" alt="driver standing icon">
+      } @else {
+        <i class="fa-solid fa-trophy"></i>
+      }
       {{ type === 'drivers' ? 'Championnat Pilotes' : 'Championnat Équipes' }}
     </h2>
 
@@ -11,35 +15,34 @@
   </div>
 
   <div class="list-container">
-
     @for (item of top5; track item.position){
       <div class="top-list">
+
         <div class="row-item" [ngClass]="'rank-' + item.position">
           <div class="rank-box">{{ item.position }}</div>
           <div class="details">
             @if (isDriver(item)) {
               <span class="name">{{ item.fullName }}</span>
               <div class="sub-info">
-                <img src="/logos/{{ item.constructorId }}.avif" alt="logo" class="mini-logo">
+                <img src="/logos/{{ item.constructorId }}.svg" alt="logo" class="mini-logo">
                 <span class="team-name">{{ item.team }}</span>
               </div>
             }
 
             @if (isTeam(item)) {
-              <div class="sub-info team">
-                <img src="/logos/{{ item.Team.constructorId }}.avif" alt="logo" class="mini-logo">
-                <span class="name">{{ item.Team.constructorName }}</span>
+              <span class="name">{{ item.Team.constructorName }}</span>
+              <div class="sub-info">
+                <img src="/logos/{{ item.Team.constructorId }}.svg" alt="logo" class="mini-logo">
               </div>
             }
           </div>
 
           <div class="points-box">
-            <span class="main-points">{{ +item.points }} <span class="small-points">PTS</span></span>
+            <span class="main-points">{{ +item.points }} <small>PTS</small></span>
             @if (item.points_diff && +item.points_diff > 0) {
-              <span class="diff-points">- {{ +item.points_diff }}</span>
+              <span class="diff-points">-{{ +item.points_diff }}</span>
             }
           </div>
-
         </div>
       </div>
     }
