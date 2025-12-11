@@ -14,7 +14,7 @@
   }
   @else {
     @for (driver of drivers; track driver.driverId) {
-      <a [routerLink]="['/drivers', selectedYear, driver.driverId]" class="link">
+      <a [routerLink]="['/pilotes', selectedYear, driver.driverId]" class="link">
         <app-driver-card [driver]="driver"></app-driver-card>
       </a>
     }
