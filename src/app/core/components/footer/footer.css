@@ -17,9 +17,8 @@
   max-width: 1600px;
   margin: 0 auto;
   padding: 60px 30px;
-
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 60px;
 }
 
@@ -45,9 +44,12 @@
 }
 
 .disclaimer {
+  max-width: 300px;
   font-size: 0.8rem;
   color: #5c5c5c;
   font-style: italic;
+  margin-top: 10px;
+  line-height: 1.4;
 }
 
 .footer-title {
