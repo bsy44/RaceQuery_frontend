@@ -12,6 +12,17 @@
     </tr>
     </thead>
     <tbody>
+      @if (isLoading) {
+        <tr class="loading-row">
+          <td colspan="10" class="loading-cell">
+            <div class="loading-wrapper">
+              <div class="spinner"></div>
+            </div>
+          </td>
+        </tr>
+      }
+
+    @else {
       @for (row of data; track $index) {
         <tr>
           @if (columns.includes('Pos.')) {
@@ -55,16 +66,17 @@
 
           @if (columns.includes('Points')) {
             <td>
-              <span class="points-wrapper">
-                {{ +row.points }}
-                @if (row.points_diff > 0) {
-                  <span id="diff-points"> -{{ +row.points_diff }} </span>
-                }
-              </span>
+                <span class="points-wrapper">
+                  {{ +row.points }}
+                  @if (row.points_diff > 0) {
+                    <span id="diff-points"> -{{ +row.points_diff }} </span>
+                  }
+                </span>
             </td>
           }
         </tr>
       }
+    }
     </tbody>
   </table>
 </div>

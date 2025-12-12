@@ -1,35 +1,45 @@
-import {Component, inject, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { TableStanding } from '../table-standing/table-standing';
 import { TeamStandingModel } from '../../models/teamStanding.model';
-import {PageHeader} from '../../../shared/components/page-header/page-header';
-import {StandingsService} from '../../services/standings-service';
+import { PageHeader } from '../../../shared/components/page-header/page-header';
+import { StandingsService } from '../../services/standings-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-team-standing',
+  standalone: true,
   templateUrl: './teamsStanding.html',
   imports: [
     FormsModule,
     TableStanding,
-    PageHeader
+    PageHeader,
+    CommonModule
   ],
   styleUrls: ['./teamStanding.css']
 })
 export class TeamStanding implements OnInit {
-  private readonly standingService = inject(StandingsService)
+  private readonly standingService = inject(StandingsService);
   teamList: TeamStandingModel[] = [];
   columns = ['Pos.', 'Écurie', 'Points', 'Évo.'];
 
+  isLoading = true;
 
   ngOnInit() {
     this.load()
   }
 
   load(){
-    this.standingService.getTeamStandings().subscribe((data) => {
-      this.teamList = data;
-    })
+    this.isLoading = true;
+    this.standingService.getTeamStandings().subscribe({
+      next: (data) => {
+        this.teamList = data;
+        this.isLoading = false;
+      },
+      error: () => {
+        this.isLoading = false;
+      }
+    });
   }
 
   onYearChange(year: number): void {
@@ -45,4 +55,3 @@ export class TeamStanding implements OnInit {
     return this.standingService.selectedYear;
   }
 }
-

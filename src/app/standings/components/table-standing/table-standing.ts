@@ -10,11 +10,12 @@ import { NAME_TO_ISO } from '../../../shared/nationalities';
   styleUrls: ['./table-standing.css']
 })
 export class TableStanding {
+  protected readonly Math = Math;
+
   @Input() columns: string[] = [];
   @Input() data: any[] = [];
   @Input() tableType: 'drivers' | 'teams' = 'drivers';
-  protected readonly Math = Math;
-
+  @Input() isLoading!: boolean;
 
   getDriverFlag(driverNationality: string): string {
     return NAME_TO_ISO[driverNationality] || 'un';
