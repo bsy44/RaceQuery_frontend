@@ -34,7 +34,6 @@
   color: #FF1E1E;
 }
 
-
 .session-selector-container {
   display: flex;
   align-items: center;
@@ -109,6 +108,29 @@
   background-color: #11141b;
   color: #fff;
   padding: 10px;
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  width: 100%;
+  background-color: #1b1b26;
+  border-radius: 12px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-left-color: #FF1E1E;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 @media (max-width: 900px) {

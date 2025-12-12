@@ -6,8 +6,7 @@ import { GoBackButton } from '../../../shared/components/go-back-button/go-back-
 import { RaceService } from '../../services/race-service';
 import { RaceModel } from '../../models/race.model';
 import { RaceSummary } from '../race-summary/race-summary';
-// Importe ton modèle RaceResultModel si nécessaire
-// import { RaceResultModel } from '../../models/race-result.model';
+import { slugify } from '../../utils/race-utils';
 
 @Component({
   selector: 'app-race-result',
@@ -17,13 +16,14 @@ import { RaceSummary } from '../race-summary/race-summary';
     SessionResultTableComponent,
     RaceSummary,
     GoBackButton,
-    RouterLink // Nécessaire pour le lien [routerLink]
+    RouterLink
   ],
   templateUrl: './race-result.html',
   styleUrls: ['./race-result.css']
 })
 export class RaceResult implements OnInit {
   private readonly raceService: RaceService = inject(RaceService);
+  protected readonly slugify = slugify;
 
   season!: number;
   round!: number;
@@ -138,22 +138,7 @@ export class RaceResult implements OnInit {
     }
   }
 
-  getSessionLabel(code: string): string {
-    return Object.keys(this.sessionMapping).find(key => this.sessionMapping[key] === code) || code;
-  }
-
   getSeason(): number {
     return this.raceService.selectedYear;
-  }
-
-  // Helper pour créer des URLs propres (ex: "Australian Grand Prix" -> "australian-grand-prix")
-  slugify(text: string): string {
-    return text
-      .toString()
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, '-')     // Remplace les espaces par -
-      .replace(/[^\w\-]+/g, '') // Enlève les caractères non-word
-      .replace(/\-\-+/g, '-');  // Remplace les multiples - par un seul
   }
 }

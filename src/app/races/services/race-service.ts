@@ -11,6 +11,7 @@ import { formatDateRange } from '../utils/race-utils';
 export class RaceService {
   private readonly apiUrl = environment.API_URL;
   private cache = new Map<number, RaceModel[]>();
+  private sessionCache = new Map<string, RaceResultModel>();
 
   years: number [] = [];
   selectedYear: number = new Date().getFullYear();
@@ -28,7 +29,7 @@ export class RaceService {
     }
 
     return this.http.get<RawRace[]>(`${this.apiUrl}/races/${year}`).pipe(
-      delay(500), // Délai artificiel pour le squelette
+      delay(500),
       map(results => results.map(race => this.mapToRaceModel(race))),
       tap(data => this.cache.set(year, data)) // Mise en cache
     );
@@ -40,8 +41,17 @@ export class RaceService {
     );
   }
 
-  getSessionResults(season: number, round: number, session: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/races/${season}/${round}/${session}-results`);
+  getSessionResults(season: number, round: number, session: string): Observable<RaceResultModel> {
+    const cacheKey = `${season}-${round}-${session}`;
+
+    if (this.sessionCache.has(cacheKey)) {
+      return of(this.sessionCache.get(cacheKey)!);
+    }
+
+    return this.http.get<RaceResultModel>(`${this.apiUrl}/races/${season}/${round}/${session}-results`).pipe(
+      delay(500),
+      tap(data => this.sessionCache.set(cacheKey, data))
+    );
   }
 
   setYear(year: number){
