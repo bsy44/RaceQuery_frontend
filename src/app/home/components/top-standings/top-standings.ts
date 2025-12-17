@@ -19,6 +19,7 @@ type StandingItem = DriverStandingsModel | TeamStandingModel;
 export class TopStandings {
   @Input() top5: StandingItem[] = [];
   @Input() type: 'drivers' | 'teams' = 'drivers';
+  @Input() isLoading: boolean = false;
 
   isDriver(item: StandingItem): item is DriverStandingsModel {
     return this.type === 'drivers';

@@ -17,11 +17,11 @@
 
   <div class="standings-grid">
     <div class="standing-col">
-      <app-top-standings [type]="'drivers'" [top5]="top5Drivers"></app-top-standings>
+      <app-top-standings [type]="'drivers'" [top5]="top5Drivers" [isLoading]="isLoading"></app-top-standings>
     </div>
 
     <div class="standing-col">
-      <app-top-standings [type]="'teams'" [top5]="top5Teams"></app-top-standings>
+      <app-top-standings [type]="'teams'" [top5]="top5Teams" [isLoading]="isLoading"></app-top-standings>
     </div>
   </div>
 </div>
