@@ -39,18 +39,19 @@ export class Dashboard implements OnInit {
   load(){
     this.isLoading = true;
 
-    // Dans dashboard.ts, méthode load()
     this.standingService.getDriverStandings().subscribe((data) => {
       this.top5Drivers = data.slice(0, 4);
-      this.isLoading = false; // 💡 Finir le chargement ici
+      this.isLoading = false;
     });
 
     this.standingService.getTeamStandings().subscribe((data) => {
       this.top5Teams = data.slice(0, 4);
+      this.isLoading = false;
     });
 
     this.raceService.getAll().subscribe((allRaces) => {
       if (!allRaces || allRaces.length === 0) {
+        this.isLoading = false;
         return;
       }
 
@@ -69,6 +70,7 @@ export class Dashboard implements OnInit {
         this.lastRaces = past.slice(0, 4);
       }
       this.lastRaces.sort((a, b) => a.round - b.round);
+      this.isLoading = false;
     });
   }
 

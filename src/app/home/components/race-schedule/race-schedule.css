@@ -1,3 +1,8 @@
+app-loading{
+  min-height: 140px;
+  border-radius: 12px;
+}
+
 .section-header {
   display: flex;
   justify-content: space-between;
