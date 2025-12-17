@@ -4,11 +4,13 @@ import { DriverModel } from '../../models/driver.model';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
 import { DriverCard } from '../driver-card/driver-card';
 import { RouterLink } from '@angular/router';
-import {Loading} from '../../../shared/components/loading/loading';
+import { Loading } from '../../../shared/components/loading/loading';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-driver',
   imports: [
+    CommonModule,
     PageHeader,
     DriverCard,
     RouterLink,
@@ -25,11 +27,8 @@ export class Driver implements OnInit {
   isLoading = true;
 
   ngOnInit(): void {
-    if (typeof window !== 'undefined') {
-      this.load();
-    }
+    this.load();
   }
-
 
   load(){
     this.isLoading = true;
