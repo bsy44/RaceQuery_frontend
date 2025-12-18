@@ -1,0 +1,36 @@
+.scroll-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: #FF1E1E;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-btn:hover {
+  background-color: #d60000;
+  transform: translateY(-3px);
+}
+
+@media (min-width: 1024px) {
+  .scroll-btn { display: none; }
+}
