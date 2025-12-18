@@ -19,37 +19,14 @@
       <div class="loading-wrapper">
         <div class="spinner"></div>
       </div>
-    } @else {
+    }
+    @else {
       @for (item of top5; track item.position){
-        <div class="top-list">
-          <div class="row-item" [ngClass]="'rank-' + item.position">
-            <div class="rank-box">{{ item.position }}</div>
-
-            <div class="details">
-              @if (isDriver(item)) {
-                <span class="name">{{ item.fullName }}</span>
-                <div class="sub-info">
-                  <img src="/logos/{{ item.constructorId }}.avif" alt="logo" class="mini-logo">
-                  <span class="team-name">{{ item.team }}</span>
-                </div>
-              }
-
-              @if (isTeam(item)) {
-                <div class="sub-info">
-                  <img src="/logos/{{ item.Team.constructorId }}.avif" alt="logo" class="mini-logo">
-                  <span class="name">{{ item.Team.constructorName }}</span>
-                </div>
-              }
-            </div>
-
-            <div class="points-box">
-              <span class="main-points">{{ +item.points }} <small>PTS</small></span>
-              @if (item.points_diff && +item.points_diff > 0) {
-                <span class="diff-points">-{{ +item.points_diff }}</span>
-              }
-            </div>
-          </div>
-        </div>
+        <app-standings-item
+         [top5]="top5"
+         [item]="item"
+         [type]="type">
+        </app-standings-item>
       }
     }
   </div>
