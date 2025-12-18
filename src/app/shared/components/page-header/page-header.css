@@ -26,11 +26,15 @@
 }
 
 @media (max-width: 768px) {
-
   .page-header {
     flex-direction: column;
-    align-items: flex-start; /* Le texte reste à gauche */
+    align-items: flex-start;
     gap: 20px;
+  }
+
+  .page-header.is-inline {
+    flex-direction: row;
+    align-items: center;
   }
 
   .page-header-text {

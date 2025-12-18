@@ -3,20 +3,22 @@
   [subtitle]="'Saison - ' + selectedYear"
   [years]="years"
   [selectedYear]="selectedYear"
+  [isInline]="true"
   (selectedYearChange)="onYearChange($event)">
 </app-page-header>
 
 <div class="container">
-  @if (isLoading) {
-    @for (i of [].constructor(20); track $index) {
-      <app-loading style="height: 160px;"></app-loading>
-    }
-  }
-  @else {
+  @defer (when drivers.length > 0) {
     @for (driver of drivers; track driver.driverId) {
       <a [routerLink]="['/pilotes', selectedYear, driver.driverId]" class="link">
         <app-driver-card [driver]="driver"></app-driver-card>
       </a>
     }
+  } @placeholder {
+    @for (i of skeletonItems; track $index) {
+      <app-loading></app-loading>
+    }
   }
 </div>
+
+

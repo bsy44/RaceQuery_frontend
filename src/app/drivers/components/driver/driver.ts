@@ -25,6 +25,7 @@ export class Driver implements OnInit {
 
   drivers: DriverModel[] = [];
   isLoading = true;
+  skeletonItems = Array(20).fill(0);
 
   ngOnInit(): void {
     this.load();

@@ -8,6 +8,10 @@
   gap: 2rem;
 }
 
+app-loading{
+  height: 160px;
+}
+
 .link {
   text-decoration: none;
   color: inherit;

@@ -3,6 +3,7 @@
   [subtitle]="'Saison - ' + selectedYear"
   [years]="years"
   [selectedYear]="selectedYear"
+  [isInline]="true"
   (selectedYearChange)="onYearChange($event)">
 </app-page-header>
 
@@ -12,7 +13,6 @@
       <app-loading style="height: 260px;"></app-loading>
     }
   }
-
   @else {
     @for (team of teamList; track team.constructorId){
       <a routerLink='{{ selectedYear }}/{{ team.constructorId }}' class="link">

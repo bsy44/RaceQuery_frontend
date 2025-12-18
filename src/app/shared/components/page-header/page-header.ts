@@ -15,7 +15,7 @@ export class PageHeader {
   @Input() subtitle?: string;
   @Input() years: number[] = [];
   @Input() selectedYear!: number;
-
+  @Input() isInline!: boolean;
   @Output() selectedYearChange = new EventEmitter<number>();
 
   onYearChange(year: number) {
