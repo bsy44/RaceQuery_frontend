@@ -48,10 +48,6 @@
 }
 
 @media (max-width: 900px) {
-  .card {
-    padding: 15px;
-  }
-
   .list-container {
     gap: 10px;
   }

@@ -17,15 +17,6 @@ app-loading{
 }
 
 @media (max-width: 900px) {
-  .section-header h2{
-    font-size: 1rem;
-    word-wrap: break-word;
-  }
-
-  .dashboard-section{
-    padding: 15px;
-  }
-
   .race-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
