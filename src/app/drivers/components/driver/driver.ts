@@ -6,6 +6,7 @@ import { DriverCard } from '../driver-card/driver-card';
 import { RouterLink } from '@angular/router';
 import { Loading } from '../../../shared/components/loading/loading';
 import { CommonModule } from '@angular/common';
+import {ScrollTop} from '../../../shared/components/scroll-top/scroll-top';
 
 @Component({
   selector: 'app-driver',
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
     DriverCard,
     RouterLink,
     Loading,
+    ScrollTop,
   ],
   templateUrl: './driver.html',
   styleUrls: ['./driver.css'],

@@ -6,16 +6,18 @@ import { TeamDriverCard } from '../team-driver-card/team-driver-card';
 import { TeamBanner } from '../team-banner/team-banner';
 import {NgClass} from '@angular/common';
 import {StatsSection} from '../../../shared/components/stats-section/stats-section';
+import {ScrollTop} from "../../../shared/components/scroll-top/scroll-top";
 
 @Component({
   selector: 'app-team-standing-detail',
-  imports: [
-    TeamDriverCard,
-    TeamBanner,
-    RouterLink,
-    NgClass,
-    StatsSection
-  ],
+    imports: [
+        TeamDriverCard,
+        TeamBanner,
+        RouterLink,
+        NgClass,
+        StatsSection,
+        ScrollTop
+    ],
   templateUrl: './team-detail.html',
   styleUrl: './team-detail.css',
 })

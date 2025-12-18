@@ -6,6 +6,7 @@ import { TeamCard } from '../team-card/team-card';
 import { RouterLink } from '@angular/router';
 import {TeamService} from '../../services/team-service';
 import {Loading} from '../../../shared/components/loading/loading';
+import {ScrollTop} from '../../../shared/components/scroll-top/scroll-top';
 
 @Component({
   selector: 'app-team',
@@ -15,7 +16,8 @@ import {Loading} from '../../../shared/components/loading/loading';
     PageHeader,
     TeamCard,
     RouterLink,
-    Loading
+    Loading,
+    ScrollTop
   ],
   templateUrl: './team.html',
   styleUrl: './team.css',

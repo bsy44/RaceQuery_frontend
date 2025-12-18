@@ -8,18 +8,20 @@ import { RaceModel } from '../../models/race.model';
 import { RouterLink } from '@angular/router';
 import { slugify } from '../../utils/race-utils';
 import { Loading } from '../../../shared/components/loading/loading';
+import {ScrollTop} from "../../../shared/components/scroll-top/scroll-top";
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    RaceCard,
-    PageHeader,
-    RouterLink,
-    Loading,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RaceCard,
+        PageHeader,
+        RouterLink,
+        Loading,
+        ScrollTop,
+    ],
   templateUrl: './races.html',
   styleUrl: './race.css'
 })

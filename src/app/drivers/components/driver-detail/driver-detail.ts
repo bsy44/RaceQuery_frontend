@@ -8,6 +8,7 @@ import { SeasonResult } from '../../models/season-result.model';
 import { RaceTableResult } from '../race-table-result/race-table-result';
 import { DriverHero } from '../driver-hero/driver-hero';
 import {StatsSection} from '../../../shared/components/stats-section/stats-section';
+import {ScrollTop} from '../../../shared/components/scroll-top/scroll-top';
 
 @Component({
   selector: 'app-driver-standing-detail',
@@ -15,7 +16,8 @@ import {StatsSection} from '../../../shared/components/stats-section/stats-secti
     NgClass,
     RaceTableResult,
     DriverHero,
-    StatsSection
+    StatsSection,
+    ScrollTop
   ],
   templateUrl: './driver-detail.html',
   styleUrl: './driver-detail.css',
