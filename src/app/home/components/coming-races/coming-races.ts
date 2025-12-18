@@ -5,27 +5,22 @@ import { RouterLink } from '@angular/router';
 import { slugify } from '../../../races/utils/race-utils';
 import {COUNTRY_TRANSLATIONS} from '../../../shared/country-translations';
 import {Loading} from '../../../shared/components/loading/loading';
+import {CommingRacesCard} from '../comming-races-card/comming-races-card';
 
 @Component({
-  selector: 'app-race-schedule',
+  selector: 'app-coming-races',
   standalone: true,
   imports: [
     RouterLink,
-    Loading
+    Loading,
+    CommingRacesCard
   ],
-  templateUrl: './race-schedule.html',
-  styleUrl: './race-schedule.css',
+  templateUrl: './coming-races.html',
+  styleUrl: './coming-races.css',
 })
-export class RaceSchedule {
-  protected readonly NAME_TO_ISO = NAME_TO_ISO;
-  protected readonly COUNTRY_TRANSLATIONS = COUNTRY_TRANSLATIONS
-
+export class ComingRaces {
   @Input() races!: RaceModel[];
   @Input() year!: number;
   @Input() isLoading!: boolean;
   protected readonly slugify = slugify;
-
-  getCountryName(countryEn: string): string {
-    return this.COUNTRY_TRANSLATIONS[countryEn] || countryEn;
-  }
 }

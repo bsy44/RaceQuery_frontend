@@ -1,0 +1,16 @@
+<div class="race-poster-card">
+
+  <div class="poster-bg">
+    <span class="fi fi-{{ NAME_TO_ISO[race.country] }}"></span>
+  </div>
+
+  <div class="poster-top">
+    <span class="round-badge">R{{ race.round }}</span>
+    <span class="date-badge">{{ race.eventDate }}</span>
+  </div>
+
+  <div class="poster-content">
+    <span class="country-label">{{ getCountryName(race.country) }}</span>
+    <h3 class="gp-title">{{ race.gpName }}</h3>
+  </div>
+</div>

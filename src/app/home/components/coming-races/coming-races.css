@@ -1,0 +1,66 @@
+app-loading{
+  min-height: 140px;
+  border-radius: 12px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 15px;
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #d6d9dd;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-section {
+  background-color: #1c1f2e;
+  border-radius: 8px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.race-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 25px;
+}
+
+.race-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .section-header h2{
+    font-size: 1rem;
+    word-wrap: break-word;
+  }
+
+  .dashboard-section{
+    padding: 15px;
+  }
+
+  .race-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}

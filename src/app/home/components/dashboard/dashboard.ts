@@ -4,7 +4,7 @@ import {StandingsService} from '../../../standings/services/standings-service';
 import {DriverStandingsModel} from '../../../standings/models/driverStanding.model';
 import {TeamStandingModel} from '../../../standings/models/teamStanding.model';
 import {SelectorYears} from '../../../shared/components/selector-years/selector-years';
-import {RaceSchedule} from '../race-schedule/race-schedule';
+import {ComingRaces} from '../coming-races/coming-races';
 import {RaceService} from '../../../races/services/race-service';
 import {RaceModel} from '../../../races/models/race.model';
 import {DecimalPipe} from '@angular/common';
@@ -14,7 +14,7 @@ import {DecimalPipe} from '@angular/common';
   imports: [
     TopStandings,
     SelectorYears,
-    RaceSchedule,
+    ComingRaces,
   ],
   templateUrl: './dashboard.html',
   standalone: true,
