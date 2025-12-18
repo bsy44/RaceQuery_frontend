@@ -37,12 +37,6 @@
   align-items: start;
 }
 
-@media (max-width: 1200px) {
-  .standings-grid {
-    gap: 20px;
-  }
-}
-
 @media (max-width: 900px) {
   .dash-title{
     font-size: 1.75rem;
