@@ -64,7 +64,7 @@
 
 @media (max-width: 900px) {
   .container{
-    padding: 12px 12px 50px;
+    padding: 12px 12px;
   }
 
   .driver-stats{
