@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StandingsItem } from './standings-item';
+import { TopStandingsItem } from './top-standings-item';
 
 describe('StandingsItem', () => {
-  let component: StandingsItem;
-  let fixture: ComponentFixture<StandingsItem>;
+  let component: TopStandingsItem;
+  let fixture: ComponentFixture<TopStandingsItem>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StandingsItem]
+      imports: [TopStandingsItem]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StandingsItem);
+    fixture = TestBed.createComponent(TopStandingsItem);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

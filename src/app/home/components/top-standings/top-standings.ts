@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DriverStandingsModel } from '../../../standings/models/driverStanding.model';
 import { TeamStandingModel } from '../../../standings/models/teamStanding.model';
-import { StandingsItem } from '../standings-item/standings-item';
+import { TopStandingsItem } from '../top-standings-item/top-standings-item';
 
 type StandingItem = DriverStandingsModel | TeamStandingModel;
 
@@ -11,7 +11,7 @@ type StandingItem = DriverStandingsModel | TeamStandingModel;
   standalone: true,
   imports: [
     RouterLink,
-    StandingsItem
+    TopStandingsItem
   ],
   templateUrl: './top-standings.html',
   styleUrl: './top-standings.css'

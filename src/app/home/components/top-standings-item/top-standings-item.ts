@@ -6,14 +6,14 @@ import { TeamStandingModel } from '../../../standings/models/teamStanding.model'
 type StandingItem = DriverStandingsModel | TeamStandingModel;
 
 @Component({
-  selector: 'app-standings-item',
+  selector: 'app-top-standings-item',
   imports: [
     NgClass
   ],
-  templateUrl: './standings-item.html',
-  styleUrl: './standings-item.css',
+  templateUrl: './top-standings-item.html',
+  styleUrl: './top-standings-item.css',
 })
-export class StandingsItem {
+export class TopStandingsItem {
   @Input() top5: StandingItem[] = [];
   @Input() item!: StandingItem;
   @Input() type: 'drivers' | 'teams' = 'drivers';

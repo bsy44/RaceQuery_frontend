@@ -22,11 +22,11 @@
     }
     @else {
       @for (item of top5; track item.position){
-        <app-standings-item
+        <app-top-standings-item
          [top5]="top5"
          [item]="item"
          [type]="type">
-        </app-standings-item>
+        </app-top-standings-item>
       }
     }
   </div>
