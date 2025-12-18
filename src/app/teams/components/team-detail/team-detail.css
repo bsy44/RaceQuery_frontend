@@ -1,7 +1,6 @@
 .container{
   margin: auto;
   max-width: 1600px;
-  padding-bottom: 100px;
 }
 
 .section-title{
@@ -35,7 +34,7 @@
 }
 
 .team-resume{
-  padding: 10px 0 30px;
+  padding: 0 30px;
 }
 
 .pos-1 .pos {
@@ -57,7 +56,7 @@
 }
 
 .team-standing{
-  padding: 0 25px;
+  padding: 0 25px 25px;
 }
 
 .team-stats {
@@ -86,6 +85,10 @@
 @media (max-width: 900px) {
   .driver-section{
     gap: 2rem;
+  }
+  .team-standing{
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
   .team-position{
