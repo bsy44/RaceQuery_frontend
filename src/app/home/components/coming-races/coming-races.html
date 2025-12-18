@@ -1,25 +1,20 @@
-<div class="dashboard-section">
-  <div class="section-header">
-    <h2><i class="fa-solid fa-flag-checkered"></i> Dernières Courses</h2>
-  </div>
+<app-card
+  [title]="'Dernières Courses'"
+  [isLoading]="isLoading">
+
+  <i card-icon class="fa-solid fa-flag-checkered"></i>
 
   <div class="race-grid">
-    @if (isLoading){
-      @for (i of  [].constructor(4); track $index){
-        <app-loading></app-loading>
-      }
-    } @else {
-      @for (race of races; track race.round){
-        <a [routerLink]="race.isFinished
+    @for (race of races; track race.round) {
+      <a [routerLink]="race.isFinished
         ? ['/races', year, slugify(race.gpName), 'results']
         : ['/races', year, slugify(race.gpName), 'details']"
-           [state]="{ round: race.round, race: race.gpName }"
-           class="race-link">
-          <app-comming-races-card
-            [race]="race">
-          </app-comming-races-card>
-        </a>
-      }
+         [state]="{ round: race.round, race: race.gpName }"
+         class="race-link">
+
+        <app-comming-races-card [race]="race"></app-comming-races-card>
+
+      </a>
     }
   </div>
-</div>
+</app-card>

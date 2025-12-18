@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { DriverStandingsModel } from '../../../standings/models/driverStanding.model';
 import { TeamStandingModel } from '../../../standings/models/teamStanding.model';
 import { TopStandingsItem } from '../top-standings-item/top-standings-item';
+import {Card} from '../../shared/card/card';
 
 type StandingItem = DriverStandingsModel | TeamStandingModel;
 
@@ -11,7 +12,8 @@ type StandingItem = DriverStandingsModel | TeamStandingModel;
   standalone: true,
   imports: [
     RouterLink,
-    TopStandingsItem
+    TopStandingsItem,
+    Card
   ],
   templateUrl: './top-standings.html',
   styleUrl: './top-standings.css'

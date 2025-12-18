@@ -1,1 +1,22 @@
-<p>card works!</p>
+<div class="card">
+  <div class="card-header">
+    <h2>
+      <ng-content select="[card-icon]"></ng-content>
+      {{ title }}
+    </h2>
+
+    <div class="card-actions">
+      <ng-content select="[card-actions]"></ng-content>
+    </div>
+  </div>
+
+  <div class="card-body">
+    @if (isLoading) {
+      <div class="loading-wrapper">
+        <div class="spinner"></div>
+      </div>
+    } @else {
+      <ng-content></ng-content>
+    }
+  </div>
+</div>

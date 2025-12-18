@@ -1,33 +1,28 @@
-<div class="card standings-card">
-  <div class="card-header">
-    <h2>
-      @if (type === 'drivers') {
-        <img src="/casque-f1.png" class="helmet-icon" alt="driver standing icon">
-      } @else {
-        <i class="fa-solid fa-trophy"></i>
-      }
-      {{ type === 'drivers' ? 'Championnat Pilotes' : 'Championnat Équipes' }}
-    </h2>
+<app-card
+  [title]="type === 'drivers' ? 'Championnat Pilotes' : 'Championnat Équipes'"
+  [isLoading]="isLoading">
 
-    <a [routerLink]="type === 'drivers' ? '/driver/standings' : '/team/standings'" class="see-more">
-      Tout voir <i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
+  <ng-container card-icon>
+    @if (type === 'drivers') {
+      <img src="/casque-f1.png" class="helmet-icon" alt="driver standing icon">
+    } @else {
+      <i class="fa-solid fa-trophy"></i>
+    }
+  </ng-container>
+
+  <a card-actions
+     [routerLink]="type === 'drivers' ? '/driver/standings' : '/team/standings'"
+     class="see-more">
+    Tout voir <i class="fa-solid fa-arrow-right"></i>
+  </a>
 
   <div class="list-container">
-    @if (isLoading) {
-      <div class="loading-wrapper">
-        <div class="spinner"></div>
-      </div>
-    }
-    @else {
-      @for (item of top5; track item.position){
-        <app-top-standings-item
-         [top5]="top5"
-         [item]="item"
-         [type]="type">
-        </app-top-standings-item>
-      }
+    @for (item of top5; track item.position){
+      <app-top-standings-item
+        [top5]="top5"
+        [item]="item"
+        [type]="type">
+      </app-top-standings-item>
     }
   </div>
-</div>
+</app-card>
