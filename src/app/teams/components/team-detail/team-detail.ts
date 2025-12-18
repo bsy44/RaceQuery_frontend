@@ -15,8 +15,7 @@ import {ScrollTop} from "../../../shared/components/scroll-top/scroll-top";
         TeamBanner,
         RouterLink,
         NgClass,
-        StatsSection,
-        ScrollTop
+        StatsSection
     ],
   templateUrl: './team-detail.html',
   styleUrl: './team-detail.css',

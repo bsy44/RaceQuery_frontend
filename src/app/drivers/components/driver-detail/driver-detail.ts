@@ -16,8 +16,7 @@ import {ScrollTop} from '../../../shared/components/scroll-top/scroll-top';
     NgClass,
     RaceTableResult,
     DriverHero,
-    StatsSection,
-    ScrollTop
+    StatsSection
   ],
   templateUrl: './driver-detail.html',
   styleUrl: './driver-detail.css',
