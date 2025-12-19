@@ -7,6 +7,7 @@ import { RaceService } from '../../services/race-service';
 import { RaceModel } from '../../models/race.model';
 import { RaceSummary } from '../race-summary/race-summary';
 import { slugify } from '../../utils/race-utils';
+import {NAME_TO_ISO} from '../../../shared/nationalities';
 
 @Component({
   selector: 'app-race-result',
@@ -141,4 +142,6 @@ export class RaceResult implements OnInit {
   getSeason(): number {
     return this.raceService.selectedYear;
   }
+
+  protected readonly NAME_TO_ISO = NAME_TO_ISO;
 }

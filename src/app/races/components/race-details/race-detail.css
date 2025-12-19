@@ -12,6 +12,26 @@
   border-bottom: solid 4px #ff2a2a;
 }
 
+.header-content{
+  flex: 1;
+}
+
+.header-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 50px;
+}
+
+.flag-round {
+  font-size: 2.5rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+
 .titles {
   display: flex;
   flex-direction: column;
@@ -20,7 +40,7 @@
 .page-title {
   margin: 0;
   text-align: left;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: #E6E6E6;
   text-transform: uppercase;
@@ -117,6 +137,10 @@
 
   .session-container {
     gap: 25px;
+  }
+
+  .header-top{
+    padding: 0;
   }
 }
 

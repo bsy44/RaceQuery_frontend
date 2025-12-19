@@ -3,6 +3,7 @@
     <div class="page-header">
       <app-go-back-button></app-go-back-button>
       <h1 class="page-title">{{ race.gpName }} - {{ season }}</h1>
+      <span [class]="'fi fis flag-round fi-' + NAME_TO_ISO[race.country]"></span>
     </div>
   }
 

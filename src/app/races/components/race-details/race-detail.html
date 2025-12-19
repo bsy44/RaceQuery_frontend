@@ -5,7 +5,11 @@
 
       <div class="header-content">
         <div class="header-top">
-          <h1 class="page-title">{{ race.gpName }} <span class="season">{{ season }}</span></h1>
+          <h1 class="page-title">
+            {{ race.gpName }}
+            <span class="season">{{ season }}</span>
+          </h1>
+          <span [class]="'fi fis flag-round fi-' + NAME_TO_ISO[race.country]"></span>
         </div>
 
         <div class="circuit-info subtitle">

@@ -4,6 +4,7 @@ import {GoBackButton} from '../../../shared/components/go-back-button/go-back-bu
 import {RaceDetailCard} from '../race-detail-card/race-detail-card';
 import {RaceService} from '../../services/race-service';
 import {RaceModel} from '../../models/race.model';
+import {NAME_TO_ISO} from "../../../shared/nationalities";
 
 @Component({
   selector: 'app-race-details',
@@ -33,4 +34,5 @@ export class RaceDetail implements OnInit {
     })
   }
 
+    protected readonly NAME_TO_ISO = NAME_TO_ISO;
 }
