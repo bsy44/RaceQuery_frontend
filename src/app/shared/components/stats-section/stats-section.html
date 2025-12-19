@@ -3,6 +3,12 @@
   <h2 class="section-title">Grand Prix statistique</h2>
 
   <div class="stat-list">
+    @if (stats.total_races){
+      <div class="stat-row">
+        <span>Nombres de Grand Prix</span>
+        <span>{{ stats.total_races }}</span>
+      </div>
+    }
 
     <div class="stat-row">
       <span>Victoire Grand Prix</span>

@@ -15,4 +15,5 @@ export interface DriverStats{
   avg_race_finish: number;
   avg_qualifying_finish: number;
   best_result: number;
+  total_races: number;
 }
