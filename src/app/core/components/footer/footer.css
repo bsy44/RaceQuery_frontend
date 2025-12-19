@@ -6,11 +6,10 @@
 }
 
 .site-footer {
-  background-color: #0b0d15;
+  background-color: #090c15;
   color: #a0a0a0;
   font-size: 0.95rem;
   border-top: 4px solid #FF1E1E;
-  margin-top: auto;
 }
 
 .footer-col {
@@ -105,7 +104,7 @@
 
 .footer-bottom {
   display: flex;
-  background-color: #030507;
+  background-color: #000000;
   padding: 20px 30px;
   border-top: 1px solid rgba(255,255,255,0.05);
   font-size: 0.85rem;
