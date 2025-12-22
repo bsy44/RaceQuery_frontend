@@ -254,9 +254,4 @@
 .williams { --team-color: #005aff; --driver-number: #fff; .bg-number{ font-style: italic }}
 .sauber { --team-color: #52e252; --driver-number: #52e252; .bg-number{ font-style: italic } }
 .alphatauri { --team-color: #002841; .absolute-team-logo{ filter: brightness(0) invert(1);} }
-.alfa {
-  --team-color: #88172a;
-  --driver-number: #88172a;
-  .absolute-team-logo{ filter: brightness(0) invert(1);}
-  .bg-number{font-style: italic}
-}
+.alfa { --team-color: #88172a; --driver-number: #88172a; .bg-number{font-style: italic} }
