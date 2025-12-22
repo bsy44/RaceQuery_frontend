@@ -125,7 +125,6 @@ export class RaceResult implements OnInit {
           this.isLoading = false;
         },
         error: (err) => {
-          console.error("Erreur chargement session", err);
           this.isLoading = false;
         }
       });
