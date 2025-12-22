@@ -34,8 +34,15 @@
 
     @if (stats.best_result) {
       <div class="stat-row">
-        <span>Meilleur résultat</span>
+        <span>Meilleur résultat en course</span>
         <span>{{ stats.best_result }}</span>
+      </div>
+    }
+
+    @if (stats.best_quali_result) {
+      <div class="stat-row">
+        <span>Meilleur résultat en qualif</span>
+        <span>{{ stats.best_quali_result }}</span>
       </div>
     }
 

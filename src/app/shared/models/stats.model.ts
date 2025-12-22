@@ -1,15 +1,22 @@
-export interface StatModel {
-  win: number;
+export interface BaseF1Stats {
+  position: string | number;
+  points: string | number;
+  win: string | number;
   podium: number;
   pole: number;
   top10: number;
   dnf: number;
-  avg_race_finish: number | string;
-  avg_qualifying_finish: number | string;
-  best_result?: number;
-  q3_appearance?: number;
-  total_quali?: number;
   sprint_win: number;
   sprint_podium: number;
   sprint_pole: number;
+  avg_race_finish: number;
+  avg_qualifying_finish: number;
+  total_races: number;
+}
+
+export interface DriverSpecificStats {
+  q3_appearance: number;
+  total_quali: number;
+  best_result: number;
+  best_quali_result: number;
 }

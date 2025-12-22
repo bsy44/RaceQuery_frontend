@@ -1,17 +1,6 @@
 import { TeamModel } from './team.model';
+import { BaseF1Stats } from '../../shared/models/stats.model';
 
-export interface TeamDetailModel {
+export interface TeamDetailModel extends BaseF1Stats {
   Team: TeamModel;
-  position: string;
-  points: string;
-  win: string;
-  podium: number;
-  pole: number;
-  top10: number;
-  dnf: number;
-  sprint_win: number;
-  sprint_podium: number;
-  sprint_pole: number;
-  avg_race_finish: number;
-  avg_qualifying_finish: number;
 }
