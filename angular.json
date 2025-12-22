@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend": {
+    "race-query": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -67,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "frontend:build:production"
+              "buildTarget": "race-query:build:production"
             },
             "development": {
-              "buildTarget": "frontend:build:development"
+              "buildTarget": "race-query:build:development"
             }
           },
           "defaultConfiguration": "development"
