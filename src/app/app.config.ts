@@ -9,7 +9,7 @@ import { routes } from './app.routes';
 import { provideHttpClient, withFetch } from "@angular/common/http";
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import {provideClientHydration, withEventReplay, withHttpTransferCacheOptions} from '@angular/platform-browser';
 
 
 registerLocaleData(localeFr);
@@ -28,6 +28,11 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     {
       provide: LOCALE_ID, useValue: 'fr'
-    }, provideClientHydration(withEventReplay())
+    }, provideClientHydration(
+      withEventReplay(),
+      withHttpTransferCacheOptions({
+        includePostRequests: false
+      })
+    )
   ]
 };
