@@ -1,7 +1,7 @@
 export interface BaseF1Stats {
-  position: string | number;
-  points: string | number;
-  win: string | number;
+  position: string;
+  points: string;
+  win: string;
   podium: number;
   pole: number;
   top10: number;
