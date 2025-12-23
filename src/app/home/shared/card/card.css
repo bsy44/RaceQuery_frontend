@@ -65,7 +65,28 @@
 }
 
 @media (max-width: 900px) {
-  .card{
+  .card {
     padding: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 12px;
+  }
+
+  .card-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+
+  .card-header h2 {
+    font-size: 1rem;
+    gap: 8px;
+  }
+
+  ::ng-deep .helmet-icon {
+    width: 20px;
+    height: 20px;
   }
 }
