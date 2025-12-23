@@ -5,7 +5,7 @@
   background-color: var(--team-color);
   background-image:
     repeating-linear-gradient(120deg, rgba(255,255,255,0) 0px, rgba(255,255,255,0) 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px),
-    linear-gradient(105deg, var(--team-color) 20%, #0e101b 85%);
+    linear-gradient(105deg, var(--team-color) 20%, #0e101b 100%);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.1);
   color: white;
 }
