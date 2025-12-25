@@ -7,7 +7,7 @@
   color: #E6E6E6;
   padding: 35px 20px;
   transition: background-color 0.3s ease-in-out;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .session-card:hover {
@@ -46,7 +46,8 @@
   justify-content: space-between;
   flex: 1;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
 
 .session-info .title {
@@ -57,10 +58,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.session-info i{
-  padding-right: 10px;
+  flex: 1;
+  line-height: 1.2;
 }
 
 .session-info .time {
@@ -68,6 +67,9 @@
   color: #ccc;
   font-size: 1.3rem;
   padding-right: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: right;
 }
 
 .session-card.free-practice { border-left: 13px solid #E6E6E6; }
@@ -81,25 +83,29 @@
     padding: 15px;
     border-left-width: 8px;
     gap: 10px;
+    flex-wrap: nowrap;
   }
 
-  .separator {
-    display: none;
-  }
 
   .date {
     transform: scale(0.9);
+    margin-right: 5px;
+  }
+
+  .session-info {
+    gap: 10px;
   }
 
   .session-info .title {
     padding-left: 0;
-    font-size: 1.2rem;
-    line-height: 1.2;
+    font-size: 1.1rem;
+    display: block;
   }
 
   .session-info i {
     font-size: 1rem;
     padding-right: 6px;
+    display: inline-block;
   }
 
   .session-info .time {
@@ -107,5 +113,6 @@
     padding-right: 0;
     color: #a0a0a0;
     font-weight: 600;
+    margin-left: auto;
   }
 }
