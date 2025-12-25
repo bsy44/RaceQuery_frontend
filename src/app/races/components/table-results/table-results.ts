@@ -88,6 +88,7 @@ export class SessionResultTableComponent implements OnChanges {
     if (t.includes('HARD')) return 'H';
     if (t.includes('INTER')) return 'I';
     if (t.includes('WET')) return 'W';
+    if (t.includes('TEST_UNKNOWN')) return 'T';
     return '?';
   }
 }

@@ -164,11 +164,16 @@ th.tyre {
   width: 80px;
 }
 
+.cell-tyre{
+  text-align: center;
+}
+
 .soft         { --tyre-color: #ff3333; }
 .medium       { --tyre-color: #ffe900; }
 .hard         { --tyre-color: #f0f0f0; }
 .intermediate { --tyre-color: #39b54a; }
 .wet          { --tyre-color: #00aeef; }
+.test_unknown { --tyre-color: #8c8c8c; }
 
 .pirelli-tyre {
   width: 23px;
