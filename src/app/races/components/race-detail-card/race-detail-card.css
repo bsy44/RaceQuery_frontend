@@ -86,6 +86,9 @@
     flex-wrap: nowrap;
   }
 
+  .separator{
+    display: none;
+  }
 
   .date {
     transform: scale(0.9);

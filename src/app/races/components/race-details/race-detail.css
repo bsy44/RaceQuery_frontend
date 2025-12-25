@@ -7,16 +7,18 @@
 .page-header {
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: 30px 10px;
+  gap: 20px;
+  padding: 20px 0;
   border-bottom: solid 4px #ff2a2a;
+  position: relative;
+  min-height: 80px;
 }
 
-.header-content{
+.header-content {
   flex: 1;
 }
 
-.header-top{
+.header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,12 +37,6 @@
   z-index: 10;
 }
 
-
-.titles {
-  display: flex;
-  flex-direction: column;
-}
-
 .page-title {
   margin: 0;
   flex: 1;
@@ -49,7 +45,10 @@
   color: #E6E6E6;
   text-transform: uppercase;
   letter-spacing: 1px;
+  padding-right: 70px;
+  line-height: 1.1;
 }
+
 
 .subtitle {
   text-align: left;
@@ -68,7 +67,7 @@
   margin-top: 5px;
 }
 
-.sessions-timeline{
+.sessions-timeline {
   padding: 25px;
 }
 
@@ -81,52 +80,50 @@
   padding-left: 15px;
 }
 
-.session-container{
+.session-container {
   display: grid;
   gap: 30px;
 }
 
 @media (max-width: 1024px) {
-
   .container {
     padding: 15px 15px 50px;
   }
 
   .page-title {
     font-size: 2.2rem;
-    padding-left: 20px;
-  }
-
-  .subtitle, .circuit-info {
-    padding-left: 20px;
+    padding-left: 0;
   }
 }
 
 @media (max-width: 768px) {
   .page-header {
     align-items: flex-start;
-    gap: 20px;
     padding: 15px 0;
     border-bottom-width: 3px;
   }
 
   .page-title {
-    font-size: 1.8rem;
-    padding-left: 0;
-    padding-bottom: 15px;
-    line-height: 1.1;
-    word-wrap: break-word;
+    font-size: 1.65rem;
+    padding-right: 55px;
+    padding-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .flag-round {
+    font-size: 2.5rem;
+    top: 15px;
+    transform: none;
   }
 
   .subtitle {
     font-size: 1rem;
-    padding-left: 0;
   }
 
   .circuit-info {
-    padding-left: 0;
     font-size: 0.95rem;
     flex-wrap: wrap;
+    gap: 5px;
   }
 
   .sessions-timeline {
@@ -135,21 +132,12 @@
 
   .section-title {
     font-size: 1.3rem;
-    margin-bottom: 20px;
-    border-left-width: 3px;
-  }
-
-  .session-container {
-    gap: 25px;
-  }
-
-  .header-top{
-    padding: 0;
   }
 }
 
 @media (max-width: 400px) {
   .page-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    padding-right: 45px;
   }
 }
