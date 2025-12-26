@@ -7,7 +7,7 @@ import {SelectorYears} from '../../../shared/components/selector-years/selector-
 import {ComingRaces} from '../coming-races/coming-races';
 import {RaceService} from '../../../races/services/race-service';
 import {RaceModel} from '../../../races/models/race.model';
-import {DecimalPipe} from '@angular/common';
+import {SeoService} from '../../../shared/services/seo.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +23,7 @@ import {DecimalPipe} from '@angular/common';
 export class Dashboard implements OnInit {
   private readonly standingService = inject(StandingsService);
   private readonly raceService: RaceService = inject(RaceService);
+  private readonly seoService = inject(SeoService);
 
   isLoading = true
 
@@ -33,6 +34,10 @@ export class Dashboard implements OnInit {
   lastRaces: RaceModel[] = [];
 
   ngOnInit() {
+    this.seoService.updateMeta(
+      'Tableau de bord F1',
+      'Retouver les statistiques, classements, résultats de courses et télémétries des saisons de F1.'
+    );
     this.load();
   }
 

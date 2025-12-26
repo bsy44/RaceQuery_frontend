@@ -5,6 +5,7 @@ import { PageHeader } from '../../../shared/components/page-header/page-header';
 import { DriverStandingsModel } from '../../models/driverStanding.model';
 import { StandingsService } from '../../services/standings-service';
 import { CommonModule } from '@angular/common';
+import {SeoService} from '../../../shared/services/seo.service';
 
 @Component({
   selector: 'app-driver-standing',
@@ -20,12 +21,19 @@ import { CommonModule } from '@angular/common';
 })
 export class DriverStanding implements OnInit {
   private readonly standingService = inject(StandingsService);
+  private readonly seoService = inject(SeoService);
+
   driverList: DriverStandingsModel[] = [];
   columns = ['Pos.', 'Pilote', 'Écurie', 'Points', 'Évo.'];
 
   isLoading = true;
 
   ngOnInit() {
+    this.seoService.updateMeta(
+      `Classement pilote F1 ${this.selectedYear}`,
+      `Consultez le classement pilote du championnat du monde de Formule 1 pour la saison ${this.selectedYear}.
+       Suivez l'évolution des points, les positions et la lutte pour le titre mondial.`
+    );
     this.load();
   }
 

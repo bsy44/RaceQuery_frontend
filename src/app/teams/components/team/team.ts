@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import {TeamService} from '../../services/team-service';
 import {Loading} from '../../../shared/components/loading/loading';
 import {ScrollTop} from '../../../shared/components/scroll-top/scroll-top';
+import {SeoService} from '../../../shared/services/seo.service';
 
 @Component({
   selector: 'app-team',
@@ -23,12 +24,17 @@ import {ScrollTop} from '../../../shared/components/scroll-top/scroll-top';
   styleUrl: './team.css',
 })
 export class Team implements OnInit {
-  private teamService = inject(TeamService);
+  private readonly teamService = inject(TeamService);
+  private readonly seoService = inject(SeoService);
 
   teamList: TeamModel[] = [];
   isLoading = true;
 
   ngOnInit() {
+    this.seoService.updateMeta(
+      'Écuries',
+      'Visualisez les statistiques et résultats de la saison des écuries'
+    );
     this.load()
   }
 

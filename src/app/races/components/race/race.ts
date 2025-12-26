@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 import { slugify } from '../../utils/race-utils';
 import { Loading } from '../../../shared/components/loading/loading';
 import {ScrollTop} from "../../../shared/components/scroll-top/scroll-top";
+import {SeoService} from '../../../shared/services/seo.service';
 
 @Component({
   selector: 'app-events',
@@ -29,11 +30,16 @@ import {ScrollTop} from "../../../shared/components/scroll-top/scroll-top";
 export class Race implements OnInit {
   protected readonly slugify = slugify;
   private readonly raceService = inject(RaceService);
+  private readonly seoService = inject(SeoService);
 
   raceList: RaceModel[] = [];
   isLoading = true;
 
   ngOnInit() {
+    this.seoService.updateMeta(
+      `Calendrier et Résultat de la saison ${this.selectedYear}`,
+      'Retrouvez les calendriers et les résultats des courses'
+    );
     this.load();
   }
 

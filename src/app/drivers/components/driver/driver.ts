@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { Loading } from '../../../shared/components/loading/loading';
 import { CommonModule } from '@angular/common';
 import {ScrollTop} from '../../../shared/components/scroll-top/scroll-top';
+import {SeoService} from '../../../shared/services/seo.service';
 
 @Component({
   selector: 'app-driver',
@@ -23,13 +24,18 @@ import {ScrollTop} from '../../../shared/components/scroll-top/scroll-top';
   standalone: true
 })
 export class Driver implements OnInit {
-  private driverService = inject(DriverService);
+  private readonly driverService = inject(DriverService);
+  private readonly seoService = inject(SeoService);
 
   drivers: DriverModel[] = [];
   isLoading = true;
   skeletonItems = Array(20).fill(0);
 
   ngOnInit(): void {
+    this.seoService.updateMeta(
+      'Pilotes',
+      'Visualisez la saison complète des pilotes à travers leurs statistiques et résultats'
+    );
     this.load();
   }
 
