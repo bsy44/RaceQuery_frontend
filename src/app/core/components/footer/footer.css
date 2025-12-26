@@ -36,7 +36,14 @@
   margin-bottom: 15px;
   letter-spacing: 1px;
 
+  img{
+    width: 44px;
+  }
+
   a{
+    gap: 10px;
+    display: flex;
+    align-items: center;
     color: #fff;
     text-decoration: none;
   }
