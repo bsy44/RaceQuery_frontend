@@ -29,11 +29,7 @@ export class DriverStanding implements OnInit {
   isLoading = true;
 
   ngOnInit() {
-    this.seoService.updateMeta(
-      `Classement pilote F1 ${this.selectedYear}`,
-      `Consultez le classement pilote du championnat du monde de Formule 1 pour la saison ${this.selectedYear}.
-       Suivez l'évolution des points, les positions et la lutte pour le titre mondial.`
-    );
+    this.updateSeo();
     this.load();
   }
 
@@ -51,8 +47,17 @@ export class DriverStanding implements OnInit {
     });
   }
 
+  private updateSeo() {
+    this.seoService.updateMeta(
+      `Classement Pilotes F1 ${this.selectedYear}`,
+      `Consultez le classement pilote du championnat du monde de Formule 1 pour la saison ${this.selectedYear}.
+      Suivez l'évolution des points, des positions et la lutte pour le titre mondial.`
+    );
+  }
+
   onYearChange(year: number): void {
     this.standingService.setYear(year);
+    this.updateSeo();
     this.load();
   }
 

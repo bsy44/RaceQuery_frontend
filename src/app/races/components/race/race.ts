@@ -36,10 +36,7 @@ export class Race implements OnInit {
   isLoading = true;
 
   ngOnInit() {
-    this.seoService.updateMeta(
-      `Calendrier et Résultat de la saison ${this.selectedYear}`,
-      'Retrouvez les calendriers et les résultats des courses'
-    );
+    this.updateSeo();
     this.load();
   }
 
@@ -57,8 +54,16 @@ export class Race implements OnInit {
     });
   }
 
+  private updateSeo() {
+    this.seoService.updateMeta(
+      `Calendrier et Résultat de la saison ${this.selectedYear}`,
+      'Retrouvez les calendriers et les résultats des sessions des saisons de F1'
+    );
+  }
+
   onYearChange(year: number): void {
     this.raceService.setYear(year);
+    this.updateSeo();
     this.load();
   }
 
