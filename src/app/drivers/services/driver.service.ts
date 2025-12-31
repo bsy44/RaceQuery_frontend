@@ -16,7 +16,8 @@ export class DriverService {
   private cache = new Map<number, DriverModel[]>();
 
   constructor(private http: HttpClient) {
-    const currentYear = new Date().getFullYear();
+    //const currentYear = new Date().getFullYear();
+    const currentYear = 2025;
     this.years = Array.from(
       {
         length: currentYear - 2022 + 1
