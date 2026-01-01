@@ -90,7 +90,7 @@ export class Dashboard implements OnInit {
     }
     else {
       this.displayTitle = "Derniers Résultats";
-      this.displayRaces = past.slice(0, 3).reverse();
+      this.displayRaces = past.slice(0, 4).reverse();
     }
   }
 
