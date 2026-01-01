@@ -11,7 +11,9 @@ import { SeasonResult } from '../models/season-result.model';
 })
 export class DriverService {
   private API_URL = environment.API_URL
-  selectedYear: number = new Date().getFullYear();
+  //selectedYear: number = new Date().getFullYear();
+  selectedYear: number = 2025;
+
   years: number[] = [];
   private cache = new Map<number, DriverModel[]>();
 

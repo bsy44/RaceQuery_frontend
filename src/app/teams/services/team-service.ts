@@ -13,7 +13,9 @@ export class TeamService {
   private cache = new Map<number, TeamModel[]>();
 
   years: number[] = [];
-  selectedYear: number = new Date().getFullYear();
+  //selectedYear: number = new Date().getFullYear();
+  selectedYear: number = 2025;
+
 
   constructor(private http: HttpClient) {
     //const currentYear = new Date().getFullYear();

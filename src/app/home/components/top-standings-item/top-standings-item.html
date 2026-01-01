@@ -5,14 +5,14 @@
     <div class="details">
       @if (isDriver(item)) {
         <span class="name">{{ item.fullName }}</span>
-        <div class="sub-info">
+        <div class="sub-info" [ngClass]="item.constructorId">
           <img src="/logos/{{ item.constructorId }}.avif" alt="logo" class="mini-logo">
           <span class="team-name">{{ item.team }}</span>
         </div>
       }
 
       @if (isTeam(item)) {
-        <div class="sub-info">
+        <div class="sub-info" [ngClass]="item.Team.constructorId">
           <img src="/logos/{{ item.Team.constructorId }}.avif" alt="logo" class="mini-logo">
           <span class="name">{{ item.Team.constructorName }}</span>
         </div>

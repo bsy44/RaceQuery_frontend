@@ -248,6 +248,7 @@
 .sauber { --team-color: #52e252; }
 .alfa { --team-color: #88172a; }
 .alphatauri { --team-color: #002841; }
+.audi .team-logo {filter: brightness(0) invert(1);}
 
 
 tbody tr:nth-child(1) .rank {

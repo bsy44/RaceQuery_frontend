@@ -20,6 +20,7 @@ import {Card} from '../../shared/card/card';
   styleUrl: './coming-races.css',
 })
 export class ComingRaces {
+  @Input() title!: string;
   @Input() races!: RaceModel[];
   @Input() year!: number;
   @Input() isLoading!: boolean;

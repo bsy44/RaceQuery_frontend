@@ -90,6 +90,8 @@
   margin-top: 4px;
 }
 
+.audi { filter: brightness(0) invert(1);}
+
 @media (max-width: 900px) {
   .row-item { padding: 10px; }
 
