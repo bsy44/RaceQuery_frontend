@@ -20,6 +20,8 @@ export class DriverHero {
   protected readonly NAME_TO_ISO = NAME_TO_ISO;
   @Input() season!: number;
   @Input() driver!: DriverStats;
+  imgStatus: string = 'pending...';
+  currentSrc: string = '';
 
   getAge(dateOfBirth: string): number {
     const birthDate = new Date(dateOfBirth);
@@ -31,5 +33,19 @@ export class DriverHero {
       age--;
     }
     return age;
+  }
+
+  onImgLoad(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    this.imgStatus = 'loaded ✅';
+    this.currentSrc = img.currentSrc || img.src;
+    console.log('[IMG LOAD]', img.currentSrc, img);
+  }
+
+  onImgError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    this.imgStatus = 'error ❌';
+    this.currentSrc = img.src;
+    console.error('[IMG ERROR] src tentée:', img.src, img);
   }
 }

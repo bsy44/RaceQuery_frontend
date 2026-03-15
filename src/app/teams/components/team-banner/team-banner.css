@@ -93,11 +93,15 @@ img {
 .sauber { --team-color: #52e252; }
 .alfa { --team-color: #88172a; }
 .alphatauri { --team-color: #002841; }
+.audi { --team-color: #F50537; }
+.cadillac { --team-color: #909090; }
 
 .rb img,
 .williams img,
 .alpine img,
 .mclaren img,
-.alphatauri img
+.alphatauri img,
+.audi img,
+.cadillac img
 { filter: brightness(0) invert(1); }
 

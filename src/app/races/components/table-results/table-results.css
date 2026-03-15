@@ -256,6 +256,7 @@ th.tyre {
   color: #8d9096;
 }
 
+.audi, .cadillac {filter: brightness(0) invert(1);}
 
 @media (max-width: 968px){
   .race-table {

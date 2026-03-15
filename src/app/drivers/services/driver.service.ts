@@ -11,15 +11,13 @@ import { SeasonResult } from '../models/season-result.model';
 })
 export class DriverService {
   private API_URL = environment.API_URL
-  //selectedYear: number = new Date().getFullYear();
-  selectedYear: number = 2025;
+  selectedYear: number = new Date().getFullYear();
 
   years: number[] = [];
   private cache = new Map<number, DriverModel[]>();
 
   constructor(private http: HttpClient) {
-    //const currentYear = new Date().getFullYear();
-    const currentYear = 2025;
+    const currentYear = new Date().getFullYear();
     this.years = Array.from(
       {
         length: currentYear - 2022 + 1

@@ -142,6 +142,8 @@
 .card-header.rb { background: linear-gradient(-110deg, #6692ff 0%, #3b64c8 100%); }
 .card-header.williams { background: linear-gradient(-110deg, #5ab1e6 0%, #1455c8 100%); }
 .card-header.alpine { background: linear-gradient(-110deg, #0093CC 0%, #005384 100%); }
+.card-header.audi { background: linear-gradient(-110deg, #F50537 0%, #aa0426 100%); }
+.card-header.cadillac { background: linear-gradient(-110deg, #909090 0%, #737373 100%); }
 .card-header.sauber { background: linear-gradient(-110deg, #01b90d 0%, #006501 100%); }
 .card-header.alphatauri { background: linear-gradient(-110deg, #002841 0%, #0a0e12 100%); }
 .card-header.alfa { background: linear-gradient(-110deg, #88172a 0%, #2b050b 100%); }
@@ -151,18 +153,22 @@
 .team-car.mercedes      { background: linear-gradient(to bottom, #9ff9ee, #27F4D2); }
 .team-car.red_bull      { background: linear-gradient(to bottom, #5c82d6, #3671C6); }
 .team-car.aston_martin  { background: linear-gradient(to bottom, #48cfa1, #229971); }
-.team-car.haas          { background: linear-gradient(to bottom, #d4d7da, #B6BABD); }
+.team-car.haas          { background: linear-gradient(to bottom, #d4d7da, #bababa); }
 .team-car.rb            { background: linear-gradient(to bottom, #99b4ff, #6692FF); }
 .team-car.williams      { background: linear-gradient(to bottom, #9de0ff, #64C4FF); }
 .team-car.alpine        { background: linear-gradient(to bottom, #4cb6e0, #0093CC); }
 .team-car.sauber        { background: linear-gradient(to bottom, #94f594, #52E252); }
 .team-car.alfa          { background: linear-gradient(to bottom, #9f1f34, #88172a); }
 .team-car.alphatauri    { background: linear-gradient(to bottom, #033859, #002841); }
+.team-car.audi          { background: linear-gradient(to bottom, #F50537, #930022); }
+.team-car.cadillac      { background: linear-gradient(to bottom, #909090, #717171); }
 
 .info-team img.rb,
 .info-team img.williams,
 .info-team img.alpine,
 .info-team img.mclaren,
-.info-team img.alphatauri
+.info-team img.alphatauri,
+.info-team img.audi,
+.info-team img.cadillac
 { filter: brightness(0) invert(1); }
 

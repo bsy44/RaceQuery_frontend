@@ -200,7 +200,8 @@
     font-size: 2.5rem;
   }
 
-  .aston_martin .absolute-team-logo {
+  .aston_martin .absolute-team-logo,
+  .audi .absolute-team-logo{
     height: 30px !important;
     top: 15px;
     right: 15px;
@@ -251,6 +252,8 @@
   .bg-number {color: #fff; -webkit-text-stroke: 2px var(--team-color);letter-spacing: -8px;}
   .absolute-team-logo{filter: brightness(0) invert(1);}
 }
+.audi {--team-color: #F50537; --driver-number: #fff; .absolute-team-logo{ filter: brightness(0) invert(1);}}
+.cadillac {--team-color: #909090; --driver-number: #fff; .absolute-team-logo{ filter: brightness(0) invert(1);}}
 .williams { --team-color: #005aff; --driver-number: #fff; .bg-number{ font-style: italic }}
 .sauber { --team-color: #52e252; --driver-number: #52e252; .bg-number{ font-style: italic } }
 .alphatauri { --team-color: #002841; .absolute-team-logo{ filter: brightness(0) invert(1);} }

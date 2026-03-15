@@ -54,7 +54,7 @@
             </td>
 
             <td class="cell-team mobile-hidden">
-              <img src="/logos/{{ r.team_id }}.avif" alt="{{ r.team }}" class="team-logo-mini">
+              <img src="/logos/{{ r.team_id }}.avif" alt="{{ r.team }}" class="team-logo-mini" [ngClass]="r.team_id">
               <span class="team-name-short">{{ r.team }}</span>
             </td>
 

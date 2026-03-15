@@ -13,13 +13,11 @@ export class TeamService {
   private cache = new Map<number, TeamModel[]>();
 
   years: number[] = [];
-  //selectedYear: number = new Date().getFullYear();
-  selectedYear: number = 2025;
+  selectedYear: number = new Date().getFullYear();
 
 
   constructor(private http: HttpClient) {
-    //const currentYear = new Date().getFullYear();
-    const currentYear = 2025;
+    const currentYear = new Date().getFullYear();
     this.years = Array.from({
       length: currentYear - 2022 + 1
     }, (_, i) => 2022 + i).reverse();
